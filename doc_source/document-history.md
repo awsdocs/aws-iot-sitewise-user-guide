@@ -2,10 +2,12 @@
 
 The following table describes the documentation for this release of AWS IoT SiteWise\.
 + **API version:** 2019\-12\-02
-+ **Latest documentation update:** June 18, 2020
++ **Latest documentation update:** August 14, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [IoT SiteWise connector version 7 released](https://docs.aws.amazon.com/greengrass/latest/developerguide/iot-sitewise-connector.html) | Version 7 of the IoT SiteWise connector is available\. This release fixes an issue with gateway metrics\. | August 14, 2020 | 
+| [Creating AWS SSO users from the AWS IoT SiteWise console](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins) | Added information about how you can create AWS SSO users in the AWS IoT SiteWise console\. You can now create AWS SSO users when you assign users to a new or existing portal\. Updated the [Visualizing and sharing wind farm data](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-wind-farm.html) tutorial to use this feature\. This change reduces the number of steps in the tutorial\. | August 4, 2020 | 
 | [Improved gateway troubleshooting](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/troubleshooting-gateway.html) | Added additional information about how to troubleshoot a gateway and how to [export the OPC\-UA client certificate](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#enable-source-trust) for a source\. | June 18, 2020 | 
 | [Console task documentation](#document-history) | Added console task documentation for [Modeling industrial assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/industrial-asset-models), [Querying asset property data](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data), and [Interacting with other services](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services)\. You can follow these instructions to complete tasks in the AWS IoT SiteWise console\. | June 11, 2020 | 
 | [Analyzing exported data tutorial](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/analyze-exported-asset-data.html) | Added a tutorial that you can follow to learn how to use Amazon Athena to analyze asset data that you exported to S3 with the [export feature AWS CloudFormation template](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/export-to-s3.html)\. | May 27, 2020 | 

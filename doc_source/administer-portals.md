@@ -39,10 +39,12 @@ In a few steps, you can add or remove users as administrators for a portal\.
 
 1. On the portal details page, in the **Portal administrators** section, choose **Assign users**\.
 
-1. On the **Assign administrators** page, select the check boxes for the users, and then choose **Assign administrators**\. 
-
-   If you don't see the user that you want to add in the list, navigate to the [AWS Single Sign\-On console](https://console.aws.amazon.com/singlesignon/) to add users to your identity store\. You can then return to your portal configuration to add the user to the list of portal administrators\. For more information about how to add users to AWS SSO, see [Manage your AWS SSO directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html)\.  
+1. On the **Assign administrators** page, select the check boxes for the users to add to the portal as administrators\.
+**Note**  
+If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations master account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as an administrator\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
 ![\[The "Assign administrators" page.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-portal-assign-administrators-console.png)
+
+1. Choose **Assign administrators**\.
 
 **To remove portal administrators**
 + On the portal details page, in the **Portal administrators** section, select the check box for each user to remove, and then choose **Remove from portal**\.
@@ -72,13 +74,15 @@ Your portal administrators and portal users might contact you through a portal's
 
 1. On the portal details page, in the **Portal users** section, choose **Assign users**\.
 
-1. On the **Assign Users** page, select the check box for the users to add to the portal, and then choose **Assign Users**\.  
+1. On the **Assign users** page, select the check box for the users to add to the portal\.
+**Note**  
+If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations master account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as a user\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
 ![\[The "Assign users" page.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-portal-assign-users-console.png)
 
-   If you don't see the user that you want to add in the list, navigate to the [AWS Single Sign\-On console](https://console.aws.amazon.com/singlesignon/) to add users to your identity store\. You can then return to your portal configuration to add the user to the list of portal users\. For more information about how to add users to AWS SSO, see [Manage your AWS SSO directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html)\.
+1. Choose **Assign users**\.
 
 **To remove portal users**
-+ On the portal details page, in the **Portal users** section, select the check box for the users to remove from the portal, and then choose **Remove from Portal**\.
++ On the portal details page, in the **Portal users** section, select the check box for the users to remove from the portal, and then choose **Remove from portal**\.
 
 ## Deleting a portal<a name="portal-delete-portal"></a>
 
@@ -92,12 +96,12 @@ You must first manually delete all dashboards and projects in a portal before yo
 When you delete a portal, you lose all projects that the portal contains, and all dashboards in each project\. This action can't be undone\. Your asset data isn't affected\.  
 ![\[Portal details page with Delete highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-console.png)
 
-1. In the **Delete Portals** dialog box, choose **Remove Admins and Users**\.
+1. In the **Delete portals** dialog box, choose **Remove admins and users**\.
 
    You must remove the administrators and users from a portal before you can delete it\. If your portal doesn't have administrators or users, the button doesn't appear, and you can skip to the next step\.  
-![\["Delete Portals" dialog box with "Remove administrators and users" highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-remove-users-console.png)
+![\["Delete portals" dialog box with "Remove administrators and users" highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-remove-users-console.png)
 
 1. If you're sure that you want to delete the entire portal, enter **delete** in the field to confirm deletion\.  
-![\["Delete Portals" dialog box with "Delete" highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-confirm-delete-console.png)
+![\["Delete portals" dialog box with "Delete" highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-confirm-delete-console.png)
 
 1. Choose **Delete**\.

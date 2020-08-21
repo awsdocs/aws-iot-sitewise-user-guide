@@ -24,7 +24,7 @@ Each SiteWise Monitor portal has one or more portal administrators\. Portal admi
 Each SiteWise Monitor project has owners\. Project owners create visualizations in the form of dashboards to represent operational data in a consistent manner\. When dashboards are ready to share, the project owner can invite viewers to the project\. Project owners can also assign other owners to the project\.
 
 **Project viewer**  
-Each SiteWise Monitor project has viewers\. Project viewers can connect to the portal to view the dashboards that project owners created\. In each dashboard, project viewers can adjust time frames to better understand operational data\. Project viewers can only view dashboards in the projects to which they have access\.
+Each SiteWise Monitor project has viewers\. Project viewers can connect to the portal to view the dashboards that project owners created\. In each dashboard, project viewers can adjust the time range to better understand operational data\. Project viewers can only view dashboards in the projects to which they have access\.
 
 <a name="perform-multiple-roles-para"></a>Depending on your organization, the same person might perform multiple roles\.
 
@@ -48,7 +48,7 @@ Each SiteWise Monitor portal contains a set of projects\. Each project has a sub
 When data is ingested into AWS IoT SiteWise from your industrial equipment, your devices, equipment, and processes are each represented as assets\. Each asset has data associated with it\. For example, a piece of equipment might have a serial number, a location, a make and model, and an install date\. It might also have time series values for availability, performance, quality, temperature, pressure, and so on\. The portal administrator assigns sets of assets to each project\. 
 
 **Dashboard**  <a name="monitor-concept-dashboard"></a>
-Each project contains a set of dashboards\. Dashboards provide a set of visualizations for the values of a set of assets\. Project owners create the dashboards and the visualizations that it contains\. When a project owner is ready to share the set of dashboards, the owner can invite viewers to the project, which gives them access to all dashboards in the project\. If you want a different set of viewers for different dashboards, you must divide the dashboards between projects\. When viewers look at dashboards, they can adjust the time period\.
+Each project contains a set of dashboards\. Dashboards provide a set of visualizations for the values of a set of assets\. Project owners create the dashboards and the visualizations that it contains\. When a project owner is ready to share the set of dashboards, the owner can invite viewers to the project, which gives them access to all dashboards in the project\. If you want a different set of viewers for different dashboards, you must divide the dashboards between projects\. When viewers look at dashboards, they can adjust the time range\.
 
 **Visualization**  <a name="monitor-concept-visualization"></a>
 In each dashboard, project owners decide how to display the values for the properties of the assets associated with the project\. Availability might best be represented as a line chart, while other values might be displayed as bar charts or key performance indicators \(KPIs\)\. Project owners customize each visualization to provide the best understanding of the data for that asset\.

@@ -128,18 +128,20 @@ This field is used only if you choose `X509` for `type` in `certificateTrust`\.
 `endpointUri`  
 The local endpoint of the OPC\-UA source\. For example, your local endpoint might look like `opc.tcp://203.0.113.0:49320`\.  
 `securityPolicy`  
-The security policy to use so that you can secure messages that are read from the OPC\-UA source\. If you choose a security policy other than `None`, you must choose `Sign` or `SignAndEncrypt` for `messageSecurityMode`\. Choose one of the following:  
+The security policy to use so that you can secure messages that are read from the OPC\-UA source\. Choose one of the following:  
 + `NONE` – The gateway doesn't secure messages from the OPC\-UA source\. We recommend that you choose a different security policy\. If you choose this option, you must also choose `NONE` for `messageSecurityMode`\.
 + `BASIC256_SHA256` – The `Basic256Sha256` security policy\.
 + `AES128_SHA256_RSAOAEP` – The `Aes128_Sha256_RsaOaep` security policy\.
 + `AES256_SHA256_RSAPSS` – The `Aes256_Sha256_RsaPss` security policy\.
 + `BASIC128_RSA15` – \(Deprecated\) The `Basic128Rsa15` security policy is deprecated in the OPC\-UA specification because it's no longer considered secure\. We recommend that you choose a different security policy\. For more information, see [Basic128Rsa15](http://opcfoundation.org/UA-Profile/UA/SecurityPolicy%23Basic128Rsa15)\.
-+ `BASIC256` – \(Deprecated\) The `Basic256` security policy is deprecated in the OPC\-UA specification because it's no longer considered secure\. We recommend that you choose a different security policy\. For more information, see [Basic256](http://opcfoundation.org/UA-Profile/UA/SecurityPolicy%23Basic256)\.  
++ `BASIC256` – \(Deprecated\) The `Basic256` security policy is deprecated in the OPC\-UA specification because it's no longer considered secure\. We recommend that you choose a different security policy\. For more information, see [Basic256](http://opcfoundation.org/UA-Profile/UA/SecurityPolicy%23Basic256)\.
+If you choose a security policy other than `NONE`, you must choose `SIGN` or `SIGN_AND_ENCRYPT` for `messageSecurityMode`\. You must also configure your source server to trust the gateway\. For more information, see [Enabling your source servers to trust the gateway](#enable-source-trust)\.  
 `messageSecurityMode`  
 The message security mode to use to secure connections to the OPC\-UA source\. Choose one of the following:  
 + `NONE` – The gateway doesn't secure connections to the OPC\-UA source\. We recommend that you choose a different message security mode\. If you choose this option, you must also choose `NONE` for `securityPolicy`\.
-+ `SIGN` – Data in transit between the gateway and the OPC\-UA source is signed but not encrypted\. If you choose this option, you must choose a security policy other than `NONE` for `securityPolicy`, and you must enable your source server to trust the gateway\. For more information, see [Enabling your source servers to trust the gateway](#enable-source-trust)\.
-+ `SIGN_AND_ENCRYPT` – Data in transit between the gateway and the OPC\-UA source is signed and encrypted\. If you choose this option, you must choose a security policy other than `NONE` for `securityPolicy`, and you must enable your source server to trust the gateway\. For more information, see [Enabling your source servers to trust the gateway](#enable-source-trust)\.  
++ `SIGN` – Data in transit between the gateway and the OPC\-UA source is signed but not encrypted\.
++ `SIGN_AND_ENCRYPT` – Data in transit between the gateway and the OPC\-UA source is signed and encrypted\.
+If you choose a message security mode other than `NONE`, you must choose a `securityPolicy` other than `NONE`\. You must also configure your source server to trust the gateway\. For more information, see [Enabling your source servers to trust the gateway](#enable-source-trust)\.  
 `identityProvider`  
 An identity provider structure that contains the following information:    
 `type`  
@@ -161,7 +163,7 @@ A node filter rule structure that contains the following information:
 The type of node filter path for this rule\. You can choose the following option:  
 + `OpcUaRootPath` – The gateway evaluates this node filter path against the root of the OPC\-UA path hierarchy\.  
 `rootPath`  
-The node filter path to evaluate against the root of the OPC\-UA path hierarchy\.  
+The node filter path to evaluate against the root of the OPC\-UA path hierarchy\. This path must start with `/`\.  
 `measurementDataStreamPrefix`  
 A string to prepend to all data streams from the source\. The gateway adds this prefix to all data streams from this source\. Use a data stream prefix to distinguish between data streams that have the same name from different sources\. Each data stream should have a unique name within your account\.
 

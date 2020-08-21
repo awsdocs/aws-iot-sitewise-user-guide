@@ -20,12 +20,23 @@ Before you can view gateway logs, you must configure your gateway to send logs t
 Use the following information to troubleshoot gateway issues\.
 
 **Topics**
++ [Unable to connect to stream manager](#gateway-issue-stream-manager)
 + [AWS IoT SiteWise doesn't receive data from OPC\-UA servers](#gateway-issue-data-streams)
 + [The gateway fails to publish data after you restore lost power or connectivity](#gateway-issue-after-downtime)
 
+### Unable to connect to stream manager<a name="gateway-issue-stream-manager"></a>
+
+You might see the following `swPublisher` error log message if stream manager isn't enabled on your gateway's AWS IoT Greengrass group\.
+
+```
+com.amazonaws.greengrass.streammanager.client.StreamManagerClientImpl: Connect failed
+```
+
+As of version 6, the AWS IoT SiteWise connector requires stream manager\. For more information about how to enable stream manager, see step 5 of [Configuring an AWS IoT Greengrass group](configure-gateway.md#attach-iam-role)\.
+
 ### AWS IoT SiteWise doesn't receive data from OPC\-UA servers<a name="gateway-issue-data-streams"></a>
 
-If your AWS IoT SiteWise assets aren't receiving data sent by your OPC\-UA servers, you can search your gateway's logs to troubleshoot issues\. Look for info\-level logs that contain the following message\.
+If your AWS IoT SiteWise assets aren't receiving data sent by your OPC\-UA servers, you can search your gateway's logs to troubleshoot issues\. Look for info\-level `swPublisher` logs that contain the following message\.
 
 ```
 Emitting diagnostic name=PublishError.SomeException
@@ -44,7 +55,7 @@ Based on the type of *SomeException* in the log, use the following exception typ
 
 ### The gateway fails to publish data after you restore lost power or connectivity<a name="gateway-issue-after-downtime"></a>
 
-If your gateway loses power or connection to the AWS Cloud for an extended period of time, your gateway might fail to send data to AWS IoT SiteWise after it reconnects\. After the gateway's power and connection restore, the gateway attempts to publish cached data\. AWS IoT SiteWise rejects data with old timestamps, so if the cached data is older than the accepted range, the gateway fails to publish the cached data\. You can identify this issue by `TimestampOutOfRangeException` log messages for your gateway\. For more information about the accepted range of timestamps, see the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation\.
+If your gateway loses power or connection to the AWS Cloud for an extended period of time, your gateway might fail to send data to AWS IoT SiteWise after it reconnects\. After the gateway's power and connection restore, the gateway attempts to publish cached data\. AWS IoT SiteWise rejects data with old timestamps, so if the cached data is older than the accepted range, the gateway fails to publish the cached data\. You can identify this issue by `TimestampOutOfRangeException` messages in your gateway's `swPublisher` logs\. For more information about the accepted range of timestamps, see the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation\.
 
 When this issue occurs, you can clear the cache to stop the gateway from sending messages with old timestamps\.
 

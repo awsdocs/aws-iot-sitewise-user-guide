@@ -7,6 +7,7 @@ A list of widget definition structures that each contain the following informati
 `type`  
 The type of widget\. AWS IoT SiteWise provides the following widget types:  
 + `monitor-line-chart` – A line chart\. For more information, see [Line charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#line-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ `monitor-scatter-chart` – A scatter chart\. For more information, see [Scatter charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#scatter-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
 + `monitor-bar-chart` – A bar chart\. For more information, see [Bar charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#bar-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
 + `monitor-kpi` – A key performance indicator \(KPI\) visualization\. For more information, see [KPI visualizations](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#kpi-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.  
 `title`  
@@ -32,6 +33,13 @@ This field is required if you choose `iotsitewise` for `type` in this metric\.
 `propertyId`  
 \(Optional\) The ID of an asset property in AWS IoT SiteWise\.  
 This field is required if you choose `iotsitewise` for `type` in this metric\.  
+`analysis`  
+\(Optional\) A structure that defines the analysis, such as trend lines, to display for the widget\. For more information, see [Configuring trend lines](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/configure-trend-lines.html) in the *AWS IoT SiteWise Monitor Application Guide*\. You can add one of each type of trend line per property in the widget\. The analysis structure contains the following information:    
+`trends`  
+\(Optional\) A list of trend structures that each define a trend analysis for this widget\. Each structure in the list contains the following information:    
+`type`  
+The type of trend line\. Choose the following option:  
++ `linear-regression` – Display a linear regression line\. SiteWise Monitor uses the [least squares](https://en.wikipedia.org/wiki/Least_squares) method to calculate the linear regression\.  
 `annotations`  
 \(Optional\) An annotations structure that defines thresholds for the widget\. For more information, see [Configuring thresholds](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/configure-thresholds.html) in the *AWS IoT SiteWise Monitor Application Guide*\. You can add up to six annotations per widget\. The annotations structure contains the following information:    
 `y`  
@@ -61,7 +69,7 @@ aws iotsitewise create-dashboard \
   --dashboard-definition file://dashboard-definition.json
 ```
 The following JSON example for `dashboard-definition.json` defines dashboard with the following visualization widgets:  
-+ A line chart that visualizes total wind farm power in the upper left of the dashboard\. This line chart includes a threshold that indicates when the wind farm outputs less power than its minimum expected output\.
++ A line chart that visualizes total wind farm power in the upper left of the dashboard\. This line chart includes a threshold that indicates when the wind farm outputs less power than its minimum expected output\. This line chart also includes a linear regression trend line\.
 + A bar chart that visualizes wind speed for four turbines in the upper right of the dashboard\.
 This example represents the line and bar chart visualizations on a dashboard\. This dashboard is similar to the [example wind farm dashboard](monitor-data.md)\.
 
@@ -80,15 +88,24 @@ This example represents the line and bar chart visualizations on a dashboard\. T
           "label": "Power",
           "type": "iotsitewise",
           "assetId": "a1b2c3d4-5678-90ab-cdef-22222EXAMPLE",
-          "propertyId": "a1b2c3d4-5678-90ab-cdef-33333EXAMPLE"
+          "propertyId": "a1b2c3d4-5678-90ab-cdef-33333EXAMPLE",
+          "analysis": {
+            "trends": [
+              {
+                "type": "linear-regression"
+              }
+            ]
+          }
         }
       ],
       "annotations": {
         "y": [
-          "comparisonOperator": "LT",
-          "value": 20000,
-          "color": "#D13212",
-          "showValue": true
+          {
+            "comparisonOperator": "LT",
+            "value": 20000,
+            "color": "#D13212",
+            "showValue": true
+          }
         ]
       }
     },

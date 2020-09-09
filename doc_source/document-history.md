@@ -2,10 +2,11 @@
 
 The following table describes the documentation for this release of AWS IoT SiteWise\.
 + **API version:** 2019\-12\-02
-+ **Latest documentation update:** August 14, 2020
++ **Latest documentation update:** September 4, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [VPC endpoints \(AWS PrivateLink\)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/vpc-interface-endpoints.html) | Added information about how to establish a private connection between your virtual private cloud \(VPC\) and the AWS IoT SiteWise data APIs by creating an interface VPC endpoint\. | September 4, 2020 | 
 | [IoT SiteWise connector version 7 released](https://docs.aws.amazon.com/greengrass/latest/developerguide/iot-sitewise-connector.html) | Version 7 of the IoT SiteWise connector is available\. This release fixes an issue with gateway metrics\. | August 14, 2020 | 
 | [Creating AWS SSO users from the AWS IoT SiteWise console](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins) | Added information about how you can create AWS SSO users in the AWS IoT SiteWise console\. You can now create AWS SSO users when you assign users to a new or existing portal\. Updated the [Visualizing and sharing wind farm data](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-wind-farm.html) tutorial to use this feature\. This change reduces the number of steps in the tutorial\. | August 4, 2020 | 
 | [Improved gateway troubleshooting](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/troubleshooting-gateway.html) | Added additional information about how to troubleshoot a gateway and how to [export the OPC\-UA client certificate](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#enable-source-trust) for a source\. | June 18, 2020 | 

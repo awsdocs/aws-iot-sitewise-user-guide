@@ -82,6 +82,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Resilience in AWS IoT SiteWise](disaster-recovery-resiliency.md)
    + [Infrastructure security in AWS IoT SiteWise](infrastructure-security.md)
    + [Configuration and vulnerability analysis in AWS IoT SiteWise](vulnerability-analysis-and-management.md)
+   + [AWS IoT SiteWise and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md)
    + [Security best practices for AWS IoT SiteWise](security-best-practices.md)
 + [Logging and monitoring in AWS IoT SiteWise](logging-and-monitoring.md)
    + [Monitoring AWS IoT SiteWise with Amazon CloudWatch Logs](monitor-cloudwatch-logs.md)

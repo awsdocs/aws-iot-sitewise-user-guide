@@ -67,7 +67,7 @@ You can use the AWS IoT SiteWise console or API to update an asset model\.
 You can't change the type or data type of an existing property\. You also can't change the window of an existing metric\.
 
 **Important**  
-If you remove a property from an asset model or update a property's formula expression, AWS IoT SiteWise deletes all previous data for that property\. If you remove a hierarchy definition from an asset model, AWS IoT SiteWise disassociates all assets in that hierarchy\.
+If you remove a property from an asset model, AWS IoT SiteWise deletes all previous data for that property\. If you remove a hierarchy definition from an asset model, AWS IoT SiteWise disassociates all assets in that hierarchy\.
 
 When you update an asset model, every asset based on that model reflects any changes that you make to the underlying model\. Until the changes propagate, each asset has the `UPDATING` state\. You must wait until those assets return to the `ACTIVE` state before you interact with them\. During this time, the updated asset model's status will be `PROPAGATING`\. For more information, see [Asset and model states](asset-and-model-states.md)\.
 

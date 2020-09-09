@@ -77,7 +77,7 @@ In this procedure, you add your source authentication secrets to your IoT SiteWi
 1. Under **List of ARNs for OPC\-UA username/password secrets**, choose **Select**, and then select each secret to add to this gateway\. If you need to create secrets, see [Creating source authentication secrets](#create-source-secrets)\.  
 ![\[AWS IoT Greengrass "Configure a connector" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-configure-connector-console.png)
 
-   If your secret doesn't appear, choose **Refresh**\. If your secret still doesn't appear, check that you added the secret to your Greengrass group\.
+   If your secret doesn't appear, choose **Refresh**\. If your secret still doesn't appear, check that you [added the secret to your Greengrass group](#add-secret-to-group)\.
 
 1. Choose **Save**\.
 

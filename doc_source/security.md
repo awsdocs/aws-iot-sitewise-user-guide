@@ -15,4 +15,5 @@ This documentation helps you understand how to apply the shared responsibility m
 + [Resilience in AWS IoT SiteWise](disaster-recovery-resiliency.md)
 + [Infrastructure security in AWS IoT SiteWise](infrastructure-security.md)
 + [Configuration and vulnerability analysis in AWS IoT SiteWise](vulnerability-analysis-and-management.md)
++ [AWS IoT SiteWise and interface VPC endpoints \(AWS PrivateLink\)](vpc-interface-endpoints.md)
 + [Security best practices for AWS IoT SiteWise](security-best-practices.md)

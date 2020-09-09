@@ -18,7 +18,7 @@ The following table lists the wildcards that you can use to filter OPC\-UA data 
 **Note**  
 If you configure a source with a broad filter and then later change the source to use a more restrictive filter, AWS IoT SiteWise stops storing data that doesn't match the new filter\.
 
-**Example Example scenario using node filters**  
+**Example scenario using node filters**  
 Consider the following hypothetical data streams:  
 + `/WA/Factory 1/Line 1/PCL1`
 + `/WA/Factory 1/Line 1/PCL2`

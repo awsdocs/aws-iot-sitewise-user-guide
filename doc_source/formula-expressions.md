@@ -99,7 +99,7 @@ The following diagram shows how AWS IoT SiteWise computes the temporal functions
 
 ![\[AWS IoT SiteWise temporal functions return data points based on their timestamp.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-temporal-functions.png)
 
-**Example Example statetime scenario**  
+**Example statetime scenario**  
 Consider an example where you have an asset with the following properties:  
 + `Idle` – A measurement that is `0` or `1`\. When the value is `1`, the machine is idle\.
 + `Idle Time` – A metric that uses the formula `statetime(Idle)` to calculate the amount of time in seconds where the machine is idle, per 1 minute interval\.
@@ -169,7 +169,7 @@ You can use [relational functions](#expression-relational-functions) and [sum\(\
 
 1. Create a metric that sums the data points where that condition is met\.
 
-**Example Example: Count the number of data points where water is boiling**  
+**Example: Count the number of data points where water is boiling**  
 You have a measurement, `temp_c`, that provides the temperature \(in Celsius\) of water in a machine\. You can define the following transform and metric properties to count the number of data points where the water is boiling:  
 + Transform: `is_boiling = gte(temp_c, 100)` – Computes `1` if the temperature is greater than or equal to 100 degrees Celsius, otherwise computes `0`\.
 + Metric: `boiling_count = sum(is_boiling)` – Computes the number of data points where water is boiling\.

@@ -24,7 +24,7 @@ When you define a hierarchy for an asset model in the AWS IoT SiteWise console, 
 + **Hierarchy name** – The hierarchy's name, such as **Wind Turbines**\.
 + **Hierarchy model** – The child asset model\.
 
-**Example Example hierarchy definition**  
+**Example hierarchy definition**  
 The following example demonstrates an asset hierarchy that represents a wind farm's relationship to wind turbines\. For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.  
 
 ![\[AWS IoT SiteWise "Create model" page screenshot with an example hierarchy's parameters highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-define-hierarchy-console.png)
@@ -35,7 +35,7 @@ When you define a hierarchy for an asset model with the AWS IoT SiteWise API, yo
 + `name` – The hierarchy's name, such as **Wind Turbines**\.
 + `childAssetModelId` – The ID of the child asset model for the hierarchy\. You can use the [ListAssetModels](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html) operation to find the ID of an existing asset model\.
 
-**Example Example hierarchy definition**  
+**Example hierarchy definition**  
 The following example demonstrates an asset hierarchy that represents a wind farm's relationship to wind turbines\. This object is an example of an [AssetModelHierarchy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetModelHierarchy.html)\. For more information, see [Creating an asset model \(CLI\)](create-asset-models.md#create-asset-model-cli)\.  
 
 ```

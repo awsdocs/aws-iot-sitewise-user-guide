@@ -166,7 +166,7 @@ Each structure in the `values` list is a timestamp\-quality\-value \(TQV\) struc
 
 To parse values out of the `values` array, you need to use complex nested object queries in your rules' SQL statements\. For more information, see [Nested object queries](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-nested-queries.html) in the *AWS IoT Developer Guide*, or see the [Publishing property value updates to Amazon DynamoDB](publish-to-amazon-dynamodb.md) tutorial for a specific example of parsing asset property notification messages\.
 
-**Example Example query to extract the array of values**  
+**Example query to extract the array of values**  
 The following statement demonstrates how to query the array of updated property values for a specific double\-type property on all assets with that property\.  
 
 ```
@@ -196,7 +196,7 @@ The previous rule query statement outputs data in the following format\.
 }
 ```
 
-**Example Example query to extract a single value**  
+**Example query to extract a single value**  
 The following statement demonstrates how to query the first value from the array of property values for a specific double\-type property on all assets with that property\.  
 
 ```

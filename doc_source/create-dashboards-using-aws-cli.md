@@ -57,9 +57,12 @@ The threshold value to compare data points with the `comparisonOperator`\.
 `showValue`  
 \(Optional\) Whether or not to show the value of the threshold in the margins of the widget\. Defaults to `true`\.  
 `properties`  
-\(Optional\) A dictionary of properties for the widget\. The members of this structure are context\-dependent\. Currently, AWS IoT SiteWise doesn't provide widgets that use `properties`\.
+\(Optional\) A flat dictionary of properties for the widget\. The members of this structure are context\-dependent\. AWS IoT SiteWise provides the following widgets that use `properties`:  
++ Widgets that support [thresholds](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/configure-thresholds.html) support the following property:  
+`colorDataAcrossThresholds`  
+\(Optional\) Whether or not to change the color of the data that crosses the thresholds in this widget\. When you enable this option, the data that crosses a threshold appears in the color that you choose\. Defaults to `true`\.
 
-**Example Example dashboard definition**  
+**Example dashboard definition**  
 The following example defines a dashboard from a payload stored in a JSON file\.  
 
 ```

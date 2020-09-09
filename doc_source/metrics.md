@@ -25,7 +25,7 @@ Metrics can only input properties that are integer or double type\. If you defin
   + **1 day** – <a name="metric-window-1d"></a>1 day \(24 hours\), computed at the end of every day in UTC \(12:00:00 AM Monday, 12:00:00 AM Tuesday, and so on\)\.
   + **1 week** – <a name="metric-window-1w"></a>1 week \(7 days\), computed at the end of every Sunday in UTC \(every 12:00:00 AM Monday\)\.
 
-**Example Example metric definition**  
+**Example metric definition**  
 The following example demonstrates a metric property that aggregates an asset's temperature data to calculate maximum hourly temperature\. For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.  
 
 ![\[AWS IoT SiteWise "Create model" page screenshot with an example metric's parameters highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-define-metric-console.png)
@@ -50,7 +50,7 @@ When you define a metric for an asset model with the AWS IoT SiteWise API, you s
 Metrics can only input properties that are integer or double type\. If you define any metric input variables in a metric's expression, those inputs must have the same time interval as the output metric\.
 + <a name="asset-property-unit-cli"></a>`unit` – \(Optional\) The scientific unit for the property, such as mm or Celsius\.
 
-**Example Example metric definition**  
+**Example metric definition**  
 The following example demonstrates a metric property that aggregates an asset's temperature measurement data to calculate maximum hourly temperature in Fahrenheit\. This object is an example of an [AssetModelProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetModelProperty.html) that contains a [Metric](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Metric.html)\. You can specify this object as a part of the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html) request payload to create a metric property\. For more information, see [Creating an asset model \(CLI\)](create-asset-models.md#create-asset-model-cli)\.  
 
 ```

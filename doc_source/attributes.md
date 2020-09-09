@@ -17,7 +17,7 @@ When you define an attribute for an asset model in the AWS IoT SiteWise console,
   + **Double** – A floating point number with range \[\-10^100, 10^100\] and IEEE 754 double precision\.
   + **Boolean** – `true` or `false`\.
 
-**Example Example attribute definition**  
+**Example attribute definition**  
 The following example demonstrates an attribute that represents an asset's model number with a default value\. For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.  
 
 ![\[AWS IoT SiteWise "Create model" page screenshot with an example attribute's parameters highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-define-attribute-console.png)
@@ -33,7 +33,7 @@ When you define an attribute for an asset model with the AWS IoT SiteWise API, y
   + `DOUBLE` – A signed 32\-bit integer with range \[\-2,147,483,648, 2,147,483,647\]\.
   + `BOOLEAN` – `true` or `false`\.
 
-**Example Example attribute definition**  
+**Example attribute definition**  
 The following example demonstrates an attribute that represents an asset's model number with a default value\. This object is an example of an [AssetModelProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetModelProperty.html) that contains an [Attribute](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Attribute.html)\. You can specify this object as a part of the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html) request payload to create an attribute property\. For more information, see [Creating an asset model \(CLI\)](create-asset-models.md#create-asset-model-cli)\.  
 
 ```

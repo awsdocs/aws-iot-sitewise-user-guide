@@ -176,7 +176,7 @@ To do so, create a rule with a republish action that invokes the Lambda and publ
 
 This section contains example rule configurations that you can use to create a rule with an AWS IoT SiteWise action\.
 
-**Example Example rule action that uses property aliases as message topics**  
+**Example rule action that uses property aliases as message topics**  
 The following example creates a rule with an AWS IoT SiteWise action that uses the topic \(through [topic\(\)](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-function-topic)\) as the property alias to identify asset properties\. You can use this example to define one rule for ingesting double\-type data to all wind turbines in all wind farms\. This example requires that you define property aliases on all turbine assets' properties\. You would need to define a second, similar rule to ingest integer\-type data\.  
 
 ```
@@ -226,7 +226,7 @@ With this rule action, you can send the following message to a wind turbine prop
 }
 ```
 
-**Example Example rule action that uses timestamp\(\) to determine time**  
+**Example rule action that uses timestamp\(\) to determine time**  
 The following example creates a rule with an AWS IoT SiteWise action that identifies an asset property by IDs and uses [timestamp\(\)](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-function-timestamp) to determine the current time\.  
 
 ```

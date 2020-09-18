@@ -1,4 +1,4 @@
-# Attributes<a name="attributes"></a>
+# Defining static data \(attributes\)<a name="attributes"></a>
 
 Asset attributes represent information that is generally static, such as device manufacturer or geographic location\. Each asset that you create from an asset model contains the attributes of that model\.
 
@@ -17,8 +17,10 @@ When you define an attribute for an asset model in the AWS IoT SiteWise console,
   + **Double** – A floating point number with range \[\-10^100, 10^100\] and IEEE 754 double precision\.
   + **Boolean** – `true` or `false`\.
 
+For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.
+
 **Example attribute definition**  
-The following example demonstrates an attribute that represents an asset's model number with a default value\. For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.  
+The following example demonstrates an attribute that represents an asset's model number with a default value\.  
 
 ![\[AWS IoT SiteWise "Create model" page screenshot with an example attribute's parameters highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-define-attribute-console.png)
 

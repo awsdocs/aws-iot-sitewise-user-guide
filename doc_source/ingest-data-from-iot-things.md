@@ -189,7 +189,7 @@ In this procedure, you create an asset model in AWS IoT SiteWise to represent yo
 
    1. Leave the **Data type** as **Double**\.
 
-   Measurement properties represent a device's raw data streams\. For more information, see [Measurements](measurements.md)\.
+   Measurement properties represent a device's raw data streams\. For more information, see [Defining data streams from equipment \(measurements\)](measurements.md)\.
 
 1. Choose **Add measurement** to add a second measurement property\.
 
@@ -210,7 +210,7 @@ In this procedure, you create an asset model in AWS IoT SiteWise to represent yo
 
    1. In **Time interval**, enter **5 minutes**\.
 
-   Metric properties define aggregation calculations that process all input data points over an interval and output a single data point per interval\. This metric property calculates each device's average CPU usage every 5 minutes\. For more information, see [Metrics](metrics.md)\.
+   Metric properties define aggregation calculations that process all input data points over an interval and output a single data point per interval\. This metric property calculates each device's average CPU usage every 5 minutes\. For more information, see [Aggregating data from properties and other assets \(metrics\)](metrics.md)\.
 
 1. Choose **Add metric** to add a second metric property\.
 
@@ -251,7 +251,7 @@ In this procedure, you create an asset model in AWS IoT SiteWise to represent yo
 
    1. In **Hierarchy model**, choose your device asset model \(**SiteWise Tutorial Device Model**\)\.
 
-   A hierarchy defines a relationship between a parent \(fleet\) asset model and a child \(device\) asset model\. Parent assets can access child assets' property data\. When you create assets later, you need to associate child assets to parent assets according to a hierarchy definition in the parent asset model\. For more information, see [Asset hierarchies](asset-hierarchies.md)\.
+   A hierarchy defines a relationship between a parent \(fleet\) asset model and a child \(device\) asset model\. Parent assets can access child assets' property data\. When you create assets later, you need to associate child assets to parent assets according to a hierarchy definition in the parent asset model\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
 
 1. Under **Metric definitions**, do the following:
 

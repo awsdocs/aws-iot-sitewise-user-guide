@@ -1,4 +1,4 @@
-# Transforms<a name="transforms"></a>
+# Transforming data \(transforms\)<a name="transforms"></a>
 
 Transforms are mathematical expressions that map an asset property's data points from one form to another\. A transform expression consists of asset property variables, mathematical operators, and common functions\. The transformed data points hold a one\-to\-one relationship with the input data points\.
 
@@ -17,8 +17,10 @@ When you define a transform for an asset model in the AWS IoT SiteWise console, 
 Transforms can only input properties that are integer or double type\. Transforms must input one non\-attribute property and any number of attribute properties\. AWS IoT SiteWise calculates a new transformed data point each time the non\-attribute input property receives a new data point\. New attribute values don't trigger transform updates\.
 + <a name="asset-property-unit-console"></a>**Unit** – \(Optional\) The scientific unit for the property, such as mm or Celsius\.
 
+For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.
+
 **Example transform definition**  
-The following example demonstrates a transform property that converts an asset's temperature measurement data from Celsius to Fahrenheit\. For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.  
+The following example demonstrates a transform property that converts an asset's temperature measurement data from Celsius to Fahrenheit\.  
 
 ![\[AWS IoT SiteWise "Create model" page screenshot with an example transform's parameters highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-define-transform-console.png)
 

@@ -1,8 +1,8 @@
-# Asset hierarchies<a name="asset-hierarchies"></a>
+# Defining relationships between assets \(hierarchies\)<a name="asset-hierarchies"></a>
 
 You can define asset hierarchies to create logical associations between the assets in your industrial operation\. For example, you can define a wind farm composed of several wind turbine assets or an assembly line comprising multiple machine assets\.
 
-When you associate a child asset to a parent asset through a hierarchy, the parent asset's metrics can input data from the child asset's metrics\. You can use asset hierarchies and metrics to calculate statistics that provide insight to your operation or a subset of your operation\. For more information, see [Metrics](metrics.md)\.
+When you associate a child asset to a parent asset through a hierarchy, the parent asset's metrics can input data from the child asset's metrics\. You can use asset hierarchies and metrics to calculate statistics that provide insight to your operation or a subset of your operation\. For more information, see [Aggregating data from properties and other assets \(metrics\)](metrics.md)\.
 
 Each hierarchy defines a relationship between a parent asset model and a child asset model\. In a parent asset model, you can define multiple hierarchies to the same child asset model\. For example, if you have two different types of wind turbine in your wind farms, where all wind turbines use the same asset model, you can define a hierarchy for each type\. Then, you can define metrics in the wind farm model to calculate independent and combined statistics for each type of wind turbine\.
 
@@ -24,8 +24,10 @@ When you define a hierarchy for an asset model in the AWS IoT SiteWise console, 
 + **Hierarchy name** – The hierarchy's name, such as **Wind Turbines**\.
 + **Hierarchy model** – The child asset model\.
 
+For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.
+
 **Example hierarchy definition**  
-The following example demonstrates an asset hierarchy that represents a wind farm's relationship to wind turbines\. For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.  
+The following example demonstrates an asset hierarchy that represents a wind farm's relationship to wind turbines\.  
 
 ![\[AWS IoT SiteWise "Create model" page screenshot with an example hierarchy's parameters highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-define-hierarchy-console.png)
 

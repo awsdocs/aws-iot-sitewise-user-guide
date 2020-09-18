@@ -91,11 +91,11 @@ You can use the AWS IoT SiteWise console to update an asset model\.
 
 1. On the **Edit model** page, do any of the following:
    + In **Model details**, change the **Name** of the model\.
-   + Change any of the **Attribute definitions**\. You can't change the **Data type** of existing attributes\. For more information, see [Attributes](attributes.md)\.
-   + Change any of the **Measurement definitions**\. You can't change the **Data type** of existing measurements\. For more information, see [Measurements](measurements.md)\.
-   + Change any of the **Transform definitions**\. For more information, see [Transforms](transforms.md)\.
-   + Change any of the **Metric definitions**\. You can't change the **Time interval** of existing metrics\. For more information, see [Metrics](metrics.md)\.
-   + Change any of the **Hierarchy definitions**\. You can't change the **Hierarchy model** of existing hierarchies\. For more information, see [Asset hierarchies](asset-hierarchies.md)\.
+   + Change any of the **Attribute definitions**\. You can't change the **Data type** of existing attributes\. For more information, see [Defining static data \(attributes\)](attributes.md)\.
+   + Change any of the **Measurement definitions**\. You can't change the **Data type** of existing measurements\. For more information, see [Defining data streams from equipment \(measurements\)](measurements.md)\.
+   + Change any of the **Transform definitions**\. For more information, see [Transforming data \(transforms\)](transforms.md)\.
+   + Change any of the **Metric definitions**\. You can't change the **Time interval** of existing metrics\. For more information, see [Aggregating data from properties and other assets \(metrics\)](metrics.md)\.
+   + Change any of the **Hierarchy definitions**\. You can't change the **Hierarchy model** of existing hierarchies\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
 
 1. Choose **Save**\.
 
@@ -166,8 +166,8 @@ The [UpdateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRefere
 1. In `update-asset-model.json`, do any of the following:
    + Change the asset model's name \(`assetModelName`\)\.
    + Change, add, or remove the asset model's description \(`assetModelDescription`\)\.
-   + Change, add, or remove any of the asset model's properties \(`assetModelProperties`\)\. You can't change the `dataType` of existing properties or the `window` of existing metrics\. For more information, see [Asset properties](asset-properties.md)\.
-   + Change, add, or remove any of the asset model's hierarchies \(`assetModelHierarchies`\)\. You can't change the `childAssetModelId` of existing hierarchies\. For more information, see [Asset hierarchies](asset-hierarchies.md)\.
+   + Change, add, or remove any of the asset model's properties \(`assetModelProperties`\)\. You can't change the `dataType` of existing properties or the `window` of existing metrics\. For more information, see [Defining data properties](asset-properties.md)\.
+   + Change, add, or remove any of the asset model's hierarchies \(`assetModelHierarchies`\)\. You can't change the `childAssetModelId` of existing hierarchies\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
 
 1. Run the following command to update the asset model with the definition stored in `update-asset-model.json`\. Replace *asset\-model\-id* with the ID of the asset model\.
 

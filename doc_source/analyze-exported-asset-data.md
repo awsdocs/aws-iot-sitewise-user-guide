@@ -38,7 +38,7 @@ AWS Glue crawlers crawl data stores to populate tables in the AWS Glue Data Cata
 
       1. For **Choose a data store**, choose **S3**\.
 
-      1. In **Include path**, enter **s3://*AWSDOC\-EXAMPLE\-BUCKET1*** to add your asset data bucket as a data store\. Replace *AWSDOC\-EXAMPLE\-BUCKET1* with the bucket name that you chose when you created the stack\.
+      1. In **Include path**, enter **s3://*DOC\-EXAMPLE\-BUCKET1*** to add your asset data bucket as a data store\. Replace *DOC\-EXAMPLE\-BUCKET1* with the bucket name that you chose when you created the stack\.
 
       1. Choose **Next**\.  
 ![\[AWS Glue crawler "Add a data store" screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/glue-crawler-add-data-store-console.png)

@@ -62,8 +62,8 @@ You don't need to manually create a service\-linked role\. When you perform any 
 If you delete this service\-linked role, and then need to create it again, you can use the same process to recreate the role in your account\. When you perform any operation in the AWS IoT SiteWise console, AWS IoT SiteWise creates the service\-linked role for you again\. 
 
 You can also use the IAM console or API to create a service\-linked role for AWS IoT SiteWise\.
-+ To do so in the IAM console, create a service\-linked role with the **IoT SiteWise** use case\.
-+ To do so using the AWS CLI or IAM API, create a service\-linked role with the `iotsitewise.amazonaws.com` service name\.
++ To do so in the IAM console, create a role with the **AWSServiceRoleForIoTSiteWise** policy and a trust relationship with `iotsitewise.amazonaws.com`\.
++ To do so using the AWS CLI or IAM API, create a role with the `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForIoTSiteWise` policy and a trust relationship with `iotsitewise.amazonaws.com`\.
 
 For more information, see [Creating a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\.
 

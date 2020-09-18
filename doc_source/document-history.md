@@ -2,10 +2,11 @@
 
 The following table describes the documentation for this release of AWS IoT SiteWise\.
 + **API version:** 2019\-12\-02
-+ **Latest documentation update:** September 4, 2020
++ **Latest documentation update:** September 16, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Ingesting data using AWS IoT Greengrass stream manager](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/greengrass-stream-manager.html) | Added information about how to ingest high\-volume IoT data from local data sources using an AWS IoT Greengrass edge device\. | September 16, 2020 | 
 | [VPC endpoints \(AWS PrivateLink\)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/vpc-interface-endpoints.html) | Added information about how to establish a private connection between your virtual private cloud \(VPC\) and the AWS IoT SiteWise data APIs by creating an interface VPC endpoint\. | September 4, 2020 | 
 | [IoT SiteWise connector version 7 released](https://docs.aws.amazon.com/greengrass/latest/developerguide/iot-sitewise-connector.html) | Version 7 of the IoT SiteWise connector is available\. This release fixes an issue with gateway metrics\. | August 14, 2020 | 
 | [Creating AWS SSO users from the AWS IoT SiteWise console](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins) | Added information about how you can create AWS SSO users in the AWS IoT SiteWise console\. You can now create AWS SSO users when you assign users to a new or existing portal\. Updated the [Visualizing and sharing wind farm data](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-wind-farm.html) tutorial to use this feature\. This change reduces the number of steps in the tutorial\. | August 4, 2020 | 

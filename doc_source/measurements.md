@@ -1,4 +1,4 @@
-# Measurements<a name="measurements"></a>
+# Defining data streams from equipment \(measurements\)<a name="measurements"></a>
 
 A measurement represents a device's raw sensor data stream, such as timestamped temperature values or timestamped rotations per minute \(RPM\) values\.
 
@@ -17,8 +17,10 @@ When you define a measurement for an asset model in the AWS IoT SiteWise console
   + **Double** – A floating point number with range \[\-10^100, 10^100\] and IEEE 754 double precision\.
   + **Boolean** – `true` or `false`\.
 
+For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.
+
 **Example measurement definition**  
-The following example demonstrates a measurement that represents an asset's temperature sensor readings\. For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.  
+The following example demonstrates a measurement that represents an asset's temperature sensor readings\.  
 
 ![\[AWS IoT SiteWise "Create model" page screenshot with an example measurement's parameters highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-define-measurement-console.png)
 

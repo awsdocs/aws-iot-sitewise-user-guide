@@ -12,25 +12,25 @@ When you ingest data into AWS IoT SiteWise from your industrial equipment, your 
 Every asset is created from an asset model\. Asset models are declarative structures that standardize the format of your assets\. Asset models enforce consistent information across multiple assets of the same type, so that you can process data in assets that represent groups of devices\. In each asset model, you can define [attributes](#concept-attribute), time series inputs \([measurements](#concept-measurement)\), time series transformations \([transforms](#concept-transform)\), time series aggregations \([metrics](#concept-metric)\), and [asset hierarchies](#concept-hierarchy)\. For more information, see [Modeling industrial assets](industrial-asset-models.md)\.
 
 **Asset property**  
-Asset properties are the structures within each asset that contain industrial data\. Each property has a data type and can have a unit\. A property can be an [attribute](#concept-attribute), a [measurement](#concept-measurement), a [transform](#concept-transform), or a [metric](#concept-metric)\. For more information, see [Asset properties](asset-properties.md)\.
+Asset properties are the structures within each asset that contain industrial data\. Each property has a data type and can have a unit\. A property can be an [attribute](#concept-attribute), a [measurement](#concept-measurement), a [transform](#concept-transform), or a [metric](#concept-metric)\. For more information, see [Defining data properties](asset-properties.md)\.
 
 **Attribute**  
-Attributes are asset properties that represent information that generally doesn't change, such as device manufacturer or device location\. Attributes can have default values\. Each asset that you create from an asset model contains the default values of the attributes of that model\. For more information, see [Attributes](attributes.md)\.
+Attributes are asset properties that represent information that generally doesn't change, such as device manufacturer or device location\. Attributes can have default values\. Each asset that you create from an asset model contains the default values of the attributes of that model\. For more information, see [Defining static data \(attributes\)](attributes.md)\.
 
 **Measurement**  
-Measurements are asset properties that represent a device or equipment's raw sensor time series data streams\. For more information, see [Measurements](measurements.md)\.
+Measurements are asset properties that represent a device or equipment's raw sensor time series data streams\. For more information, see [Defining data streams from equipment \(measurements\)](measurements.md)\.
 
 **Transform**  
-Transforms are asset properties that represent transformed time series data\. Every transform has a mathematical expression \([formula](#concept-formula)\) that defines how to transform data points from one form to another\. The transformed data points hold a one\-to\-one relationship with the input data points\. For more information, see [Transforms](transforms.md)\.
+Transforms are asset properties that represent transformed time series data\. Every transform has a mathematical expression \([formula](#concept-formula)\) that defines how to transform data points from one form to another\. The transformed data points hold a one\-to\-one relationship with the input data points\. For more information, see [Transforming data \(transforms\)](transforms.md)\.
 
 **Metric**  
-Metrics are asset properties that represent aggregated time series data\. Every metric has a mathematical expression \([formula](#concept-formula)\) that defines how to aggregate data points, and a time interval over which to compute that aggregation\. Metrics output a single data point per given time interval\. For more information, see [Metrics](metrics.md)\.
+Metrics are asset properties that represent aggregated time series data\. Every metric has a mathematical expression \([formula](#concept-formula)\) that defines how to aggregate data points, and a time interval over which to compute that aggregation\. Metrics output a single data point per given time interval\. For more information, see [Aggregating data from properties and other assets \(metrics\)](metrics.md)\.
 
 **Aggregate**  
 Aggregates are basic metrics that AWS IoT SiteWise automatically computes for all time series data\. For more information, see [Querying asset property aggregates](query-industrial-data.md#aggregates)\.
 
 **Asset hierarchy**  
-You can define asset hierarchies to create logical representations of your industrial operations\. To create a hierarchy, you define a hierarchy definition in an asset model, and then you associate assets created from that model and the model specified in the hierarchy definition\. Metrics in parent assets can aggregate data from child assets' properties, so you can calculate statistics that provide insight to your operation or a subset of your operation\. For more information, see [Asset hierarchies](asset-hierarchies.md)\.
+You can define asset hierarchies to create logical representations of your industrial operations\. To create a hierarchy, you define a hierarchy definition in an asset model, and then you associate assets created from that model and the model specified in the hierarchy definition\. Metrics in parent assets can aggregate data from child assets' properties, so you can calculate statistics that provide insight to your operation or a subset of your operation\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
 
 **Formula**  
 Every [transform](#concept-transform) and [metric](#concept-metric) property has a formula that defines how that property transforms or aggregates data\. Formulas consist of property inputs, operators, and functions offered by AWS IoT SiteWise\. For more information, see [Using formula expressions](formula-expressions.md)\.

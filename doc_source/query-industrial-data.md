@@ -156,7 +156,7 @@ AWS IoT SiteWise automatically computes aggregated asset property values, which 
 
 For non\-numeric properties, such as strings and Booleans, AWS IoT SiteWise computes only the count aggregate\.
 
-You can also compute custom metrics for your asset data\. Metric properties let you define aggregations specific to your operation\. Metric properties offer additional aggregation functions and time intervals that aren't precomputed for the AWS IoT SiteWise API\. For more information, see [Metrics](metrics.md)\.
+You can also compute custom metrics for your asset data\. Metric properties let you define aggregations specific to your operation\. Metric properties offer additional aggregation functions and time intervals that aren't precomputed for the AWS IoT SiteWise API\. For more information, see [Aggregating data from properties and other assets \(metrics\)](metrics.md)\.
 
 You can use the AWS IoT SiteWise API to get aggregates for an asset property\.
 

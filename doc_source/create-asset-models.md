@@ -11,8 +11,8 @@ The following sections describe how to use the AWS IoT SiteWise console or API t
 + [Creating an asset model \(console\)](#create-asset-model-console)
 + [Creating an asset model \(CLI\)](#create-asset-model-cli)
 + [Example asset models](#asset-model-examples)
-+ [Asset properties](asset-properties.md)
-+ [Asset hierarchies](asset-hierarchies.md)
++ [Defining data properties](asset-properties.md)
++ [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)
 
 ## Creating an asset model \(console\)<a name="create-asset-model-console"></a>
 
@@ -30,15 +30,15 @@ You can use the AWS IoT SiteWise console to create an asset model\. The AWS IoT 
 
    1. Enter a **Name** for the asset model, such as **Wind Turbine** or **Wind Turbine Model**\. This name must be unique across all models in your account in this Region\.
 
-   1. \(Optional\) Add **Attribute definitions** for the model\. For more information, see [Attributes](attributes.md)\.
+   1. \(Optional\) Add **Attribute definitions** for the model\. Attributes represent information that rarely changes\. For more information, see [Defining static data \(attributes\)](attributes.md)\.
 
-   1. \(Optional\) Add **Measurement definitions** for the model\. For more information, see [Measurements](measurements.md)\.
+   1. \(Optional\) Add **Measurement definitions** for the model\. Measurements represent data streams from your equipment\. For more information, see [Defining data streams from equipment \(measurements\)](measurements.md)\.
 
-   1. \(Optional\) Add **Transform definitions** for the model\. For more information, see [Transforms](transforms.md)\.
+   1. \(Optional\) Add **Transform definitions** for the model\. Transforms are formulas that map data from one form to another\. For more information, see [Transforming data \(transforms\)](transforms.md)\.
 
-   1. \(Optional\) Add **Metric definitions** for the model\. For more information, see [Metrics](metrics.md)\.
+   1. \(Optional\) Add **Metric definitions** for the model\. Metrics are formulas that aggregate data over time intervals\. Metrics can input data from associated assets, so that you can calculate values that represent your operation or a subset of your operation\. For more information, see [Aggregating data from properties and other assets \(metrics\)](metrics.md)\.
 
-   1. \(Optional\) Add **Hierarchy definitions** for the model\. For more information, see [Asset hierarchies](asset-hierarchies.md)\.
+   1. \(Optional\) Add **Hierarchy definitions** for the model\. Hierarchies are relationships between assets\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
 
    1. \(Optional\) Add tags for the asset model\. For more information, see [Tagging your AWS IoT SiteWise resources](tag-resources.md)\.
 
@@ -86,9 +86,9 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
 
    1. \(Optional\) Enter a description \(`assetModelDescription`\) for the asset model, or remove the `assetModelDescription` key\-value pair\.
 
-   1. \(Optional\) Define asset properties \(`assetModelProperties`\) for the model\. For more information, see [Asset properties](asset-properties.md)\.
+   1. \(Optional\) Define asset properties \(`assetModelProperties`\) for the model\. For more information, see [Defining data properties](asset-properties.md)\.
 
-   1. \(Optional\) Define asset hierarchies \(`assetModelHierarchies`\) for the model\. For more information, see [Asset hierarchies](asset-hierarchies.md)\.
+   1. \(Optional\) Define asset hierarchies \(`assetModelHierarchies`\) for the model\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
 
    1. \(Optional\) Add tags \(`tags`\) for the asset model\. For more information, see [Tagging your AWS IoT SiteWise resources](tag-resources.md)\.
 
@@ -104,7 +104,7 @@ The asset model creation process can take up to a few minutes for complex models
 
 ## Example asset models<a name="asset-model-examples"></a>
 
-This section contains example asset models definitions that you can use to create asset models with the AWS CLI and AWS IoT SiteWise SDKs\.
+This section contains example asset models definitions that you can use to create asset models with the AWS CLI and AWS IoT SiteWise SDKs\. These asset models represent a wind turbine and a wind farm\. Wind turbine assets ingest raw sensor data and calculate values such as power and average wind speed\. Wind farm assets calculate values such as total power for all wind turbines in the wind farm\.
 
 **Topics**
 + [Wind turbine asset model](#example-wind-turbine)
@@ -112,7 +112,10 @@ This section contains example asset models definitions that you can use to creat
 
 ### Wind turbine asset model<a name="example-wind-turbine"></a>
 
-The following asset model represents a turbine in a wind farm\. This example model resembles the wind turbine model from the AWS IoT SiteWise demo\. For more information, see [Using the AWS IoT SiteWise demo](getting-started-demo.md)\.
+The following asset model represents a turbine in a wind farm\. The wind turbine ingests sensor data to calculate values such as power and average wind speed\.
+
+**Note**  
+This example model resembles the wind turbine model from the AWS IoT SiteWise demo\. For more information, see [Using the AWS IoT SiteWise demo](getting-started-demo.md)\.
 
 ```
 {
@@ -313,7 +316,10 @@ The following asset model represents a turbine in a wind farm\. This example mod
 
 ### Wind farm asset model<a name="example-wind-farm"></a>
 
-The following asset model represents a wind farm that comprises multiple wind turbines\. This example model resembles the wind farm model from the AWS IoT SiteWise demo\. For more information, see [Using the AWS IoT SiteWise demo](getting-started-demo.md)\.
+The following asset model represents a wind farm that comprises multiple wind turbines\. This asset model defines a [hierarchy](asset-hierarchies.md) to the wind turbine model\. This enables the wind farm to calculate values \(such as average power\) from data for all wind turbines in the wind farm\.
+
+**Note**  
+This example model resembles the wind farm model from the AWS IoT SiteWise demo\. For more information, see [Using the AWS IoT SiteWise demo](getting-started-demo.md)\.
 
 This asset model depends on the [Wind turbine asset model](#example-wind-turbine)\. Replace the `propertyId` and `childAssetModelId` values with those from an existing wind turbine asset model\.
 

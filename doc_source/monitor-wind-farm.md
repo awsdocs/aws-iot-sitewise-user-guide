@@ -27,9 +27,9 @@ To complete this tutorial, you need the following:
 + A development computer running Windows, macOS, Linux, or Unix to access the AWS Management Console\. For more information, see [Getting Started with the AWS Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)\.
 + An IAM user with administrator permissions\.
 + A running AWS IoT SiteWise wind farm demo\. When you set up the demo, it defines models and assets in AWS IoT SiteWise and streams data to them to represent a wind farm\. For more information, see [Using the AWS IoT SiteWise demo](getting-started-demo.md)\.
-+ If you enabled AWS SSO in your account, sign in to your AWS Organizations master account\. For more information, see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)\. If you haven't enabled AWS SSO, you will enable it in this tutorial and set your account as the master account\.
++ If you enabled AWS SSO in your account, sign in to your AWS Organizations management account\. For more information, see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)\. If you haven't enabled AWS SSO, you will enable it in this tutorial and set your account as the management account\.
 
-  If you can't sign in to your AWS Organizations master account, you can partially complete the tutorial as long as you have an AWS SSO account in your organization\. In this case, you can create the portal and dashboards, but you can't create new AWS SSO users to assign to projects\.
+  If you can't sign in to your AWS Organizations management account, you can partially complete the tutorial as long as you have an AWS SSO user in your organization\. In this case, you can create the portal and dashboards, but you can't create new AWS SSO users to assign to projects\.
 
 ## Creating a portal in SiteWise Monitor<a name="monitor-tutorial-create-portal"></a>
 
@@ -77,7 +77,7 @@ In this procedure, you create a portal in SiteWise Monitor\. Each portal is a ma
 
 1. On the **Assign users** page, you can assign AWS SSO users to the portal\. Portal administrators can later assign these users as project owners or viewers\. Project owners can create dashboards in projects\. Project viewers have read\-only access to the projects that they're assigned\. On this page, you can create AWS SSO users to add to the portal\.
 **Note**  
-If you aren't signed in to your AWS Organizations master account, you can't create AWS SSO users\. Choose **Assign users** to create the portal without portal users, and then skip this step\.
+If you aren't signed in to your AWS Organizations management account, you can't create AWS SSO users\. Choose **Assign users** to create the portal without portal users, and then skip this step\.
 
    On this page, do the following:
 
@@ -150,7 +150,7 @@ In this procedure, you create a project in your portal\. Projects are resources 
 
 1. On the project's page, you can add portal users as owners or viewers of this project\.
 **Note**  
-If you aren't signed in to your AWS Organizations master account, you might not have portal users to assign to this project, so you can skip this step\.
+If you aren't signed in to your AWS Organizations management account, you might not have portal users to assign to this project, so you can skip this step\.
 
    On this page, do the following:
 
@@ -236,7 +236,7 @@ You're charged for each AWS SSO user that signs in to a portal, so you incur cha
 
    1. Choose **Log out** in the bottom left of the portal to exit the web application\.
 
-   1. Choose **Sign out** in the upper right of the AWS SSO application portal to sign out of your AWS SSO account\.
+   1. Choose **Sign out** in the upper right of the AWS SSO application portal to sign out of your AWS SSO user\.
 
    1. Sign in to the portal as the AWS SSO user that you assigned as a project owner or project viewer\. For more information, see [Signing in to a portal](#monitor-tutorial-sign-in-portal)\.
 

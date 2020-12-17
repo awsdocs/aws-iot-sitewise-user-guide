@@ -6,10 +6,13 @@ When you define visualizations \(or widgets\) in dashboards using the AWS CLI, y
 A list of widget definition structures that each contain the following information:    
 `type`  
 The type of widget\. AWS IoT SiteWise provides the following widget types:  
-+ `monitor-line-chart` – A line chart\. For more information, see [Line charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#line-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ `monitor-scatter-chart` – A scatter chart\. For more information, see [Scatter charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#scatter-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ `monitor-bar-chart` – A bar chart\. For more information, see [Bar charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#bar-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ `monitor-kpi` – A key performance indicator \(KPI\) visualization\. For more information, see [KPI visualizations](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#kpi-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.  
++ <a name="monitor-line-chart"></a>`monitor-line-chart` – A line chart\. For more information, see [Line charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#line-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ <a name="monitor-scatter-chart"></a>`monitor-scatter-chart` – A scatter chart\. For more information, see [Scatter charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#scatter-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ <a name="monitor-bar-chart"></a>`monitor-bar-chart` – A bar chart\. For more information, see [Bar charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#bar-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ <a name="monitor-status-grid"></a>`monitor-status-grid` – A status widget that shows the latest value of asset properties as a grid\. For more information, see [Status widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#status-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ <a name="monitor-status-timeline"></a>`monitor-status-timeline` – A status widget that shows the historical values of asset properties as a timeline\. For more information, see [Status widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#status-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ `monitor-kpi` – A key performance indicator \(KPI\) visualization\. For more information, see [KPI widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#kpi-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ `monitor-table` – A table widget\. For more information, see [Table widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#table-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.  
 `title`  
 The title of the widget\.  
 `x`  
@@ -49,7 +52,8 @@ The comparison operator for the threshold\. Choose one of the following:
 + `LT` – Highlight properties that have at least one data point less than the `value`\.
 + `GT` – Highlight properties that have at least one data point greater than the `value`\.
 + `LTE` – Highlight properties that have at least one data point less than or equal to the `value`\.
-+ `GTE` – Highlight properties that have at least one data point greater than or equal to the `value`\.  
++ `GTE` – Highlight properties that have at least one data point greater than or equal to the `value`\.
++ `EQ` – Highlight properties that have at least one data point equal to the `value`\.  
 `value`  
 The threshold value to compare data points with the `comparisonOperator`\.  
 `color`  
@@ -58,9 +62,14 @@ The threshold value to compare data points with the `comparisonOperator`\.
 \(Optional\) Whether or not to show the value of the threshold in the margins of the widget\. Defaults to `true`\.  
 `properties`  
 \(Optional\) A flat dictionary of properties for the widget\. The members of this structure are context\-dependent\. AWS IoT SiteWise provides the following widgets that use `properties`:  
-+ Widgets that support [thresholds](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/configure-thresholds.html) support the following property:  
++ [Line charts](#monitor-line-chart), [scatter charts](#monitor-scatter-chart), and [bar charts](#monitor-bar-chart) have the following property:  
 `colorDataAcrossThresholds`  
 \(Optional\) Whether or not to change the color of the data that crosses the thresholds in this widget\. When you enable this option, the data that crosses a threshold appears in the color that you choose\. Defaults to `true`\.
++ [Status grids](#monitor-status-grid) have the following property:  
+`labels`  
+\(Optional\) A structure that defines the labels to display on the status grid\. The labels structure contains the following information:    
+`showValue`  
+\(Optional\) Whether or not to display the unit and value for each asset property in this widget\. Defaults to `true`\.
 
 **Example dashboard definition**  
 The following example defines a dashboard from a payload stored in a JSON file\.  
@@ -74,7 +83,7 @@ aws iotsitewise create-dashboard \
 The following JSON example for `dashboard-definition.json` defines dashboard with the following visualization widgets:  
 + A line chart that visualizes total wind farm power in the upper left of the dashboard\. This line chart includes a threshold that indicates when the wind farm outputs less power than its minimum expected output\. This line chart also includes a linear regression trend line\.
 + A bar chart that visualizes wind speed for four turbines in the upper right of the dashboard\.
-This example represents the line and bar chart visualizations on a dashboard\. This dashboard is similar to the [example wind farm dashboard](monitor-data.md)\.
+This example represents line and bar chart visualizations on a dashboard\. This dashboard is similar to the [example wind farm dashboard](monitor-data.md)\.
 
 ```
 {

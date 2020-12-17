@@ -45,7 +45,7 @@ In this procedure, SiteWise Monitor performs the following steps for you:
 
 1. Enables AWS Organizations, a prerequisite for AWS SSO\. For more information, see [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/)\.
 
-1. Creates an AWS organization and sets your AWS account as the master account\.
+1. Creates an AWS organization and sets your AWS account as the management account\.
 
 1. Enables AWS SSO in the current AWS Region\.
 
@@ -100,7 +100,7 @@ If you're using SiteWise Monitor for the first time, you can choose the user tha
 
 1. Select the check boxes for the users that you want as your portal administrators\. This adds the users to the **Selected users** list\.
 **Note**  
-If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations master account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as an administrator\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
+If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations management account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as an administrator\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
 ![\[The invite administrators step of the portal creation process.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-invite-portal-administrators-console.png)
 
 1. \(Optional\) Choose **Send invite to selected users**\. Your email client opens, and an invitation is populated in the message body, as shown in the following example\.  
@@ -129,7 +129,7 @@ If you see the user that you want to add in the **Directory** list, complete the
 
 1. Choose users from the **Users** list to add to the portal\. If you're using SiteWise Monitor for the first time, you don't need to add your portal administrator as a portal user\.
 **Note**  
-If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations master account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as a user\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
+If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations management account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as a user\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
 ![\[The assign users step of the portal creation process.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-assign-portal-users-console.png)
 
 1. If you add a user that you don't want to have access to the portal, clear the check box for that user\.

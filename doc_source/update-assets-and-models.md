@@ -129,6 +129,7 @@ The [UpdateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRefere
      "assetModelDescription": "String",
      "assetModelProperties": Array of AssetModelProperty,
      "assetModelHierarchies": Array of AssetModelHierarchyDefinition,
+     "assetModelCompositeModels": Array of AssetModelCompositeModel,
      "assetModelCreationDate": "String",
      "assetModelLastUpdateDate": "String",
      "assetModelStatus": {
@@ -159,7 +160,8 @@ The [UpdateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRefere
      "assetModelName": "String",
      "assetModelDescription": "String",
      "assetModelProperties": Array of AssetModelProperty,
-     "assetModelHierarchies": Array of AssetModelHierarchyDefinition
+     "assetModelHierarchies": Array of AssetModelHierarchyDefinition,
+     "assetModelCompositeModels": Array of AssetModelCompositeModel
    }
    ```
 
@@ -168,6 +170,9 @@ The [UpdateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRefere
    + Change, add, or remove the asset model's description \(`assetModelDescription`\)\.
    + Change, add, or remove any of the asset model's properties \(`assetModelProperties`\)\. You can't change the `dataType` of existing properties or the `window` of existing metrics\. For more information, see [Defining data properties](asset-properties.md)\.
    + Change, add, or remove any of the asset model's hierarchies \(`assetModelHierarchies`\)\. You can't change the `childAssetModelId` of existing hierarchies\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
+   + Change, add, or remove any of the asset model's composite models \(`assetModelCompositeModels`\), such as alarm definitions\. Alarms monitor other properties so that you can identify when equipment or processes require attention\. Each alarm definition is a composite model that standardizes the set of properties that the alarm uses\. For more information, see [Monitoring data with alarms](industrial-alarms.md) and [Defining alarms on asset models](define-alarms.md)\.
+**Note**  
+The alarms feature is in preview release for AWS IoT SiteWise, AWS IoT Events, and SiteWise Monitor, and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\.
 
 1. Run the following command to update the asset model with the definition stored in `update-asset-model.json`\. Replace *asset\-model\-id* with the ID of the asset model\.
 

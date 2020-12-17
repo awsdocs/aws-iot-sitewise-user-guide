@@ -1,14 +1,8 @@
 # AWS IoT SiteWise quotas<a name="quotas"></a>
 
-AWS IoT SiteWise is available in the following AWS Regions:
-+ US East \(N\. Virginia\) – us\-east\-1
-+ US West \(Oregon\) – us\-west\-2
-+ Europe \(Frankfurt\) – eu\-central\-1
-+ Europe \(Ireland\) – eu\-west\-1
+For more information about Regions where AWS IoT SiteWise is available, see [AWS IoT SiteWise endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-sitewise.html)\.
 
-The following tables describes quotas within AWS IoT SiteWise\. For more information about quotas that can be changed, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*\.
-
-To request a service quota increase, see [Create a support case](https://console.aws.amazon.com/support/cases#/create?issueType=service-limit-increase&limitType=service-code-iot)\.
+The following tables describe quotas in AWS IoT SiteWise\. For more information about quotas and how to request quota increases, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*\.
 
 
 **Quotas for assets and asset models**  
@@ -49,6 +43,8 @@ To request a service quota increase, see [Create a support case](https://console
 | --- | --- | --- | 
 | Number of gateways per Region per AWS account | 100 | Yes | 
 | Number of OPC\-UA sources per gateway | 100 | No | 
+| Number of Modbus TCP sources per gateway | 100 | No | 
+| Number of Ethernet/IP sources per gateway | 100 | No | 
 
 
 **Quotas for AWS IoT SiteWise Monitor**  

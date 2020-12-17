@@ -41,7 +41,7 @@ In a few steps, you can add or remove users as administrators for a portal\.
 
 1. On the **Assign administrators** page, select the check boxes for the users to add to the portal as administrators\.
 **Note**  
-If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations master account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as an administrator\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
+If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations management account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as an administrator\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
 ![\[The "Assign administrators" page.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-portal-assign-administrators-console.png)
 
 1. Choose **Assign administrators**\.
@@ -76,7 +76,7 @@ Your portal administrators and portal users might contact you through a portal's
 
 1. On the **Assign users** page, select the check box for the users to add to the portal\.
 **Note**  
-If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations master account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as a user\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
+If you use AWS SSO as your identity store, and you're signed in to your AWS Organizations management account, you can choose **Create user** to create an AWS SSO user\. AWS SSO sends the new user an email for them to set their password\. You can then assign the user to the portal as a user\. For more information, see [Manage identities in AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html.html)\.  
 ![\[The "Assign users" page.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-portal-assign-users-console.png)
 
 1. Choose **Assign users**\.

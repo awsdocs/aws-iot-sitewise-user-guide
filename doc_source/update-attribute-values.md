@@ -86,7 +86,7 @@ Use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/la
      + `doubleValue`
      + `integerValue`
      + `stringValue`
-   + `timestamp` – A structure that contains the current Unix epoch time in seconds, `timeInSeconds`\. AWS IoT SiteWise rejects any data points with timestamps older than 15 minutes in the past or newer than 5 minutes in the future\.
+   + `timestamp` – A structure that contains the current Unix epoch time in seconds, `timeInSeconds`\. AWS IoT SiteWise rejects any data points with timestamps older than 7 days in the past or newer than 5 minutes in the future\.
 
    For more information about how to prepare a payload for [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html), see [Ingesting data using the AWS IoT SiteWise API](ingest-api.md)\.
 

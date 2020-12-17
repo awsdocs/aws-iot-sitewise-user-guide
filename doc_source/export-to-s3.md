@@ -11,7 +11,7 @@ For more information about how to enable property value update messages for the 
 This feature stores your asset property data and asset metadata in Amazon S3 in [Apache Parquet](https://parquet.apache.org/documentation/latest/) format\. Parquet is a columnar data format that saves space and enables faster queries compared to row\-oriented formats like JSON\.
 
 **Note**  
-When this feature retrieves asset metadata, it supports up to approximately 5,000 asset properties\. This limitation applies only to asset metadata\. This limitation doesn't apply to the number of properties supported when the feature exports asset property data\.
+When this feature retrieves asset metadata, it supports up to approximately 1,500 assets\. This limitation applies only to asset metadata\. This limitation doesn't apply to the number of assets supported when the feature exports asset property data\.
 
 Each resource's name includes a prefix that you can customize when you create the stack\. Resources include the following:
 + An Amazon S3 bucket

@@ -3,7 +3,7 @@
 When you define OPC\-UA data sources for an AWS IoT SiteWise gateway, you can define node filters\. Node filters let you limit which data stream paths the gateway sends to the cloud\. You can use node filters to reduce your gateway's startup time and CPU usage by only including paths to data that you model in AWS IoT SiteWise\. By default, gateways upload all OPC\-UA paths except those that start with `/Server/`\. You can use the `*` and `**` wildcard characters in your node filters to include multiple data stream paths with one filter\. To learn how to set up OPC\-UA sources for your gateway, see [Configuring data sources](configure-sources.md)\.
 
 **Note**  
-AWS IoT SiteWise restarts your gateway each time you add or edit a source\. Your gateway won't ingest data while it's restarting\. The time to restart your gateway depends on the number of OPC\-UA tags on your gateway's OPC\-UA sources\. Restart time can range from a few seconds \(for a gateway with few tags\) to several minutes \(for a gateway with many tags\)\.
+AWS IoT SiteWise restarts your gateway each time you add or edit a source\. Your gateway won't ingest data while it's restarting\. The time to restart your gateway depends on the number of tags on your gateway's sources\. Restart time can range from a few seconds \(for a gateway with few tags\) to several minutes \(for a gateway with many tags\)\.
 
 The following table lists the wildcards that you can use to filter OPC\-UA data sources\.
 

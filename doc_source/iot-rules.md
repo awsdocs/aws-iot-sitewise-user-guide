@@ -14,9 +14,9 @@ You can also send data from AWS IoT SiteWise to other AWS services\. For more in
 
 ## Granting AWS IoT the required access<a name="grant-rule-access"></a>
 
-You use IAM roles to control the AWS resources to which each rule has access\. Before you create a rule, you must create an IAM role with a policy that allows access to the required AWS resource\. AWS IoT assumes this role when executing a rule\.
+You use IAM roles to control the AWS resources to which each rule has access\. Before you create a rule, you must create an IAM role with a policy that allows access to the required AWS resource\. AWS IoT assumes this role when running a rule\.
 
-If you create the rule action in the AWS IoT console, you can choose an root asset to easily create a role that has access to a selected asset hierarchy\. For more information about how to manually define a role for a rule, see [Granting AWS IoT the required access](https://docs.aws.amazon.com/iot/latest/developerguide/iot-create-role.html) and [Pass role permissions](https://docs.aws.amazon.com/iot/latest/developerguide/pass-role.html) in the *AWS IoT Developer Guide*\.
+If you create the rule action in the AWS IoT console, you can choose an root asset to create a role that has access to a selected asset hierarchy\. For more information about how to manually define a role for a rule, see [Granting AWS IoT the required access](https://docs.aws.amazon.com/iot/latest/developerguide/iot-create-role.html) and [Pass role permissions](https://docs.aws.amazon.com/iot/latest/developerguide/pass-role.html) in the *AWS IoT Developer Guide*\.
 
 For the AWS IoT SiteWise rule action, you must define a role that allows `iotsitewise:BatchPutAssetPropertyValue` access to the asset properties to which the rule sends data\. To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in the `Condition` property\. 
 
@@ -60,15 +60,15 @@ You can remove the `Condition` from the policy to allow access to all of your as
 
 ## Configuring the AWS IoT SiteWise rule action<a name="configure-rule-action"></a>
 
-The AWS IoT SiteWise rule action sends data from the MQTT message that trigged the rule to asset properties in AWS IoT SiteWise\. You can upload multiple data entries to different asset properties at the same time, so that you can send updates for all sensors of a device in one message\. You can also upload multiple data points at once for each data entry\.
+The AWS IoT SiteWise rule action sends data from the MQTT message that initiated the rule to asset properties in AWS IoT SiteWise\. You can upload multiple data entries to different asset properties at the same time, so that you can send updates for all sensors of a device in one message\. You can also upload multiple data points at once for each data entry\.
 
 **Note**  
-When you send data to AWS IoT SiteWise with the rule action, your data must meet all of the requirements of the `BatchPutAssetPropertyValue` operation\. For example, your data can't have a timestamp older than 15 minutes from current Unix epoch time\. For more information, see [Ingesting data with the AWS IoT SiteWise API]()\.
+When you send data to AWS IoT SiteWise with the rule action, your data must meet all of the requirements of the `BatchPutAssetPropertyValue` operation\. For example, your data can't have a timestamp earlier than 7 days from current Unix epoch time\. For more information, see [Ingesting data with the AWS IoT SiteWise API]()\.
 
 For each data entry in the rule action, you identify an asset property and specify the timestamp, quality, and value of each data point for that asset property\. The rule action expects strings for all parameters\.
 
 To identify an asset property in an entry, specify one of the following:
-+ The **Asset ID** \(`assetId`\) and **Property ID** \(`propertyId`\) of the asset property that you're sending data to\. If you choose this option in the AWS IoT console, you can use a drop\-down list to choose an asset model and property from AWS IoT SiteWise in the current Region\.
++ The **Asset ID** \(`assetId`\) and **Property ID** \(`propertyId`\) of the asset property that you're sending data to\. If you choose this option in the AWS IoT console, you can use a list to choose an asset model and property from AWS IoT SiteWise in the current AWS Region\.
 + The **Property alias** \(`propertyAlias`\), which is a data stream alias \(for example, `/company/windfarm/3/turbine/7/temperature`\)\. To use this option, you must first set your asset property's alias\. To learn how to set property aliases, see [Mapping industrial data streams to asset properties](connect-data-streams.md)\.
 
 For the timestamp in each entry, you can use the timestamp reported by your equipment or the timestamp provided by AWS IoT Core\. The timestamp has two parameters:
@@ -82,7 +82,7 @@ If your timestamp is a string, has a decimal portion, or isn't in seconds, AWS I
 
 You can use substitution templates for several parameters in the action to perform calculations, invoke functions, and pull values from the message payload\. For more information, see [Substitution templates](https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html) in the *AWS IoT Developer Guide*\.
 
-**Note**  
+**Note**  <a name="substitution-template-limitations"></a>
 Because an expression in a substitution template is evaluated separately from the `SELECT` statement, you can't use a substitution template to reference an alias created using an `AS` clause\. You can reference only information present in the original payload, in addition to supported functions and operators\.
 
 **Topics**

@@ -62,7 +62,7 @@ You must have root permissions to read AWS IoT Greengrass logs on the file syste
    + `swCollector.log` – The most recent logs for the Lambda function that collects data from the gateway's OPC\-UA sources\.
    + `swPublisher.log` – The most recent logs for the Lambda function that publishes OPC\-UA data streams to AWS IoT SiteWise\.
 
-   You can view older logs in the files named `swCollector.log-timestamp` and `swPublisher.log-timestamp`\.
+   You can view earlier logs in the files named `swCollector.log-timestamp` and `swPublisher.log-timestamp`\.
 
 1. Run the following command to view the publisher log file contents, for example\.
 

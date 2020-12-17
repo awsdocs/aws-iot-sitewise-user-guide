@@ -10,9 +10,20 @@ Require authentication credentials to connect to your OPC\-UA servers\. Consult 
 
 Choose a non\-deprecated, encrypted message security mode when you configure your OPC\-UA sources for your gateway\. This helps secure your industrial data as it moves from your OPC\-UA servers to the gateway\. For more information, see [Data in transit over the local network](encryption-in-transit.md#local-encryption-in-transit) and [Configuring data sources](configure-sources.md)\.
 
+## Keep your components up to date<a name="security-best-practices-update-regularly"></a>
+
+If you use AWS IoT SiteWise gateways to ingest data to the service, it's your responsibility to conﬁgure and maintain your gateway's environment\. This responsibility includes upgrading to the latest versions of the gateway's system software, AWS IoT Greengrass software, and connectors\. 
+
+**Note**  
+The AWS IoT SiteWise Edge connector stores secrets on your file system\. These secrets control who can view the data cached within your gateway\. It's strongly recommended that you turn on disk or file\-system encryption for the system running your gateway\. 
+
 ## Encrypt your gateway's file system<a name="security-best-practices-gateway-encryption"></a>
 
 Encrypt and secure your gateway, so your industrial data is secure as it moves through the gateway\. If your gateway has a hardware security module, you can configure AWS IoT Greengrass to secure your gateway\. For more information, see [Hardware security integration](https://docs.aws.amazon.com/greengrass/latest/developerguide/hardware-security.html) in the *AWS IoT Greengrass Developer Guide*\. Otherwise, consult the documentation for your operating system to learn how to encrypt and secure your file system\.
+
+## Secure access to your edge configuration<a name="security-best-practices-edge-access-control"></a>
+
+Don't share your edge console application password or your SiteWise Monitor application password\. Don't put this password in places where anyone can see them\. Implement a healthy password rotation policy by configuring an appropriate expiration for your password\.
 
 ## Grant SiteWise Monitor users minimum possible permissions<a name="security-best-practices-minimum-monitor-permissions"></a>
 

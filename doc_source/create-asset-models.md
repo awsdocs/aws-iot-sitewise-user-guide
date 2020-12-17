@@ -48,6 +48,18 @@ You can use the AWS IoT SiteWise console to create an asset model\. The AWS IoT 
 **Note**  
 The asset model creation process can take up to a few minutes for complex models\. After the asset model status is **ACTIVE**, you can use the asset model to create assets\. For more information, see [Asset and model states](asset-and-model-states.md)\.
 
+1. \(Optional\) After you create your asset model, you can configure your asset model for the edge\. For more information about Sitewise Edge, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
+
+   1. On the model page, choose **Configure for Edge**\.
+
+   1. On the model configuration page, choose the edge configuration for your model\. This controls where AWS IoT SiteWise can compute and store properties associated with this asset model\. For more information about configuring your model for the edge, see [Setting up edge capability](using-sitewise-edge.md)\.
+
+   1. For **Custom edge configuration**, choose the location that you want AWS IoT SiteWise to compute and store each of your asset model properties\.
+**Note**  
+Transforms and metrics that are associated must be configured for the same location\. For more information about configuring your model for the edge, see [Setting up edge capability](using-sitewise-edge.md)\.
+
+   1. Choose **Save**\. On the model page, your **Edge configuration** should now be **Configured**\.
+
 ## Creating an asset model \(CLI\)<a name="create-asset-model-cli"></a>
 
 You can use the AWS Command Line Interface \(AWS CLI\) to create an asset model\.
@@ -76,6 +88,9 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
      ],
      "assetModelHierarchies": [
      
+     ],
+     "assetModelCompositeModels": [
+     
      ]
    }
    ```
@@ -89,6 +104,10 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
    1. \(Optional\) Define asset properties \(`assetModelProperties`\) for the model\. For more information, see [Defining data properties](asset-properties.md)\.
 
    1. \(Optional\) Define asset hierarchies \(`assetModelHierarchies`\) for the model\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
+
+   1. \(Optional\) Define alarms for the model\. Alarms monitor other properties so that you can identify when equipment or processes require attention\. Each alarm definition is a composite model \(`assetModelCompositeModels`\) that standardizes the set of properties that the alarm uses\. For more information, see [Monitoring data with alarms](industrial-alarms.md) and [Defining alarms on asset models](define-alarms.md)\.
+**Note**  
+The alarms feature is in preview release for AWS IoT SiteWise, AWS IoT Events, and SiteWise Monitor, and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\.
 
    1. \(Optional\) Add tags \(`tags`\) for the asset model\. For more information, see [Tagging your AWS IoT SiteWise resources](tag-resources.md)\.
 

@@ -12,6 +12,7 @@ You can complete the following tutorials to explore certain features of AWS IoT 
 See the following topics to learn more about AWS IoT SiteWise:
 + [Ingesting data to AWS IoT SiteWise](industrial-data-ingestion.md)
 + [Modeling industrial assets](industrial-asset-models.md)
++ [Process data locally with AWS IoT SiteWise](edge-processing.md)
 + [Monitoring data with AWS IoT SiteWise Monitor](monitor-data.md)
 + [Querying asset property values and aggregates](query-industrial-data.md)
 + [Interacting with other AWS services](interact-with-other-services.md)
@@ -20,10 +21,4 @@ See the following topics to learn more about AWS IoT SiteWise:
 
 You must have an AWS account to get started with AWS IoT SiteWise\. If you don't have one, see [Setting up an AWS account](set-up-aws-account.md)\.
 
-AWS IoT SiteWise is available in the following AWS Regions:
-+ US East \(N\. Virginia\) – us\-east\-1
-+ US West \(Oregon\) – us\-west\-2
-+ Europe \(Frankfurt\) – eu\-central\-1
-+ Europe \(Ireland\) – eu\-west\-1
-
-Use the Region selector in the AWS Management Console to switch to one of these Regions\.
+Use a Region where AWS IoT SiteWise is available\. For more information, see [AWS IoT SiteWise endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-sitewise.html)\. You can use the Region selector in the AWS Management Console to switch to one of these Regions\.

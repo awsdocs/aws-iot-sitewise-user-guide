@@ -1,11 +1,13 @@
 # Configuring a gateway<a name="configure-gateway"></a>
 
-A gateway serves as the intermediary between your OPC\-UA servers and AWS IoT SiteWise\. You can easily deploy the AWS IoT SiteWise gateway software on any platform that can run AWS IoT Greengrass\. For more information, see [Choosing a gateway platform](choose-gateway-platform.md)\.
+A gateway serves as the intermediary between your server and AWS IoT SiteWise\. You can deploy the AWS IoT SiteWise gateway software on any platform that can run AWS IoT Greengrass\. For more information, see [Choosing a gateway platform](choose-gateway-platform.md)\.
+
+You can enable AWS IoT SiteWise to process data locally on your edge devices by using the data processing pack on your gateway\. You do this when you add your gateway to AWS IoT SiteWise\. For more information about processing data at the edge, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
 
 To configure a gateway that runs on Amazon EC2, you can create the required dependencies from an AWS CloudFormation template\. For more information, see [Configuring gateway dependencies on Amazon Elastic Compute Cloud](configure-ec2-gateway.md)\.
 
 **Note**  
-We recommend that you complete the following steps with someone who has IT administrative access to your local and corporate networks\. These steps might require someone with knowledge of your OPC\-UA servers and the authority to configure firewall settings\.
+We recommend that you complete the following steps with someone who has IT administrative access to your local and corporate networks\. These steps might require someone with knowledge of your server and the authority to configure firewall settings\.
 
 **Topics**
 + [Setting up the gateway environment](#setup-gateway)
@@ -58,7 +60,7 @@ This section includes instructions to install packages using the `apt` command\.
 
    You can use the `-p port-number` argument to connect to a port other than the default port 22\.
 
-1. Download and install AWS IoT Greengrass Core software v1\.10\.0 or later, and create an AWS IoT Greengrass group for your gateway\. To do so, follow the instructions in [Getting started with AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-gs.html) in the *AWS IoT Greengrass Developer Guide*\.
+1. Download and install AWS IoT Greengrass Core software v1\.10\.2 or later, and create an AWS IoT Greengrass group for your gateway\. To do so, follow the instructions in [Getting started with AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-gs.html) in the *AWS IoT Greengrass Developer Guide*\.
 
    We recommend that you run the [AWS IoT Greengrass device setup](https://docs.aws.amazon.com/greengrass/latest/developerguide/quick-start.html) script to quickly get started\. If you want to review AWS IoT Greengrass requirements and processes more closely, you can walk through the steps in [Module 1](https://docs.aws.amazon.com/greengrass/latest/developerguide/module1.html) and [Module 2](https://docs.aws.amazon.com/greengrass/latest/developerguide/module2.html) to set up AWS IoT Greengrass\.
 **Important**  
@@ -251,7 +253,7 @@ In this procedure, you configure the AWS IoT SiteWise connector on your Greengra
 1. Choose **IoT SiteWise** from the list and choose **Next**\.  
 ![\[AWS IoT Greengrass "Select a connector" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-select-connector-console.png)
 
-1. If your OPC\-UA servers require authentication, you can create AWS Secrets Manager secrets with the server's user name and password\. Then, you can attach each secrets to your Greengrass group and choose them under **List of ARNs for OPC\-UA username/password secrets**\. For more information about how to create and configure secrets, see [Configuring source authentication](configure-source-authentication.md)\. You can also add secrets to your connector later\.  
+1. If your server requires authentication, you can create AWS Secrets Manager secrets with the server's user name and password\. Then, you can attach each secret to your Greengrass group and choose them under **List of ARNs for username/password secrets**\. For more information about how to create and configure secrets, see [Configuring source authentication](configure-source-authentication.md)\. You can also add secrets to your connector later\.  
 ![\[AWS IoT Greengrass "Configure a connector" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-configure-connector-console.png)
 
 1. If you set up your gateway with a different path than `/var/sitewise`, enter that path for **Local storage path**\.
@@ -284,8 +286,22 @@ In this procedure, you add your gateway's Greengrass group to AWS IoT SiteWise\.
 **Example**    
 ![\[AWS IoT SiteWise "Add gateway" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-add-gateway-console.png)
 
+   1. \(Optional\) For **Edge capabilities**, choose **Data processing pack**\. This enables communication between your gateway and any asset models and assets configured for the edge\. For more information, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
+**Important**  
+If you add the data processing pack to your gateway, you must configure and deploy the Sitewise Edge connector on your AWS IoT Greengrass group\. Follow the next steps\.
+
    1. Choose **Add gateway**\.
 
-After your gateway creates, you can add a source for each OPC\-UA server from which you want your gateway to ingest data\. For more information, see [Configuring data sources](configure-sources.md)\.
+1. <a name="setup-swe-connector"></a>If you add the data processing pack to your gateway, configure and deploy the AWS IoT SiteWise Data Processor connector on your AWS IoT Greengrass group\. Follow the steps in [Configuring the AWS IoT SiteWise connector](#setup-connector) to configure the AWS IoT SiteWise Data Processor connector: 
 
-You can view CloudWatch metrics to verify that your gateway is connected to AWS IoT SiteWise\. For more information, see [Gateway metrics](monitor-cloudwatch-metrics.md#gateway-metrics)\.
+   1. For **Select a connector** in the AWS IoT Greengrass console, choose **AWS IoT SiteWise Data Processor**\.
+
+   1. For **Local storage path**, enter the path to your gateway\.
+
+   1. Choose **Add**\.
+
+   1. In the upper\-right corner, in the **Actions** menu, choose **Deploy**, and then choose **Automatic detection** to start the deployment\.
+
+After your gateway deploys, you can add a source for each server from which you want your gateway to ingest data\. For more information, see [Configuring data sources](configure-sources.md)\.
+
+You can view Amazon CloudWatch metrics to verify that your gateway connects to AWS IoT SiteWise\. For more information, see [Gateway metrics](monitor-cloudwatch-metrics.md#gateway-metrics)\.

@@ -45,10 +45,12 @@ In this procedure, you add your source authentication secrets to your AWS IoT Gr
 
 1. Navigate to the [AWS IoT Greengrass console](https://console.aws.amazon.com/greengrass/)\.
 
-1. In the left navigation pane, under **Greengrass**, choose **Groups**, and then choose your group\.  
+1. In the navigation pane, under **Greengrass**, choose **Groups**, and then choose your group\.  
 ![\[AWS IoT Greengrass "Greengrass Groups" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-choose-group-console.png)
 
-1. In the left navigation page, choose **Resources**\. On the **Resources** page, choose the **Secret** tab, and then choose **Add a secret resource**\.  
+1. In the navigation page, choose **Resources**\.
+
+1.  On the **Resources** page, choose the **Secret** tab, and then choose **Add a secret resource**\.  
 ![\[AWS IoT Greengrass "Resources" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-add-secret-console.png)
 
 1. Choose **Select** and choose your secret from the list\.
@@ -66,10 +68,10 @@ In this procedure, you add your source authentication secrets to your IoT SiteWi
 
 1. Navigate to the [AWS IoT Greengrass console](https://console.aws.amazon.com/greengrass/)\.
 
-1. In the left navigation pane, under **Greengrass**, choose **Groups**, and then choose your group\.  
+1. In the navigation pane, under **Greengrass**, choose **Groups**, and then choose your group\.  
 ![\[AWS IoT Greengrass "Greengrass Groups" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-choose-group-console.png)
 
-1. In the left navigation page, choose **Connectors**\.
+1. In the navigation page, choose **Connectors**\.
 
 1. Choose the ellipsis icon for the **IoT SiteWise** connector to open the options menu, and then choose **Edit**\.  
 ![\[AWS IoT Greengrass "Connectors" page screenshot with "Edit" highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-edit-connector-console.png)

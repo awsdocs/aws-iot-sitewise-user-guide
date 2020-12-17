@@ -2,16 +2,19 @@
 
 If your asset has measurement properties, you can define the property aliases to map your data streams to those properties\. You can also set property aliases so that you can easily identify an asset property when you ingest or retrieve asset data\.
 
-This process requires that you know your property alias, such as `/company/windfarm/3/turbine/7/temperature`\.
+This process requires that you know your property alias\.
 + If you ingest data from OPC\-UA servers using a [gateway](gateways.md), your property alias is the path to a variable under the **Objects** node, starting with `/`\. For example, if the path to your variable is `company/windfarm/3/turbine/7/temperature`, then your property alias is `/company/windfarm/3/turbine/7/temperature`\. For more information about OPC\-UA information architecture, see [Information Model and Address Spacing mapping](https://reference.opcfoundation.org/Core/docs/Part8/A.4.2/) in the *OPC UA Online Reference*\.
 **Notes**  
 If you configure a data stream prefix for your OPC\-UA source, you must include that prefix in the property alias for all data streams from that source\. For example, if you use `/RentonWA` as a prefix, then the previous alias is `/RentonWA/company/windfarm/3/turbine/7/temperature`\.
 Property aliases can contain up to 1,000 bytes\. OPC\-UA variables paths can contain up to 4,096 bytes\. Currently, AWS IoT SiteWise doesn't support ingesting data from OPC\-UA variables with long paths\.
 + If you ingest data from other sources, such as using [AWS IoT rules](iot-rules.md) or the [API](ingest-api.md), you define your property aliases\. You can define a property alias naming system that is applicable to your device configuration\. For example, if you ingest data from AWS IoT things, you can include the thing name in property aliases to uniquely identify data streams\. For more information about this example, see the [Ingesting data from AWS IoT things](ingest-data-from-iot-things.md) tutorial\.
 
-**Note**  
-Property aliases must be unique within a Region and AWS account\. AWS IoT SiteWise returns an error if you set a property alias to one that already exists on another asset property\.  
+Property aliases must be unique within a Region and AWS account\. AWS IoT SiteWise returns an error if you set a property alias to one that already exists on another asset property\.
+
 If you have multiple OPC\-UA sources with identical data stream paths, you can add a prefix to each source's paths to form unique aliases\. For more information, see [Configuring data sources](configure-sources.md)\.
+
+**Note**  
+This section describes how to set property aliases for measurement properties\. For more information about how to set property aliases for external alarm state properties, see [Mapping external alarm state streams](connect-alarm-data-streams.md)\.
 
 **Topics**
 + [Setting a property alias \(console\)](#set-property-alias-console)

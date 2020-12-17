@@ -91,18 +91,18 @@ In the following procedure, you subscribe to the error topic in the MQTT test cl
 Use the following information to troubleshoot rule issues\.
 
 **Topics**
-+ [Error: Member must be within 900 seconds before and 300 seconds after the current timestamp](#rule-error-timestamp-out-of-range)
++ [Error: Member must be within 604800 seconds before and 300 seconds after the current timestamp](#rule-error-timestamp-out-of-range)
 + [Error: Property value does not match data type <type>](#rule-error-invalid-data-type)
 + [Error: User: <role\-arn> is not authorized to perform: iotsitewise:BatchPutAssetPropertyValue on resource](#rule-error-role-not-authorized)
 + [Error: iot\.amazonaws\.com is unable to perform: sts:AssumeRole on resource: <role\-arn>](#rule-error-unable-to-assume-role)
 + [Info: No requests were sent\. PutAssetPropertyValueEntries was empty after performing substitution templates\.](#rule-info-request-was-empty)
 
-### Error: Member must be within 900 seconds before and 300 seconds after the current timestamp<a name="rule-error-timestamp-out-of-range"></a>
+### Error: Member must be within 604800 seconds before and 300 seconds after the current timestamp<a name="rule-error-timestamp-out-of-range"></a>
 
-Your timestamp is older than 15 minutes or newer than 5 minutes, compared to current Unix epoch time\. Try the following:
+Your timestamp is older than 7 days or newer than 5 minutes, compared to current Unix epoch time\. Try the following:
 + Check that your timestamp is in Unix epoch \(UTC\) time\. If you provide a timestamp with a different timezone, you receive this error\.
 + Check that your timestamp is in seconds\. AWS IoT SiteWise expects timestamps split into time in seconds \(in Unix epoch time\) and offset in nanoseconds\.
-+ Check that you're uploading data that is timestamped no later than 15 minutes in the past\.
++ Check that you're uploading data that is timestamped no later than 7 days in the past\.
 
 ### Error: Property value does not match data type <type><a name="rule-error-invalid-data-type"></a>
 

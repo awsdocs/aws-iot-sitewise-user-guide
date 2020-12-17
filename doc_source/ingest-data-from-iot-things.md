@@ -393,6 +393,8 @@ In this procedure, you create a rule in AWS IoT Core that parses device shadow n
    1. In **Property alias**, enter **/tutorial/device/$\{topic\(3\)\}/cpu**\.
 
       The `${...}` syntax is a substitution template\. AWS IoT evaluates the contents within the braces\. This substitution template pulls the thing name from the topic to create an alias unique to each thing\. For more information, see [Substitution templates](https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html) in the *AWS IoT Developer Guide*\.
+**Note**  <a name="substitution-template-limitations"></a>
+Because an expression in a substitution template is evaluated separately from the `SELECT` statement, you can't use a substitution template to reference an alias created using an `AS` clause\. You can reference only information present in the original payload, in addition to supported functions and operators\.
 
    1. In **Entry ID**, enter **$\{concat\(topic\(3\), "\-cpu\-", floor\(state\.reported\.timestamp\)\)\}**\.
 

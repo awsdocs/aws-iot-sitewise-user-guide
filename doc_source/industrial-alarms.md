@@ -48,16 +48,16 @@ Industrial alarms include information about the state of the equipment or proces
 When you define an AWS IoT Events alarm, you specify whether or not to enable the *acknowledge flow*\. The acknowledge flow is enabled by default\. When you enable this option, operators can acknowledge the alarm and leave a note with details about the alarm or the actions they took to address it\. If an operator doesn't acknowledge an active alarm before it becomes inactive, the alarm becomes latched\. The latched state indicates that the alarm became active and wasn't acknowledged, so an operator needs to check on the equipment or process and acknowledge the latched alarm\.
 
 Alarms have the following states:
-+ **Normal** \(`NORMAL`\) – The alarm is enabled but inactive\. The industrial process or equipment operates as expected\.
-+ **Active** \(`ACTIVE`\) – The alarm is active\. The industrial process or equipment is outside its operating range and needs attention\.
-+ **Acknowledged** \(`ACKNOWLEDGED`\) – An operator acknowledged the state of the alarm\.
++ **Normal** \(`Normal`\) – The alarm is enabled but inactive\. The industrial process or equipment operates as expected\.
++ **Active** \(`Active`\) – The alarm is active\. The industrial process or equipment is outside its operating range and needs attention\.
++ **Acknowledged** \(`Acknowledged`\) – An operator acknowledged the state of the alarm\.
 
   This state applies to only alarms where you enable the acknowledge flow\.
-+ **Latched** \(`LATCHED`\) – The alarm returned to normal but was active and no operator acknowledged it\. The industrial process or equipment requires attention from an operator to reset the alarm to normal\.
++ **Latched** \(`Latched`\) – The alarm returned to normal but was active and no operator acknowledged it\. The industrial process or equipment requires attention from an operator to reset the alarm to normal\.
 
   This state applies to only alarms where you enable the acknowledge flow\.
-+ **Snoozed** \(`SNOOZE_DISABLED`\) – The alarm is disabled because an operator snoozed the alarm\. The operator defines the duration for which the alarm snoozes\. After that duration, the alarm returns to normal state\.
-+ **Disabled** \(`DISABLED`\) – The alarm is disabled and won't detect\.
++ **Snoozed** \(`SnoozeDisabled`\) – The alarm is disabled because an operator snoozed the alarm\. The operator defines the duration for which the alarm snoozes\. After that duration, the alarm returns to normal state\.
++ **Disabled** \(`Disabled`\) – The alarm is disabled and won't detect\.
 
 ## Alarm state properties<a name="alarm-state-properties"></a>
 
@@ -82,27 +82,27 @@ The name of the action that the operator takes to respond to the alarm\. This va
 + `RESET`
 Data type: `STRING`  
 `enable`  
-\(Optional\) An object that is present in `customerAction` when the operator enables the alarm\. When an operator enables the alarm, the alarm state changes to `NORMAL`\. This object contains the following information:    
+\(Optional\) An object that is present in `customerAction` when the operator enables the alarm\. When an operator enables the alarm, the alarm state changes to `Normal`\. This object contains the following information:    
 `note`  
 \(Optional\) The note that the customer leaves when they enable the alarm\.  
 Data type: `STRING`  
 Maximum length: 128 characters  
 `disable`  
-\(Optional\) An object that is present in `customerAction` when the operator disables the alarm\. When an operator enables the alarm, the alarm state changes to `DISABLED`\. This object contains the following information:    
+\(Optional\) An object that is present in `customerAction` when the operator disables the alarm\. When an operator enables the alarm, the alarm state changes to `Disabled`\. This object contains the following information:    
 `note`  
 \(Optional\) The note that the customer leaves when they disable the alarm\.  
 Data type: `STRING`  
 Maximum length: 128 characters  
 `acknowledge`  
-\(Optional\) An object that is present in `customerAction` when the operator acknowledges the alarm\. When an operator enables the alarm, the alarm state changes to `ACKNOWLEDGED`\. This object contains the following information:    
+\(Optional\) An object that is present in `customerAction` when the operator acknowledges the alarm\. When an operator enables the alarm, the alarm state changes to `Acknowledged`\. This object contains the following information:    
 `note`  
 \(Optional\) The note that the customer leaves when they acknowledge the alarm\.  
 Data type: `STRING`  
 Maximum length: 128 characters  
 `snooze`  
-\(Optional\) An object that is present in `customerAction` when the operator snoozes the alarm\. When an operator enables the alarm, the alarm state changes to `SNOOZE_DISABLED`\. This object contains the following information:    
+\(Optional\) An object that is present in `customerAction` when the operator snoozes the alarm\. When an operator enables the alarm, the alarm state changes to `SnoozeDisabled`\. This object contains the following information:    
 `snoozeDuration`  
-The duration in seconds that the operator snoozes the alarm\. The alarm changes to `NORMAL` state after this duration\.  
+The duration in seconds that the operator snoozes the alarm\. The alarm changes to `Normal` state after this duration\.  
 Data type: `INTEGER`  
 `note`  
 \(Optional\) The note that the customer leaves when they snooze the alarm\.  

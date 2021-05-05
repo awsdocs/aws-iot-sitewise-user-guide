@@ -69,4 +69,4 @@ Each structure in the list of `propertyValues` is a timestamp\-quality\-value \(
   + `BAD` – The data is affected by an issue such as sensor failure\.
   + `UNCERTAIN` – The data is affected by an issue such as sensor inaccuracy\.
 
-  For more information about how AWS IoT SiteWise handles data quality in computations, see [Data quality in formula expressions](formula-expressions.md#data-quality)\.
+  For more information about how AWS IoT SiteWise handles data quality in computations, see [Data quality in formula expressions](expression-tutorials.md#data-quality)\.

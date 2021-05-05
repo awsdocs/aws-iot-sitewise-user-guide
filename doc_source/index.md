@@ -1,7 +1,7 @@
 # AWS IoT SiteWise User Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -61,6 +61,19 @@ Amazon's trademarks and trade dress may not be used in
          + [Transforming data (transforms)](transforms.md)
          + [Aggregating data from properties and other assets (metrics)](metrics.md)
          + [Using formula expressions](formula-expressions.md)
+            + [Variables](expression-variables.md)
+            + [Literals](expression-literals.md)
+            + [Operators](expression-operators.md)
+            + [Constants](expression-constants.md)
+            + [Functions](expression-functions.md)
+               + [Common functions](expression-common-functions.md)
+               + [Comparison functions](expression-comparison-functions.md)
+               + [Conditional functions](expression-conditional-functions.md)
+               + [String functions](expression-string-functions.md)
+               + [Aggregation functions](expression-aggregation-functions.md)
+               + [Temporal functions](expression-temporal-functions.md)
+               + [Date and time functions](expression-date-and-time-functions.md)
+            + [Formula expression tutorials](expression-tutorials.md)
       + [Defining relationships between assets (hierarchies)](asset-hierarchies.md)
    + [Creating assets](create-assets.md)
    + [Mapping industrial data streams to asset properties](connect-data-streams.md)

@@ -147,8 +147,9 @@ AWS IoT SiteWise defines its own set of condition keys and also supports using s
 | iotsitewise:assetHierarchyPath |  The asset's hierarchy path, which is a string of asset IDs each separated by a forward slash\. Use this condition key to define permissions based on a subset of your hierarchy of all assets in your account\. Example value: `/a1b2c3d4-5678-90ab-cdef-22222EXAMPLE/a1b2c3d4-5678-90ab-cdef-66666EXAMPLE`  | String | 
 | iotsitewise:propertyId |  The ID of an asset property\. Use this condition key to define permissions based on a specified property of an asset model\. This condition key applies to all assets of that model\. Example value: `a1b2c3d4-5678-90ab-cdef-33333EXAMPLE`  | String | 
 | iotsitewise:childAssetId |  The ID of an asset being associated as a child to another asset\. Use this condition key to define permissions based on child assets\. To define permissions based on parent assets, use the resource section of a policy statement\. Example value: `a1b2c3d4-5678-90ab-cdef-66666EXAMPLE`  | String | 
-| iotsitewise:group |  The ID of an AWS SSO group when listing access policies\. Use this condition key to define access policy permissions for an AWS SSO group\. Example value: `a1b2c3d4e5-a1b2c3d4-5678-90ab-cdef-bbbbbEXAMPLE`  | String, Null | 
+| iotsitewise:iamArn |  The ARN of an IAM identity when listing access policies\. Use this condition key to define access policy permissions for an IAM identity\. Example value: `arn:aws:iam::123456789012:user/JohnDoe`  | String, Null | 
 | iotsitewise:user |  The ID of an AWS SSO user when listing access policies\. Use this condition key to define access policy permissions for an AWS SSO user\. Example value: `a1b2c3d4e5-a1b2c3d4-5678-90ab-cdef-aaaaaEXAMPLE`  | String, Null | 
+| iotsitewise:group |  The ID of an AWS SSO group when listing access policies\. Use this condition key to define access policy permissions for an AWS SSO group\. Example value: `a1b2c3d4e5-a1b2c3d4-5678-90ab-cdef-bbbbbEXAMPLE`  | String, Null | 
 | iotsitewise:portal |  The ID of a portal in an access policy\. Use this condition key to define access policy permissions based on a portal\. Example value: `a1b2c3d4-5678-90ab-cdef-77777EXAMPLE`  | String, Null | 
 | iotsitewise:project |  The ID of a project in an access policy, or the ID of a project for a dashboard\. Use this condition key to define dashboard or access policy permissions based on a project\. Example value: `a1b2c3d4-5678-90ab-cdef-88888EXAMPLE`  | String, Null | 
 
@@ -186,11 +187,16 @@ You can use temporary credentials to sign in with federation, assume an IAM role
 
 AWS IoT SiteWise supports using temporary credentials\.
 
-SiteWise Monitor supports federated users to access portals\. When a user signs in to a portal, SiteWise Monitor generates a session policy that provides the following permissions:
+SiteWise Monitor supports federated users to access portals\. Portal users authenticate with their AWS SSO or IAM credentials\.
+
+**Important**  <a name="iam-portal-user-permissions"></a>
+IAM users or roles must have the `iotsitewise:DescribePortal` permission to sign in to the portal\.
+
+When a user signs in to a portal, SiteWise Monitor generates a session policy that provides the following permissions:
 + Read\-only access to the assets and asset data in AWS IoT SiteWise in your account to which that portal's role provides access\.
 + Access to projects in that portal to which the user has administrator \(project owner\) or read\-only \(project viewer\) access\.
 
-For more information about federated portal user permissions, see [Using service\-linked roles for AWS IoT SiteWise](using-service-linked-roles.md)\.
+For more information about federated portal user permissions, see [Using service roles for AWS IoT SiteWise Monitor](monitor-service-role.md)\.
 
 ### Service\-linked roles<a name="security_iam_service-with-iam-roles-service-linked"></a>
 

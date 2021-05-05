@@ -1,7 +1,7 @@
 # Choosing a gateway platform<a name="choose-gateway-platform"></a>
 
 Choose an AWS IoT SiteWise gateway platform that best suits your industrial operation\. You can configure a gateway on any platform that can run AWS IoT Greengrass\. All gateway devices must meet the following requirements:
-+ Supports AWS IoT Greengrass Core software v1\.10\.2 or later\. For more information, see [Supported platforms and requirements](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html#gg-platforms) in the *AWS IoT Greengrass Developer Guide*\.
++ Supports AWS IoT Greengrass Core software v1\.10\.2 or later\. For more information, see [Supported platforms and requirements](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html#gg-platforms) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 + Has at least 1 GB of RAM\.
 **Note**  
 If you plan to process data at the edge with AWS IoT SiteWise, your device must meet more requirements\. For more information, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.

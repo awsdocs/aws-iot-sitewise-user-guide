@@ -15,14 +15,17 @@ The following tables describe quotas in AWS IoT SiteWise\. For more information 
 | Depth of asset hierarchy tree | 10 | Yes |  | 
 | Number of asset hierarchy definitions per asset model | 10 | No |  | 
 | Number of properties per asset model | 200 | Yes |  | 
-| Number of property variables per property formula expression | 10 | No |  | 
-| Number of functions per property formula expression | 10 | No |  | 
-| Depth of property tree per asset model | 10 | No | For example, a model with a transform property C that consumes a transform property B that consumes a measurement property A has a depth of 3\. | 
+| Number of property variables per property formula expression | 10 | Yes |  | 
+| Number of functions per property formula expression | 10 | Yes |  | 
+| Depth of property tree per asset model | 10 | Yes | For example, a model with a transform property C that consumes a transform property B that consumes a measurement property A has a depth of 3\. | 
 | Number of asset models per hierarchy tree | 20 | Yes |  | 
-| Number of directly dependent properties per asset model | 20 | No | This quota limits how many properties can directly depend on a single property, as defined in property formula expressions\. | 
-| Number of dependent properties per asset model | 30 | No | This quota limits how many properties can directly or indirectly depend on a single property, as defined in property formula expressions\. | 
+| Number of directly dependent properties per asset model | 20 | Yes | This quota limits how many properties can directly depend on a single property, as defined in property formula expressions\. | 
+| Number of dependent properties per asset model | 30 | Yes | This quota limits how many properties can directly or indirectly depend on a single property, as defined in property formula expressions\. | 
 | Request rate for model API operations and logging options | 10 requests per second per Region per AWS account | Yes | This quota applies to API operations such as CreateAssetModel and logging options\. | 
 | Request rate for asset API operations | 30 requests per second per Region per AWS account | Yes | This quota applies to API operations such as CreateAsset and AssociateAssets\. | 
+| Rate of GetInterpolatedAssetPropertyValues requests | 500 | Yes | The maximum number of GetInterpolatedAssetPropertyValues requests per second that you can perform in this account in the current Region\. | 
+| Number of results per GetInterpolatedAssetPropertyValues request | 10 | Yes | The maximum number of results to return per paginated GetInterpolatedAssetPropertyValues request\. | 
+| Number of days between the start date in the past and today for GetInterpolatedAssetPropertyValues | 28 | Yes | The maximum number of days between the start date and today\. This quota applies to the startTimeInSeconds parameter when you specify a start date in the past for GetInterpolatedAssetPropertyValues requests\. | 
 
 
 **Quotas for asset property data**  

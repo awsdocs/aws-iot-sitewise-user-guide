@@ -32,7 +32,20 @@ The following image illustrates how these four roles interact in the SiteWise Mo
 
 <a name="monitor-roles-diagram"></a>![\[AWS IoT SiteWise Monitor roles and what they do.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/monitor-roles.png)
 
-<a name="manage-access-with-sso-para"></a>You can manage who has access to your data by using AWS Single Sign\-On\. Your portal users don't need to access your AWS account\. They can sign in to SiteWise Monitor from a desktop or mobile browser using their corporate credentials or AWS SSO user credentials\.
+<a name="manage-access-para"></a>You can manage who has access to your data by using AWS Single Sign\-On or IAM\. Your data users can sign in to SiteWise Monitor from a desktop or mobile browser using their AWS SSO or IAM credentials\.
+
+### SAML federation<a name="saml-federation-to-portal"></a>
+
+AWS SSO and IAM support identity federation with [SAML \(Security Assertion Markup Language\) 2\.0](https://wiki.oasis-open.org/security)\. SAML 2\.0 is an open standard that many external identity providers \(IdPs\) use to authenticate users and pass their identity and security information to service providers \(SPs\)\. SPs are typically applications or services\. SAML federation enables your SiteWise Monitor portal administrators and users to sign in to their assigned portals with external credentials, such as their corporate usernames and passwords\.
+
+You can configure AWS SSO and IAM to use SAML\-based federation for access to your SiteWise Monitor portals\.
+
+AWS SSO  
+Your portal administrators and users can sign in to the AWS SSO user portal with their corporate usernames and passwords\. They can then navigate to their assigned SiteWise Monitor portals\. AWS SSO uses certificates to set up a SAML trust relationship between your identity provider and AWS\. For more information, [SCIM profile and SAML 2\.0 implementation](https://docs.aws.amazon.com/singlesignon/latest/userguide/scim-profile-saml.html) in the *AWS Single Sign\-On User Guide*\.
+
+IAM  
+Your portal administrators and users can request temporary security credentials to access their assigned SiteWise Monitor portals\. You create a SAML identity provider identity in IAM to set up a trust relationship between your identity provider and AWS\. For more information, see [Using SAML\-based federation for API access to AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html#CreatingSAML-configuring), in the *IAM User Guide*\.   
+Your portal administrators and users can sign in to your company's portal and select the option to go to the AWS Management console\. They can then navigate to their assigned SiteWise Monitor portals\. Your company's portal handles the exchange of trust between your identity provider and AWS\. For more information, see [Enabling SAML 2\.0 federated users to access the AWS Management Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html) in the *IAM User Guide*\.
 
 ## SiteWise Monitor concepts<a name="monitor-concepts"></a>
 

@@ -13,14 +13,14 @@ Alarm state properties require a specific format for alarm state data values\. E
 
 ```
 {
-  "stateName": "ACTIVE"
+  "stateName": "Active"
 }
 ```
 
 **Example alarm state data value \(serialized\)**  
 
 ```
-{\"stateName\":\"ACTIVE\"}
+{\"stateName\":\"Active\"}
 ```
 
 **Note**  

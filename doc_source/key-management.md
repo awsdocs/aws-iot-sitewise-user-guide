@@ -39,4 +39,4 @@ This opens the AWS KMS dashboard\. For more information about creating a CMK, se
 
 ## AWS IoT Greengrass gateway key management<a name="key-gateway-gg"></a>
 
- AWS IoT SiteWise gateways run on AWS IoT Greengrass, and AWS IoT Greengrass core devices use public and private keys to authenticate with the AWS Cloud and encrypt local secrets, such as OPC\-UA authentication secrets\. For more information, see [Key management](https://docs.aws.amazon.com/greengrass/latest/developerguide/key-management.html) in the *AWS IoT Greengrass Developer Guide*\. 
+ AWS IoT SiteWise gateways run on AWS IoT Greengrass, and AWS IoT Greengrass core devices use public and private keys to authenticate with the AWS Cloud and encrypt local secrets, such as OPC\-UA authentication secrets\. For more information, see [Key management](https://docs.aws.amazon.com/greengrass/latest/developerguide/key-management.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\. 

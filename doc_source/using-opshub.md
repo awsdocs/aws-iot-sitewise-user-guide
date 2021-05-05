@@ -1,6 +1,6 @@
 # Monitor data at the edge<a name="using-opshub"></a>
 
-You can use SiteWise Monitor at the edge to monitor your industrial assets at the edge\. SiteWise Monitor integrates with the gateway to provide visualization of measurements, transforms, and metrics\. 
+You can use SiteWise Monitor to monitor your industrial assets at the edge\. SiteWise Monitor integrates with the gateway to provide visualization of measurements, transforms, and metrics\. 
 
 **Note**  
 Currently, this feature doesn't support alarms\.
@@ -11,7 +11,7 @@ Complete the following steps to access SiteWise Monitor at the edge\.
 
 **To access SiteWise Monitor at the edge**
 
-1.  Download and install the [OpsHub for AWS IoT SiteWise application]( https://aws-iot-sitewise.s3.amazonaws.com/gateway/OpsHub+for+AWS+IoT+SiteWise.exe) on your host device\. Follow the provided instructions for installation\. This is your local gateway application\. 
+1.  Download and install the [OpsHub for AWS IoT SiteWise application](https://aws-iot-sitewise.s3.amazonaws.com/gateway/OpsHub+for+AWS+IoT+SiteWise.exe) on your host device\. Follow the provided instructions for installation\. This is your local gateway application\. 
 
 1. Generate your server certificate and gateway password\. On your gateway terminal, run the following command\.
 
@@ -19,7 +19,7 @@ Complete the following steps to access SiteWise Monitor at the edge\.
    sudo path-to-sitewise-edge-directory/credentials/create-credentials.sh
    ```
 
-   When prompted, enter a password that meets the minimum password requirements\.
+1. When prompted, enter a password that meets the minimum password requirements\.
 
    ```
    my-machine % ./create-credentials.sh 
@@ -73,7 +73,3 @@ Securely store your password and credentials\. You use these with Sitewise Edge 
    1. For **SiteWise gateway address**, enter the IP address of your gateway\.
 
    Choose **Connect** to connect to your gateway\. You can now use the local gateway application to visualize your local edge\-configured data with AWS IoT SiteWise\.
-
-## Troubleshooting gateway connectivity<a name="gateway-issue-edge-monitoring"></a>
-
- For detailed information about troubleshooting edge monitoring, see [Troubleshooting](https://aws-iot-sitewise.s3.amazonaws.com/docs/SiteWise+Edge+Troubleshooting+Guide.pdf)\. 

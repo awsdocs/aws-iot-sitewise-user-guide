@@ -1,14 +1,23 @@
 # Setting up edge capability<a name="using-sitewise-edge"></a>
 
+
+|  | 
+| --- |
+|  Processing at the edge is in preview release for AWS IoT SiteWise and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\. While the edge processing feature is in preview, you must download the edge processing preview AWS SDK and AWS CLI to use the API operations for this feature\. These API operations aren't available in the public AWS SDK or AWS CLI\. For more information, see [Edge processing preview AWS CLI and AWS SDKs](edge-preview-sdks.md)\.  | 
+
 To use edge processing, you must configure your AWS IoT SiteWise gateway and asset model for the edge\. Your gateway ingests data from your source server, and sends that data to the destination of your choice\. Your asset model controls specifies where your assets are stored and computed\. 
 
 **Note**  
 Before you begin, make sure that you meet the [Edge processing prerequisites](edge-setup.md)\.
 
 You must complete the following steps to use edge processing\. You don't need to complete these steps in order, because AWS IoT SiteWise automatically syncs your the AWS Cloud with your gateway for you every 10 minutes\.
+
+For more information about getting started with edge processing, see [Introducing AWS IoT SiteWise](https://aws-blogs-prod.amazon.com/iot/introducing-aws-iot-sitewise-edge/) in the AWS official blog\.
 +  **Add the data processing pack to your gateway** – Add the data processing pack so that your gateway can communicate with all asset models that you configured for the edge\. You add this pack when you add your gateway to AWS IoT SiteWise, or when you edit an existing gateway\. For more information about your AWS IoT SiteWise gateway, see [Ingesting data using a gateway](gateways.md)\. 
 
   After you add the data processing pack to your gateway, you must configure and add the AWS IoT SiteWise Data Processor connector to your AWS IoT Greengrass group\. For more information about adding the AWS IoT SiteWise Data Processor connector to your AWS IoT Greengrass group, see [the configuration step](configure-gateway.md#setup-swe-connector) in [Adding the gateway to AWS IoT SiteWise](configure-gateway.md#add-gateway)\. 
+**Note**  
+You need v9 of the data collection pack to use the data processing pack on your gateway\.
 + **Configure your source destination to AWS IoT SiteWise** – This specifies where your gateway source sends your data\. You configure this when you add a source to your gateway, or when you edit an existing source\. To process data at the edge, you must choose AWS IoT SiteWise as your source destination\. For more information about source destinations, see [Choosing a destination for your source server data](source-destination.md)\. 
 + **Configure your asset model for the edge** – Your asset model edge configuration specifies where your assets properties are computed\. You can compute all properties at the edge, or you can configure your asset model properties separately\.
 

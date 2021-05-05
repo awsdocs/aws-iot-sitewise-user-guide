@@ -19,7 +19,7 @@ The AWS IoT SiteWise Edge connector stores secrets on your file system\. These s
 
 ## Encrypt your gateway's file system<a name="security-best-practices-gateway-encryption"></a>
 
-Encrypt and secure your gateway, so your industrial data is secure as it moves through the gateway\. If your gateway has a hardware security module, you can configure AWS IoT Greengrass to secure your gateway\. For more information, see [Hardware security integration](https://docs.aws.amazon.com/greengrass/latest/developerguide/hardware-security.html) in the *AWS IoT Greengrass Developer Guide*\. Otherwise, consult the documentation for your operating system to learn how to encrypt and secure your file system\.
+Encrypt and secure your gateway, so your industrial data is secure as it moves through the gateway\. If your gateway has a hardware security module, you can configure AWS IoT Greengrass to secure your gateway\. For more information, see [Hardware security integration](https://docs.aws.amazon.com/greengrass/latest/developerguide/hardware-security.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\. Otherwise, consult the documentation for your operating system to learn how to encrypt and secure your file system\.
 
 ## Secure access to your edge configuration<a name="security-best-practices-edge-access-control"></a>
 
@@ -27,10 +27,10 @@ Don't share your edge console application password or your SiteWise Monitor appl
 
 ## Grant SiteWise Monitor users minimum possible permissions<a name="security-best-practices-minimum-monitor-permissions"></a>
 
-Follow the principle of least privilege by using the minimum set of access policy permissions for your AWS SSO users and groups\.
+Follow the principle of least privilege by using the minimum set of access policy permissions for your portal users\.
 + When you create a portal, define a role that allows the minimum set of assets needed for that portal\. For more information, see [Using service roles for AWS IoT SiteWise Monitor](monitor-service-role.md)\.
 + When you and your portal administrators create and share projects, use the minimum set of assets needed for that project\.
-+ When a user or group no longer needs access to a portal or project, remove them from that resource\. If that user or group is no longer applicable to your organization, delete that user or group from your identity store\.
++ When an identity no longer needs access to a portal or project, remove them from that resource\. If that identity is no longer applicable to your organization, delete that identity from your identity store\.
 
 The least principle best practice also applies to IAM roles\. For more information, see [Policy best practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices)\.
 
@@ -43,7 +43,7 @@ You should prevent the logging of credentials and other sensitive information, s
 
 ## Follow AWS IoT Greengrass security best practices<a name="security-best-practices-greengrass-guidelines"></a>
 
-Follow AWS IoT Greengrass security best practices for your gateway\. For more information, see [Security best practices](https://docs.aws.amazon.com/greengrass/latest/developerguide/security-best-practices.html) in the *AWS IoT Greengrass Developer Guide*\.
+Follow AWS IoT Greengrass security best practices for your gateway\. For more information, see [Security best practices](https://docs.aws.amazon.com/greengrass/latest/developerguide/security-best-practices.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 ## See also<a name="security-best-practices-see-also"></a>
 + [Security best practices](https://docs.aws.amazon.com/iot/latest/developerguide/security-best-practices.html) in the *AWS IoT Developer Guide*

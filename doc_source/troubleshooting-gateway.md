@@ -22,7 +22,6 @@ Use the following information to troubleshoot gateway issues\.
 **Topics**
 + [Unable to connect to stream manager](#gateway-issue-stream-manager)
 + [AWS IoT SiteWise doesn't receive data from OPC\-UA servers](#gateway-issue-data-streams)
-+ [The gateway fails to publish data after you restore lost power or connectivity](#gateway-issue-after-downtime)
 
 ### Unable to connect to stream manager<a name="gateway-issue-stream-manager"></a>
 
@@ -50,45 +49,8 @@ Based on the type of *SomeException* in the log, use the following exception typ
     If you already mapped all of the OPC\-UA variables that you want in AWS IoT SiteWise, you can filter which OPC\-UA variables the gateway sends\. For more information, see [Using OPC\-UA node filters](opc-ua-node-filters.md)\.
 + **AccessDeniedException** – Your gateway's AWS IoT Greengrass group doesn't have sufficient permissions to use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation to send data to asset properties\. For more information, see the [AWS IoT SiteWise connector requirements](https://docs.aws.amazon.com/greengrass/latest/developerguide/iot-sitewise-connector.html#iot-sitewise-connector-req)\.
 + **InvalidRequestException** – Your OPC\-UA variables data types don't match your asset property data types\. For example, if an OPC\-UA variable has an integer data type, your corresponding asset property must be integer data type\. A double\-type asset property can't receive OPC\-UA integer values\. To fix this issue, define new properties with the correct data types\.
-+ **TimestampOutOfRangeException** – Your gateway is sending data that is outside the range that AWS IoT SiteWise accepts\. AWS IoT SiteWise rejects any data points with timestamps earlier than 7 days in the past or newer than 5 minutes in the future\. If your gateway lost power or connection to the AWS Cloud, you might need to clear your gateway's cache\. For more information, see [The gateway fails to publish data after you restore lost power or connectivity](#gateway-issue-after-downtime)\.
++ **TimestampOutOfRangeException** – Your gateway is sending data that is outside the range that AWS IoT SiteWise accepts\. AWS IoT SiteWise rejects any data points with timestamps earlier than 7 days in the past or newer than 5 minutes in the future\. If your gateway lost power or connection to the AWS Cloud, you might need to clear your gateway's cache\. 
 + **ThrottlingException** or **LimitExceededException** – Your request exceeded an AWS IoT SiteWise service quota, such as rate of data points ingested or request rate for asset property data API operations\. Check that your configuration doesn't exceed the [AWS IoT SiteWise quotas](quotas.md)\.
-
-### The gateway fails to publish data after you restore lost power or connectivity<a name="gateway-issue-after-downtime"></a>
-
-If your gateway loses power or connection to the AWS Cloud for an extended period of time, your gateway might fail to send data to AWS IoT SiteWise after it reconnects\. After the gateway's power and connection restore, the gateway attempts to publish cached data\. AWS IoT SiteWise rejects data points with timestamps earlier than 7 days in the past, so if the cached data is earlier than the accepted range, the gateway fails to publish the cached data\. You can identify this issue by `TimestampOutOfRangeException` messages in your gateway's `swPublisher` logs\. For more information about the accepted range of timestamps, see the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation\.
-
-When this issue occurs, you can clear the cache to stop the gateway from sending messages with old timestamps\.
-
-**Warning**  
-When you clear the gateway's cache, you permanently delete all unpublished data from your gateway\. Your gateway doesn't receive new data while you complete the steps to clear the cache\.
-
-**To clear a gateway's cache**
-
-1. On the gateway, run the following command to stop the AWS IoT Greengrass daemon\. Replace *greengrass\-root* with the root of your AWS IoT Greengrass installation\. The default *greengrass\-root* is `/greengrass`\.
-
-   ```
-   sudo /greengrass-root/ggc/core/greengrassd stop
-   ```
-
-1. Run the following command to delete the message checkpoint database\. Replace *sitewise\-root* with the local storage path for your AWS IoT SiteWise configuration\. The default *sitewise\-root* is `/var/sitewise`\.
-
-   ```
-   sudo rm /sitewise-root/checkpoint.db
-   ```
-
-1. Run the following command to clear the stream manager buffer\.
-
-   ```
-   sudo rm /greengrass-root/ggc/var/state/stream_manager/SiteWise_Stream
-   ```
-
-1. Run the following command to start the AWS IoT Greengrass daemon\.
-
-   ```
-   sudo /greengrass-root/ggc/core/greengrassd start
-   ```
-
-   The time to restart your gateway depends on the number of tags on your gateway's sources\. Restart time can range from a few seconds \(for a gateway with few tags\) to several minutes \(for a gateway with many tags\)\.
 
 ## Troubleshooting AWS IoT Greengrass issues<a name="troubleshoot-greengrass-issues"></a>
 

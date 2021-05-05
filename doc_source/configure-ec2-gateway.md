@@ -17,7 +17,7 @@ You will be charged for the resources that this AWS CloudFormation template crea
 
 To create gateway dependencies on Amazon EC2 from this stack template, you need the following:
 + The AWS IoT SiteWise service\-linked role in your AWS account\. This role creates automatically when you use the AWS IoT SiteWise console\. For more information, see [Using service\-linked roles for AWS IoT SiteWise](using-service-linked-roles.md)\.
-+ An AWS IoT Greengrass service role attached to your AWS account in the Region where you create this stack\. For more information, see [AWS IoT Greengrass service role](https://docs.aws.amazon.com/greengrass/latest/developerguide/service-role.html) in the *AWS IoT Greengrass Developer Guide*\.
++ An AWS IoT Greengrass service role attached to your AWS account in the Region where you create this stack\. For more information, see [AWS IoT Greengrass service role](https://docs.aws.amazon.com/greengrass/latest/developerguide/service-role.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 ## Creating the AWS CloudFormation stack<a name="create-ec2-gateway-stack"></a>
 

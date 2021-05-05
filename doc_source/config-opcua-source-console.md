@@ -62,7 +62,7 @@ You must choose AWS IoT SiteWise as your source destination if you want to proce
    1. For **Greengrass stream name**, enter the exact name of your AWS IoT Greengrass stream\.
 **Note**  
  You can use a stream that you've already created, or you can create a new AWS IoT Greengrass stream to export your data\. If you want to use an existing stream, you must enter the exact name of the stream or a new stream will be created\.   
-For more information about working with AWS IoT Greengrass streams, see [Manage data streams](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-manager.html) in the *AWS IoT Greengrass Developer Guide*\.
+For more information about working with AWS IoT Greengrass streams, see [Manage data streams](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-manager.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 1. Choose **Add source**\.
 

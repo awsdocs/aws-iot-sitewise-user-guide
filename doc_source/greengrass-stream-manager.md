@@ -7,7 +7,7 @@ To ingest data from OPC\-UA, Modbus TCP, and Ethernet/IP sources, you can config
 
 For more information about how to configure a destination for local source data, see [Configuring data sources](configure-sources.md)\.
 
-For more information about how to ingest data using stream manager in a custom AWS IoT Greengrass solution, see the following topics in the *AWS IoT Greengrass Developer Guide*:
+For more information about how to ingest data using stream manager in a custom AWS IoT Greengrass solution, see the following topics in the *AWS IoT Greengrass Version 1 Developer Guide*:
 + [What is AWS IoT Greengrass?](https://docs.aws.amazon.com/greengrass/latest/developerguide/)
 + [Manage data streams on the AWS IoT Greengrass core](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-manager.html)
 + [Exporting data to AWS IoT SiteWise asset properties](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-export-configurations.html#export-to-iot-sitewise)

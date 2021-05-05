@@ -3,7 +3,7 @@
 Alarm state properties expect alarm state as a serialized JSON string\. To ingest alarm state to an external alarm in AWS IoT SiteWise, you ingest this serialized string as a timestamped string value\. The following example demonstrates a state data value for an active alarm\.
 
 ```
-{\"stateName\":\"ACTIVE\"}
+{\"stateName\":\"Active\"}
 ```
 
 To identify an alarm state property, you can specify one of the following:
@@ -23,7 +23,7 @@ The following example [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/i
       "propertyValues": [
         {
           "value": {
-            "stringValue": "{\"stateName\":\"ACTIVE\"}"
+            "stringValue": "{\"stateName\":\"Active\"}"
           },
           "timestamp": {
             "timeInSeconds": 1607550262

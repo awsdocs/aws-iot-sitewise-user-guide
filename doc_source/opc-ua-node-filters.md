@@ -20,17 +20,17 @@ If you configure a source with a broad filter and then later change the source t
 
 **Example scenario using node filters**  
 Consider the following hypothetical data streams:  
-+ `/WA/Factory 1/Line 1/PCL1`
-+ `/WA/Factory 1/Line 1/PCL2`
++ `/WA/Factory 1/Line 1/PLC1`
++ `/WA/Factory 1/Line 1/PLC2`
 + `/WA/Factory 1/Line 2/Counter1`
-+ `/WA/Factory 1/Line 2/PCL1`
-+ `/OR/Factory 1/Line 1/PCL1`
++ `/WA/Factory 1/Line 2/PLC1`
++ `/OR/Factory 1/Line 1/PLC1`
 + `/OR/Factory 1/Line 2/Counter2`
 Using the previous data streams, you can define node filters to limit what data to include from your OPC\-UA source\.  
 
 1. To select all nodes in the state of Washington, use `/WA/`\.
 
-1. To select all `PCL` data streams, use `/*/*/*/PCL*` or `/**/PCL*`\. You can include multiple directories or folders with the `**` wildcard characters\.
+1. To select all `PLC` data streams, use `/*/*/*/PLC*` or `/**/PLC*`\. You can include multiple directories or folders with the `**` wildcard characters\.
 
 1. To select all counters in the state of Washington, use `/WA/**/Counter*`\.
 

@@ -181,7 +181,7 @@ To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in
 1. Under **Select type of trusted entity**, choose **AWS service**\. Under **Choose the service that will use the role**, choose **Greengrass** as the service that will use the role, and then choose **Next: Permissions**\.  
 ![\[IAM "Select type of trusted entity" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-choose-role-service-console.png)
 
-1. Search for the policy that you created \(*SiteWiseDemo*\), select the check box, and then choose **Next: Tags**\.  
+1. Search for the policy that you created, select the check box, and then choose **Next: Tags**\.  
 ![\[IAM "Attach permissions policies" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-choose-role-policy-console.png)
 
 1. \(Optional\) Add tags to your role, and then choose **Next: Review**\.
@@ -229,7 +229,7 @@ To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in
 
 1. On the **Settings** page, in the **Stream manager** section, choose **Edit**\.
 
-   Stream manager is a feature of AWS IoT Greengrass that enables your AWS IoT Greengrass Core to stream data to the AWS Cloud\. AWS IoT SiteWise gateways require that stream manager is enabled\. For more information, see [Manage data streams on the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-manager.html) in the *AWS IoT Greengrass Developer Guide*\.  
+   Stream manager is a feature of AWS IoT Greengrass that enables your AWS IoT Greengrass Core to stream data to the AWS Cloud\. AWS IoT SiteWise gateways require that stream manager is enabled\. For more information, see [Manage data streams on the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-manager.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.  
 ![\[AWS IoT Greengrass "Stream manager" section screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-edit-stream-manager-console.png)
 
 1. Choose **Enable**, and then choose **Save**\.
@@ -238,7 +238,7 @@ To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in
 
 ## Configuring the AWS IoT SiteWise connector<a name="setup-connector"></a>
 
-In this procedure, you configure the AWS IoT SiteWise connector on your Greengrass group\. Connectors are prebuilt modules that accelerate the development lifecycle for common edge scenarios\. For more information, see [AWS IoT Greengrass connectors](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors.html) in the *AWS IoT Greengrass Developer Guide*\.
+In this procedure, you configure the AWS IoT SiteWise connector on your Greengrass group\. Connectors are prebuilt modules that accelerate the development lifecycle for common edge scenarios\. For more information, see [AWS IoT Greengrass connectors](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 **To configure the AWS IoT SiteWise connector**
 

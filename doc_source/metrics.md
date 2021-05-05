@@ -4,7 +4,7 @@ Metrics are mathematical expressions that use aggregation functions to process a
 
 Metrics can input data from associated assets' metrics, so you can calculate statistics that provide insight to your operation or a subset of your operation\. For example, a metric can calculate the average hourly temperature across all wind turbines in a wind farm\. For more information about how to define associations between assets, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
 
-Metrics can also input data from other properties without aggregating data over each time interval\. If you specify an [attribute](attributes.md) in a formula, AWS IoT SiteWise uses the [latest](formula-expressions.md#latest-definition) value for that attribute when it computes the formula\. If you specify a metric in a formula, AWS IoT SiteWise uses the [last](formula-expressions.md#last-definition) value for the time interval over which it computes the formula\. This means you can define metrics like `OEE = Availability * Quality * Performance`, where `Availability`, `Quality`, and `Performance` are all other metrics on the same asset model\.
+Metrics can also input data from other properties without aggregating data over each time interval\. If you specify an [attribute](attributes.md) in a formula, AWS IoT SiteWise uses the [latest](expression-temporal-functions.md#latest-definition) value for that attribute when it computes the formula\. If you specify a metric in a formula, AWS IoT SiteWise uses the [last](expression-temporal-functions.md#last-definition) value for the time interval over which it computes the formula\. This means you can define metrics like `OEE = Availability * Quality * Performance`, where `Availability`, `Quality`, and `Performance` are all other metrics on the same asset model\.
 
 AWS IoT SiteWise also automatically computes a set of basic aggregation metrics for all asset properties\. To reduce computation costs, you can use these aggregates instead of defining custom metrics for basic computations\. For more information, see [Querying asset property aggregates](query-industrial-data.md#aggregates)\.
 
@@ -16,11 +16,11 @@ AWS IoT SiteWise also automatically computes a set of basic aggregation metrics 
 
 When you define a metric for an asset model in the AWS IoT SiteWise console, you specify the following parameters:
 + <a name="asset-property-name-console"></a>**Name** – The property's name\.
-+ **Formula** – The metric expression\. Metric expressions can use [aggregation functions](formula-expressions.md#expression-aggregation-functions) to input data from a property for all associated assets in a hierarchy\. Start typing or press the down arrow key to open the autocomplete feature\. For more information, see [Using formula expressions](formula-expressions.md)\.
++ **Formula** – The metric expression\. Metric expressions can use [aggregation functions](expression-aggregation-functions.md) to input data from a property for all associated assets in a hierarchy\. Start typing or press the down arrow key to open the autocomplete feature\. For more information, see [Using formula expressions](formula-expressions.md)\.
 **Important**  <a name="metric-input-rules"></a>
 Metrics can only properties that are integer, double, Boolean, or string type\. Booleans convert to `0` \(false\) and `1` \(true\)\.  
 If you define any metric input variables in a metric's expression, those inputs must have the same time interval as the output metric\.  
-<a name="formula-output-rules"></a>Formula expressions can only output double values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number\. You can use the [jp function](formula-expressions.md#jp-definition) to convert a string to a number\. If you define a formula that computes a non\-numeric value, AWS IoT SiteWise doesn't output a data point for that computation\. For more information, see [Undefined, infinite, and overflow values](formula-expressions.md#undefined-values)\.
+<a name="formula-output-rules"></a>Formula expressions can only output double values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number\. You can use the [jp function](expression-string-functions.md#jp-definition) to convert a string to a number\. If you define a formula that computes a non\-numeric value, AWS IoT SiteWise doesn't output a data point for that computation\. For more information, see [Undefined, infinite, and overflow values](expression-tutorials.md#undefined-values)\.
 + **Time interval** – The metric time interval\. <a name="metric-window-info"></a>AWS IoT SiteWise supports the following tumbling window time intervals, where each interval starts when the previous one ends:
   + **1 minute** – <a name="metric-window-1m"></a>1 minute, computed at the end of each minute \(12:00:00 AM, 12:01:00 AM, 12:02:00 AM, and so on\)\.
   + **5 minutes** – <a name="metric-window-5m"></a>5 minutes, computed at the end of every five minutes starting on the hour \(12:00:00 AM, 12:05:00 AM, 12:10:00 AM, and so on\)\.
@@ -28,6 +28,7 @@ If you define any metric input variables in a metric's expression, those inputs 
   + **1 hour** – <a name="metric-window-1h"></a>1 hour \(60 minutes\), computed at the end of every hour in UTC \(12:00:00 AM, 01:00:00 AM, 02:00:00 AM, and so on\)\.
   + **1 day** – <a name="metric-window-1d"></a>1 day \(24 hours\), computed at the end of every day in UTC \(12:00:00 AM Monday, 12:00:00 AM Tuesday, and so on\)\.
   + **1 week** – <a name="metric-window-1w"></a>1 week \(7 days\), computed at the end of every Sunday in UTC \(every 12:00:00 AM Monday\)\.
++ **Data type** – The data type of the transform, which can be **Double** or **String**\.
 
 For more information, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\.
 
@@ -45,8 +46,8 @@ The following example demonstrates a metric property that aggregates multiple wi
 
 When you define a metric for an asset model with the AWS IoT SiteWise API, you specify the following parameters:
 + <a name="asset-property-name-cli"></a>`name` – The property's name\.
-+ `dataType` – The data type of the metric, which must be `DOUBLE`\.
-+ `expression` – The metric expression\. Metric expressions can use [aggregation functions](formula-expressions.md#expression-aggregation-functions) to input data from a property for all associated assets in a hierarchy\. For more information, see [Using formula expressions](formula-expressions.md)\.
++ `dataType` – The data type of the metric, which can be `DOUBLE` or `STRING`\.
++ `expression` – The metric expression\. Metric expressions can use [aggregation functions](expression-aggregation-functions.md) to input data from a property for all associated assets in a hierarchy\. For more information, see [Using formula expressions](formula-expressions.md)\.
 + `window` – The time interval for the metric's tumbling window\. <a name="metric-window-info"></a>AWS IoT SiteWise supports the following tumbling window time intervals, where each interval starts when the previous one ends:
   + `1m` – <a name="metric-window-1m"></a>1 minute, computed at the end of each minute \(12:00:00 AM, 12:01:00 AM, 12:02:00 AM, and so on\)\.
   + `5m` – <a name="metric-window-5m"></a>5 minutes, computed at the end of every five minutes starting on the hour \(12:00:00 AM, 12:05:00 AM, 12:10:00 AM, and so on\)\.
@@ -60,7 +61,7 @@ When you define a metric for an asset model with the AWS IoT SiteWise API, you s
 **Important**  <a name="metric-input-rules"></a>
 Metrics can only properties that are integer, double, Boolean, or string type\. Booleans convert to `0` \(false\) and `1` \(true\)\.  
 If you define any metric input variables in a metric's expression, those inputs must have the same time interval as the output metric\.  
-<a name="formula-output-rules"></a>Formula expressions can only output double values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number\. You can use the [jp function](formula-expressions.md#jp-definition) to convert a string to a number\. If you define a formula that computes a non\-numeric value, AWS IoT SiteWise doesn't output a data point for that computation\. For more information, see [Undefined, infinite, and overflow values](formula-expressions.md#undefined-values)\.
+<a name="formula-output-rules"></a>Formula expressions can only output double values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number\. You can use the [jp function](expression-string-functions.md#jp-definition) to convert a string to a number\. If you define a formula that computes a non\-numeric value, AWS IoT SiteWise doesn't output a data point for that computation\. For more information, see [Undefined, infinite, and overflow values](expression-tutorials.md#undefined-values)\.
 + <a name="asset-property-unit-cli"></a>`unit` – \(Optional\) The scientific unit for the property, such as mm or Celsius\.
 
 **Example metric definition**  

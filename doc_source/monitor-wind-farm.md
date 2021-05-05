@@ -9,7 +9,7 @@ You, and your users with sufficient permissions, can create dashboards in each p
 In this tutorial, you build on the AWS IoT SiteWise demo that provides a sample set of data for a wind farm\. You configure a portal in SiteWise Monitor and create a project and dashboards to visualize the wind farm data\. You also create additional users and then give them permissions to own or view the project and its dashboards\.
 
 **Note**  
-When you use SiteWise Monitor, you're charged per AWS SSO user that signs in to a portal \(per month\)\. In this tutorial, you create three users, but you only need to sign in with one user\. After you complete this tutorial, you incur charges for one user\. For more information, see [AWS IoT SiteWise Pricing](https://aws.amazon.com/iot-sitewise/pricing/)\.
+When you use SiteWise Monitor, you're charged per user that signs in to a portal \(per month\)\. In this tutorial, you create three users, but you only need to sign in with one user\. After you complete this tutorial, you incur charges for one user\. For more information, see [AWS IoT SiteWise Pricing](https://aws.amazon.com/iot-sitewise/pricing/)\.
 
 **Topics**
 + [Prerequisites](#monitor-tutorial-prerequisites)
@@ -230,7 +230,7 @@ In this procedure, you can explore the portal as other SiteWise Monitor roles\.
 
 1. \(Optional\) If you added other users to the project as owners or viewers, you can sign in to the portal as these users\. This lets you explore the portal as a user with fewer permissions than a portal administrator\.
 **Important**  
-You're charged for each AWS SSO user that signs in to a portal, so you incur charges if you sign in as additional users\. For more information, see [AWS IoT SiteWise Pricing](https://aws.amazon.com/iot-sitewise/pricing/)\.
+You're charged for each user that signs in to a portal\. For more information, see [AWS IoT SiteWise Pricing](https://aws.amazon.com/iot-sitewise/pricing/)\.
 
    To explore the portal as other users, do the following:
 

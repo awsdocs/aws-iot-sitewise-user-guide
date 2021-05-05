@@ -71,7 +71,7 @@ The role uses the following permissions policy, whose name starts with **AWSIoTS
 }
 ```
 
-When a portal user signs in, SiteWise Monitor creates a [session policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session) based on the intersection of the service role and that user's access policies\. Access policies define AWS SSO identities' level of access to your portals and projects\. For more information about portal permissions and access policies, see [Administering your SiteWise Monitor portals](administer-portals.md) and [CreateAccessPolicy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAccessPolicy.html)\.
+When a portal user signs in, SiteWise Monitor creates a [session policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session) based on the intersection of the service role and that user's access policies\. Access policies define identities' level of access to your portals and projects\. For more information about portal permissions and access policies, see [Administering your SiteWise Monitor portals](administer-portals.md) and [CreateAccessPolicy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAccessPolicy.html)\.
 
 ## Managing the SiteWise Monitor service role \(console\)<a name="manage-portal-role-console"></a>
 

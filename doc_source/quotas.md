@@ -23,9 +23,6 @@ The following tables describe quotas in AWS IoT SiteWise\. For more information 
 | Number of dependent properties per asset model | 30 | Yes | This quota limits how many properties can directly or indirectly depend on a single property, as defined in property formula expressions\. | 
 | Request rate for model API operations and logging options | 10 requests per second per Region per AWS account | Yes | This quota applies to API operations such as CreateAssetModel and logging options\. | 
 | Request rate for asset API operations | 30 requests per second per Region per AWS account | Yes | This quota applies to API operations such as CreateAsset and AssociateAssets\. | 
-| Rate of GetInterpolatedAssetPropertyValues requests | 500 | Yes | The maximum number of GetInterpolatedAssetPropertyValues requests per second that you can perform in this account in the current Region\. | 
-| Number of results per GetInterpolatedAssetPropertyValues request | 10 | Yes | The maximum number of results to return per paginated GetInterpolatedAssetPropertyValues request\. | 
-| Number of days between the start date in the past and today for GetInterpolatedAssetPropertyValues | 28 | Yes | The maximum number of days between the start date and today\. This quota applies to the startTimeInSeconds parameter when you specify a start date in the past for GetInterpolatedAssetPropertyValues requests\. | 
 
 
 **Quotas for asset property data**  
@@ -38,6 +35,9 @@ The following tables describe quotas in AWS IoT SiteWise\. For more information 
 | Rate of data points ingested | 1,000 data points per second per Region per AWS account | Yes | Timestamp\-quality\-value \(TQV\) data points\. | 
 | Rate of data points computed | 10,000 data points per second per Region per AWS account | Yes | This quota applies to the number of timestamp\-quality\-value \(TQV\) data points output by transform and metric computations\. | 
 | Number of data points processed per metric computation | 200,000 | No | Timestamp\-quality\-value \(TQV\) data points\. | 
+| Rate of GetInterpolatedAssetPropertyValues requests | 500 | Yes | The maximum number of GetInterpolatedAssetPropertyValues requests per second that you can perform in this account in the current Region\. | 
+| Number of results per GetInterpolatedAssetPropertyValues request | 10 | Yes | The maximum number of results to return per paginated GetInterpolatedAssetPropertyValues request\. | 
+| Number of days between the start date in the past and today for GetInterpolatedAssetPropertyValues | 28 | Yes | The maximum number of days between the start date and today\. This quota applies to the startTimeInSeconds parameter when you specify a start date in the past for GetInterpolatedAssetPropertyValues requests\. | 
 
 
 **Quotas for AWS IoT SiteWise gateways**  
@@ -59,4 +59,4 @@ The following tables describe quotas in AWS IoT SiteWise\. For more information 
 | Number of dashboards per project | 100 | Yes | 
 | Number of root assets per project | 1 | No | 
 | Number of visualizations per dashboard | 10 | Yes | 
-| Number of metrics per dashboard visualization | 5 | Yes | 
+| Number of metrics per dashboard visualization | 8 | No | 

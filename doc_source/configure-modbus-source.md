@@ -10,13 +10,16 @@ You can use the Modbus TCP source to convert the data type from your source into
 For more information about swap modes, see the [How Real \(Floating Point\) and 32\-bit Data is Encoded in Modbus RTU Messages](https://store.chipkin.com/articles/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages) article on Modbus message encoding\.
 
 
-| Source data type | Compatible destination data types | Compatible swap modes | 
-| --- | --- | --- | 
-| Int16 | Integer, Double, String | noSwap | 
-| Int32 | Integer, Double, String | noSwap, byteWordSwap, byteSwap, wordSwap | 
-| Float | Double, String | noSwap, byteWordSwap, byteSwap, wordSwap | 
-| Boolean | Boolean | noSwap | 
-| Hex\-dump | String | noSwap | 
+| Source data type | Compatible destination data types | Compatible swap modes | Compatible connector versions | 
+| --- | --- | --- | --- | 
+| ASCII | String | noSwap | 2 | 
+| UTF8 | String | noSwap | 2 | 
+| ISO8859 | String | noSwap | 2 | 
+| Int16 | Integer, Double, String | noSwap | 1 and 2 | 
+| Int32 | Integer, Double, String | noSwap, byteWordSwap, byteSwap, wordSwap | 1 and 2 | 
+| Float | Double, String | noSwap, byteWordSwap, byteSwap, wordSwap | 1 and 2 | 
+| Boolean | Boolean | noSwap | 1 and 2 | 
+| Hex\-dump | String | noSwap | 1 and 2 | 
 
 **Topics**
 + [Configure a Modbus TCP source \(console\)](config-modbus-console.md)

@@ -1,7 +1,7 @@
 # AWS IoT SiteWise User Guide
 
 -----
-*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -94,7 +94,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Ingesting external alarm state](ingest-external-alarm-state.md)
       + [Mapping external alarm state streams](connect-alarm-data-streams.md)
       + [Ingesting alarm state data](ingest-alarm-state-data.md)
-   + [Alarms preview AWS CLI and AWS SDKs](alarms-preview-sdk.md)
 + [Process data locally with AWS IoT SiteWise](edge-processing.md)
    + [Edge processing prerequisites](edge-setup.md)
    + [Setting up edge capability](using-sitewise-edge.md)
@@ -102,6 +101,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Edge processing preview AWS CLI and AWS SDKs](edge-preview-sdks.md)
 + [Monitoring data with AWS IoT SiteWise Monitor](monitor-data.md)
    + [Getting started with AWS IoT SiteWise Monitor](monitor-getting-started.md)
+   + [Enabling alarms for your SiteWise Monitor portals](monitor-additional-features.md)
    + [Administering your SiteWise Monitor portals](administer-portals.md)
    + [Creating dashboards (AWS Command Line Interface)](create-dashboards-using-aws-cli.md)
    + [Monitor data at the edge](using-opshub.md)
@@ -123,7 +123,7 @@ Amazon's trademarks and trade dress may not be used in
       + [AWS IoT SiteWise identity-based policy examples](security_iam_id-based-policy-examples.md)
       + [Using service-linked roles for AWS IoT SiteWise](using-service-linked-roles.md)
       + [Using service roles for AWS IoT SiteWise Monitor](monitor-service-role.md)
-      + [Using service roles for alarms](alarm-service-role.md)
+      + [Setting up permissions for AWS IoT Events alarms](alarms-iam-permissions.md)
       + [Troubleshooting AWS IoT SiteWise identity and access](security_iam_troubleshoot.md)
    + [Compliance validation for AWS IoT SiteWise](compliance-validation.md)
    + [Resilience in AWS IoT SiteWise](disaster-recovery-resiliency.md)

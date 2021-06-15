@@ -66,7 +66,11 @@ IAM users or roles must have the `iotsitewise:DescribePortal` permission to sign
    + Choose **Create and use a new service role**\. By default, SiteWise Monitor automatically creates a service role for each portal\. This role allows your portal users to access your AWS IoT SiteWise resources\. For more information, see [Using service roles for AWS IoT SiteWise Monitor](monitor-service-role.md)\.
    + Choose **Use an existing service role**, and then choose the target role\.
 
-1. Choose **Create portal**\. AWS IoT SiteWise will create your portal\.
+1. Choose **Next**
+
+1. \(Optional\) Enable alarms for your portal\. For more information, see [Enabling alarms for your SiteWise Monitor portals](monitor-additional-features.md)\.
+
+1. Choose **Create**\. AWS IoT SiteWise will create your portal\.
 **Note**  
  If you close the console, you can finish the setup process by adding administrators and users\. For more information, see [Adding or removing portal administrators](administer-portals.md#portal-change-admins)\. If you don't want to keep this portal, delete it so it doesn't use resources\. For more information, see [Deleting a portal](administer-portals.md#portal-delete-portal)\.
 

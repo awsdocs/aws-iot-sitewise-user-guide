@@ -26,20 +26,29 @@ Ensure that you have met the following prerequisites:
     docker --version
     docker-compose --version
     ```
-  + A Docker user – We also recommend that you create a directory for the deployment of the AWS IoT SiteWise Data Processor connector\. Run the following commands on your device to create the user and directory\.
+  + A Docker user – To create a home directory and a user for the deployment of the AWS IoT SiteWise Data Processor connector, do the following: 
 
-    ```
-    sudo mkdir /sitewise_edge
-    
-    sudo useradd -u GGC_USER_ID ggc_user //if it doesn't exist
-    
-    //to find GGC_USER_ID
-    id -u ggc_user
-    
-    sudo usermod -aG docker ggc_user
-    sudo chown GGC_USER_ID /sitewise_edge
-    sudo chmod 700 /sitewise_edge
-    ```
+    1. Run the following command to create the home directory\.
+
+       ```
+       sudo mkdir /sitewise_edge
+       ```
+
+    1. Run the following command to add the `ggc_user` user\.
+
+       ```
+       sudo useradd -u ggc_user-id ggc_user 
+       sudo usermod -aG docker ggc_user
+       sudo chown ggc_user-id /sitewise_edge
+       sudo chmod 700 /sitewise_edge
+       ```
+**Note**  
+Replace *ggc\_user\-id* with the ID of the `ggc_user` user\.
+Run the following command to find the ID of the `ggc_user` user\.  
+
+         ```
+         id -u ggc_user
+         ```
 + Choose one of the following options:
   + If you use AWS IoT SiteWise Data Processor connector version 1, 2, 3, or 4, ports 443, 8443, and 8883 must be externally accessible on your device\.
   + If you use AWS IoT SiteWise Data Processor connector version 5, ports 443 and 8883 must be externally accessible on your device\.

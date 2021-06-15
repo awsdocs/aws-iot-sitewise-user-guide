@@ -20,8 +20,27 @@ Before you can view gateway logs, you must configure your gateway to send logs t
 Use the following information to troubleshoot gateway issues\.
 
 **Topics**
++ [Modbus TCP sources are out of sync](#gateway-issue-source)
 + [Unable to connect to stream manager](#gateway-issue-stream-manager)
 + [AWS IoT SiteWise doesn't receive data from OPC\-UA servers](#gateway-issue-data-streams)
+
+### Modbus TCP sources are out of sync<a name="gateway-issue-source"></a>
+
+Your Modbus TCP source might be out of sync if your source data type is ASCII, UTF8, or ISO8859 and you're running an old version of the Modbus\-TCP Protocol Adapter connector\. To upgrade the connector to the latest version, do the following:
+
+1. Sign in to the [AWS IoT Greengrass V1 console](https://console.aws.amazon.com/greengrass/)\.
+
+1. In the navigation pane, choose **Groups**\.
+
+1. Under **Greengrass groups**, choose the target group\.
+
+1. In the navigation pane, choose **Connectors**\.
+
+1. In the **Upgrade** column, choose **Available**\.
+
+1. On the **Upgrade connector** page, choose the latest version, and then choose **Upgrade**\.
+
+For more information, see [Modbus\-TCP Protocol Adapter connector](https://docs.aws.amazon.com/greengrass/latest/developerguide/modbus-tcp-connector.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 ### Unable to connect to stream manager<a name="gateway-issue-stream-manager"></a>
 

@@ -18,6 +18,8 @@ Complete the following steps to access SiteWise Monitor at the edge\.
    ```
    sudo path-to-sitewise-edge-directory/credentials/create-credentials.sh
    ```
+**Note**  
+If you follow [Edge processing prerequisites](edge-setup.md) to create the home directory for the deployment of the AWS IoT SiteWise Data Processor connector, replace *path\-to\-sitewise\-edge\-directory* with `/sitewise_edge`\.
 
 1. When prompted, enter a password that meets the minimum password requirements\.
 
@@ -61,6 +63,8 @@ Securely store your password and credentials\. You use these with Sitewise Edge 
    ```
    cp path-to-sitewise-edge-directory/certificates/servercert.pem path-to-save-certificate
    ```
+**Note**  
+If you follow [Edge processing prerequisites](edge-setup.md) to create the home directory for the deployment of the AWS IoT SiteWise Data Processor connector, replace *path\-to\-sitewise\-edge\-directory* with `/sitewise_edge`\.
 
 1. Open the local gateway application\. On the **Welcome** page, enter the following details for your gateway\. 
 **Note**  

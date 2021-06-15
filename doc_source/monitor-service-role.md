@@ -33,43 +33,110 @@ The role uses the following permissions policy, whose name starts with **AWSIoTS
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "iotsitewise:CreateProject",
-        "iotsitewise:DescribeProject",
-        "iotsitewise:UpdateProject",
-        "iotsitewise:DeleteProject",
-        "iotsitewise:ListProjects",
-        "iotsitewise:BatchAssociateProjectAssets",
-        "iotsitewise:BatchDisassociateProjectAssets",
-        "iotsitewise:ListProjectAssets",
-        "iotsitewise:CreateDashboard",
-        "iotsitewise:DescribeDashboard",
-        "iotsitewise:UpdateDashboard",
-        "iotsitewise:DeleteDashboard",
-        "iotsitewise:ListDashboards",
-        "iotsitewise:CreateAccessPolicy",
-        "iotsitewise:DescribeAccessPolicy",
-        "iotsitewise:UpdateAccessPolicy",
-        "iotsitewise:DeleteAccessPolicy",
-        "iotsitewise:ListAccessPolicies",
-        "iotsitewise:DescribeAsset",
-        "iotsitewise:ListAssets",
-        "iotsitewise:ListAssociatedAssets",
-        "iotsitewise:DescribeAssetProperty",
-        "iotsitewise:GetAssetPropertyValue",
-        "iotsitewise:GetAssetPropertyValueHistory",
-        "iotsitewise:GetAssetPropertyAggregates",
-        "sso-directory:DescribeUsers"
-      ],
-      "Resource": "*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iotsitewise:DescribePortal",
+                "iotsitewise:CreateProject",
+                "iotsitewise:DescribeProject",
+                "iotsitewise:UpdateProject",
+                "iotsitewise:DeleteProject",
+                "iotsitewise:ListProjects",
+                "iotsitewise:BatchAssociateProjectAssets",
+                "iotsitewise:BatchDisassociateProjectAssets",
+                "iotsitewise:ListProjectAssets",
+                "iotsitewise:CreateDashboard",
+                "iotsitewise:DescribeDashboard",
+                "iotsitewise:UpdateDashboard",
+                "iotsitewise:DeleteDashboard",
+                "iotsitewise:ListDashboards",
+                "iotsitewise:CreateAccessPolicy",
+                "iotsitewise:DescribeAccessPolicy",
+                "iotsitewise:UpdateAccessPolicy",
+                "iotsitewise:DeleteAccessPolicy",
+                "iotsitewise:ListAccessPolicies",
+                "iotsitewise:DescribeAsset",
+                "iotsitewise:ListAssets",
+                "iotsitewise:ListAssociatedAssets",
+                "iotsitewise:DescribeAssetProperty",
+                "iotsitewise:GetAssetPropertyValue",
+                "iotsitewise:GetAssetPropertyValueHistory",
+                "iotsitewise:GetAssetPropertyAggregates",
+                "iotsitewise:BatchPutAssetPropertyValue",
+                "iotsitewise:ListAssetRelationships",
+                "iotsitewise:DescribeAssetModel",
+                "iotsitewise:ListAssetModels",
+                "iotsitewise:UpdateAssetModel",
+                "iotsitewise:UpdateAssetModelPropertyRouting",
+                "sso-directory:DescribeUsers",
+                "sso-directory:DescribeUser",
+                "iotevents:DescribeAlarmModel",
+                "iotevents:ListTagsForResource"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iotevents:BatchAcknowledgeAlarm",
+                "iotevents:BatchSnoozeAlarm",
+                "iotevents:BatchEnableAlarm",
+                "iotevents:BatchDisableAlarm"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "iotevents:keyValue": "false"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iotevents:CreateAlarmModel",
+                "iotevents:TagResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "aws:RequestTag/iotsitewisemonitor": "false"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iotevents:UpdateAlarmModel",
+                "iotevents:DeleteAlarmModel"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Null": {
+                    "aws:ResourceTag/iotsitewisemonitor": "false"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": [
+                        "iotevents.amazonaws.com"
+                    ]
+                }
+            }
+        }
+    ]
 }
 ```
+
+For more information about the required permissions for alarms, see [Setting up permissions for AWS IoT Events alarms](alarms-iam-permissions.md)\.
 
 When a portal user signs in, SiteWise Monitor creates a [session policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session) based on the intersection of the service role and that user's access policies\. Access policies define identities' level of access to your portals and projects\. For more information about portal permissions and access policies, see [Administering your SiteWise Monitor portals](administer-portals.md) and [CreateAccessPolicy](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAccessPolicy.html)\.
 

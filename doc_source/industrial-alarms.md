@@ -1,10 +1,5 @@
 # Monitoring data with alarms<a name="industrial-alarms"></a>
 
-
-|  | 
-| --- |
-|  The alarms feature is in preview release for AWS IoT SiteWise, AWS IoT Events, and SiteWise Monitor, and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\. While the alarms feature is in preview, you must download the alarms preview AWS SDK and AWS Command Line Interface \(AWS CLI\) to use the API operations for this feature\. These API operations aren't available in the public AWS SDK or AWS CLI\. For more information, see [Alarms preview AWS CLI and AWS SDKs](alarms-preview-sdk.md)\.  | 
-
 You can configure alarms for your data to alert your team when equipment or processes perform sub\-optimally\. Optimal performance of a machine or process means that the values for certain metrics should be within a range of high and low limits\. When these metrics are outside their operating range, equipment operators must be notified so they can fix the issue\. Use alarms to quickly identify issues and notify operators to maximize performance of your equipment and processes\.
 
 **Topics**
@@ -15,16 +10,15 @@ You can configure alarms for your data to alert your team when equipment or proc
 + [Configuring alarms on assets](configure-alarms.md)
 + [Responding to alarms](respond-to-alarms.md)
 + [Ingesting external alarm state](ingest-external-alarm-state.md)
-+ [Alarms preview AWS CLI and AWS SDKs](alarms-preview-sdk.md)
 
 ## Alarm types<a name="alarm-types"></a>
 
 You can define alarms that detect in the AWS Cloud and alarms that you detect with external processes\. AWS IoT SiteWise supports the following types of alarms:
 + **AWS IoT Events alarms**
 
-  AWS IoT Events alarms are alarms that detect in AWS IoT Events\. AWS IoT SiteWise sends asset property values to an alarm detector in AWS IoT Events\. Then, AWS IoT Events sends the alarm state to AWS IoT SiteWise\. You can configure options such as when the alarm detects and whom to notify when the alarm state changes\. You can also define the [AWS IoT Events actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-supported-actions.html) that occur when the alarm state changes\.
+  AWS IoT Events alarms are alarms that detect in AWS IoT Events\. AWS IoT SiteWise sends asset property values to an alarm model in AWS IoT Events\. Then, AWS IoT Events sends the alarm state to AWS IoT SiteWise\. You can configure options such as when the alarm detects and whom to notify when the alarm state changes\. You can also define the [AWS IoT Events actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-supported-actions.html) that occur when the alarm state changes\.
 
-  Alarm detectors in AWS IoT Events are instances of alarm models\. The alarm model specifies the threshold and severity of the alarm, what to do when the alarm state changes, and more\. When you configure each trait of the alarm model, you specify an attribute property from the asset model that the alarm monitors\. All assets based on the asset model use the value of the attribute when AWS IoT Events evaluates that trait of the alarm\.  For more information, see [Using alarms](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-alarms.html) in the *AWS IoT Events Developer Guide*\.
+  Alarms in AWS IoT Events are instances of alarm models\. The alarm model specifies the threshold and severity of the alarm, what to do when the alarm state changes, and more\. When you configure each trait of the alarm model, you specify an attribute property from the asset model that the alarm monitors\. All assets based on the asset model use the value of the attribute when AWS IoT Events evaluates that trait of the alarm\.  For more information, see [Using alarms](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-alarms.html) in the *AWS IoT Events Developer Guide*\.
 
   You can respond to an AWS IoT Events alarm when it changes state\. For example, you can acknowledge or snooze an alarm when it becomes active\. You can also enable, disable, and reset alarms\.
 

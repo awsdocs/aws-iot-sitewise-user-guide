@@ -1,10 +1,5 @@
 # Responding to alarms<a name="respond-to-alarms"></a>
 
-
-|  | 
-| --- |
-|  The alarms feature is in preview release for AWS IoT SiteWise, AWS IoT Events, and SiteWise Monitor, and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\. While the alarms feature is in preview, you must download the alarms preview AWS SDK and AWS Command Line Interface \(AWS CLI\) to use the API operations for this feature\. These API operations aren't available in the public AWS SDK or AWS CLI\. For more information, see [Alarms preview AWS CLI and AWS SDKs](alarms-preview-sdk.md)\.  | 
-
 When an AWS IoT Events alarm changes state, you can do the following to respond to the alarm:
 + Acknowledge an alarm to indicate that you are handling the issue\.
 + Snooze an alarm to disable it temporarily\.

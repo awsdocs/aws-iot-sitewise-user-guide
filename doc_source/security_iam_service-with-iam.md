@@ -210,7 +210,7 @@ This feature allows a service to assume a [service role](https://docs.aws.amazon
 
 AWS IoT SiteWise uses a service role to allow SiteWise Monitor portal users to access some of your AWS IoT SiteWise resources on your behalf\. For more information, see [Using service roles for AWS IoT SiteWise Monitor](monitor-service-role.md)\.
 
-AWS IoT SiteWise uses a service role to allow the service to send asset property values to AWS IoT Events on your behalf to detect alarms\. For more information, see [Using service roles for alarms](alarm-service-role.md)\.
+You must have required permissions before you can create AWS IoT Events alarm models in AWS IoT SiteWise\. For more information, see [Setting up permissions for AWS IoT Events alarms](alarms-iam-permissions.md)\.
 
 ### Choosing an IAM role in AWS IoT SiteWise<a name="security_iam_service-with-iam-roles-choose"></a>
 

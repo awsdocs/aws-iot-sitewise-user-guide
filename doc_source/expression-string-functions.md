@@ -9,11 +9,11 @@ In [transforms](transforms.md) and [metrics](metrics.md), you can use the follow
 | Function | Description | 
 | --- | --- | 
 |  `len(s)`  |  Returns the length of the string `s`\.  | 
-|  `find(s, substring)`  |  Returns the index of the string `substring` in the string `s`\.  | 
-|  `contains(s, substring)`  |  Returns `1` if the string `s` contains the string `substring`, otherwise `0`\.  | 
+|  `find(s, substring)`  |  Returns the index of the string `substring` in the string `s`\.  | 
+|  `contains(s, substring)`  |  Returns `1` if the string `s` contains the string `substring`, otherwise `0`\.  | 
 |  `upper(s)`  |  Returns the string `s` in uppercase form\.  | 
 |  `lower(s)`  |  Returns the string `s` in lowercase form\.  | 
-|   `jp(s, json_path)`  |  Evaluates the string `s` with the [JsonPath](https://github.com/json-path/JsonPath) expression `json_path` and returns the result\. Use this function to do the following: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-string-functions.html) To extract a string value from a JSON structure and return it as a number, you must use multiple nested `jp` functions\. The outer `jp` function extracts the string from the JSON structure, and the inner `jp` function converts the string to a number\. The string `json_path` must contain a string literal\. This means that `json_path` can't be an expression that evaluates to a string\. 
+|   `jp(s, json_path)`  |  Evaluates the string `s` with the [JsonPath](https://github.com/json-path/JsonPath) expression `json_path` and returns the result\. Use this function to do the following: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-string-functions.html) To extract a string value from a JSON structure and return it as a number, you must use multiple nested `jp` functions\. The outer `jp` function extracts the string from the JSON structure, and the inner `jp` function converts the string to a number\. The string `json_path` must contain a string literal\. This means that `json_path` can't be an expression that evaluates to a string\. 
 
 **Examples**  
 + `jp('{"status":"active","value":15}', '$.value')` returns `15`\.
@@ -25,7 +25,7 @@ In [transforms](transforms.md) and [metrics](metrics.md), you can use the follow
 |  `join(s0, s1, s2, s3, ...)`  |  Returns a concatenated string with a delimiter\. This function uses the first input string as a delimiter and joins the remaining input strings together\. This behaves similar to the [join\(CharSequence delimiter, CharSequence\.\.\. elements\)](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#join-java.lang.CharSequence-java.lang.CharSequence...-) function in Java\. 
 
 **Examples**  
-+ `join("-", "AWS", "IoT", "SiteWise")` returns `AWS-IoT-SiteWise`  | 
++ `join("-", "aa", "bb", "cc")` returns `aa-bb-cc`  | 
 |  `format(expression: "format")` or `format("format", expression)`  |  Returns a string in the specified format\. This function evaluates `expression` to a value, and then returns the value in the specified format\. This behaves similar to the [format\(String format, Object\.\.\. args\)](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-) function in Java\. For more information about supported formats, see Conversions under [Class Formatter](https://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html) in the *Java Platform, Standard Edition 7 API Specification*\. 
 
 **Examples**  

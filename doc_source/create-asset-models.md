@@ -106,8 +106,6 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
    1. \(Optional\) Define asset hierarchies \(`assetModelHierarchies`\) for the model\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
 
    1. \(Optional\) Define alarms for the model\. Alarms monitor other properties so that you can identify when equipment or processes require attention\. Each alarm definition is a composite model \(`assetModelCompositeModels`\) that standardizes the set of properties that the alarm uses\. For more information, see [Monitoring data with alarms](industrial-alarms.md) and [Defining alarms on asset models](define-alarms.md)\.
-**Note**  
-The alarms feature is in preview release for AWS IoT SiteWise, AWS IoT Events, and SiteWise Monitor, and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\.
 
    1. \(Optional\) Add tags \(`tags`\) for the asset model\. For more information, see [Tagging your AWS IoT SiteWise resources](tag-resources.md)\.
 

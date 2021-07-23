@@ -15,7 +15,7 @@ You can follow these tutorials to use formula expressions in AWS IoT SiteWise\.
 You can operate on strings in your formula expressions\. You also can input strings from variables that reference attribute and measurement properties\.
 
 **Important**  
-<a name="formula-output-rules"></a>Formula expressions can only output double values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number\. You can use the [jp function](expression-string-functions.md#jp-definition) to convert a string to a number\. If you define a formula that computes a non\-numeric value, AWS IoT SiteWise doesn't output a data point for that computation\. For more information, see [Undefined, infinite, and overflow values](#undefined-values)\.
+<a name="formula-output-rules"></a>Formula expressions can only output double or string values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number or string\. You can use the [jp function](expression-string-functions.md#jp-definition) to convert a string to a number\. The Boolean value must be 1 \(true\) or 0 \(false\)\. For more information, see [Undefined, infinite, and overflow values](#undefined-values)\.
 
 AWS IoT SiteWise provides the following formula expression features that you can use to operate on strings:
 + [String literals](expression-literals.md#string-literal-definition)

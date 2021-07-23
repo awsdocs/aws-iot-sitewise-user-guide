@@ -3,17 +3,17 @@
 In [transforms](transforms.md) and [metrics](metrics.md), you can use the following functions to operate on strings\. For more information, see [Using strings in formulas](expression-tutorials.md#use-strings-in-formulas)\.
 
 **Important**  
-<a name="formula-output-rules"></a>Formula expressions can only output double values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number\. You can use the [jp function](#jp-definition) to convert a string to a number\. If you define a formula that computes a non\-numeric value, AWS IoT SiteWise doesn't output a data point for that computation\. For more information, see [Undefined, infinite, and overflow values](expression-tutorials.md#undefined-values)\.
+<a name="formula-output-rules"></a>Formula expressions can only output double or string values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number or string\. You can use the [jp function](#jp-definition) to convert a string to a number\. The Boolean value must be 1 \(true\) or 0 \(false\)\. For more information, see [Undefined, infinite, and overflow values](expression-tutorials.md#undefined-values)\.
 
 
 | Function | Description | 
 | --- | --- | 
 |  `len(s)`  |  Returns the length of the string `s`\.  | 
-|  `find(s, substring)`  |  Returns the index of the string `substring` in the string `s`\.  | 
-|  `contains(s, substring)`  |  Returns `1` if the string `s` contains the string `substring`, otherwise `0`\.  | 
+|  `find(s, substring)`  |  Returns the index of the string `substring` in the string `s`\.  | 
+|  `contains(s, substring)`  |  Returns `1` if the string `s` contains the string `substring`, otherwise `0`\.  | 
 |  `upper(s)`  |  Returns the string `s` in uppercase form\.  | 
 |  `lower(s)`  |  Returns the string `s` in lowercase form\.  | 
-|   `jp(s, json_path)`  |  Evaluates the string `s` with the [JsonPath](https://github.com/json-path/JsonPath) expression `json_path` and returns the result\. Use this function to do the following: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-string-functions.html) To extract a string value from a JSON structure and return it as a number, you must use multiple nested `jp` functions\. The outer `jp` function extracts the string from the JSON structure, and the inner `jp` function converts the string to a number\. The string `json_path` must contain a string literal\. This means that `json_path` can't be an expression that evaluates to a string\. 
+|   `jp(s, json_path)`  |  Evaluates the string `s` with the [JsonPath](https://github.com/json-path/JsonPath) expression `json_path` and returns the result\. Use this function to do the following: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-string-functions.html) To extract a string value from a JSON structure and return it as a number, you must use multiple nested `jp` functions\. The outer `jp` function extracts the string from the JSON structure, and the inner `jp` function converts the string to a number\. The string `json_path` must contain a string literal\. This means that `json_path` can't be an expression that evaluates to a string\. 
 
 **Examples**  
 + `jp('{"status":"active","value":15}', '$.value')` returns `15`\.

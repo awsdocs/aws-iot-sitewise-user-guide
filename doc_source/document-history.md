@@ -6,6 +6,9 @@ The following table describes the documentation for this release of AWS IoT Site
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [VPC endpoints \(AWS PrivateLink\)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/vpc-interface-endpoints.html) | The interface VPC endpoint for the control plane API operations is now generally available\. | July 15, 2021 | 
+| [Transforms](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/transforms.html) | Transforms now can input multiple asset property variables\. | July 8, 2021 | 
+| [Updated the timestamp\(\) function](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) | In transforms, you can now provide a variable as an argument to the `timestamp()` function\. | June 16, 2021 | 
 | [Alarms general availability](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/industrial-alarms.html) | The alarms feature is now generally available\. | May 27, 2021 | 
 | [Modbus\-TCP Protocol Adapter version 2 released](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-modbus-source.html) | Version 2 of the [Modbus\-TCP Protocol Adapter connector](https://docs.aws.amazon.com/greengrass/latest/developerguide/modbus-tcp-connector.html) is available\. This release added support for ASCII, UTF8, and ISO8859 encoded source strings\. | May 24, 2021 | 
 | [Updated service quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) | Added the following quotas for the [GetInterpolatedAssetPropertyValues](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetInterpolatedAssetPropertyValues.html) API: rate of `GetInterpolatedAssetPropertyValues` requests, number of results per `GetInterpolatedAssetPropertyValues` request, and number of days between the start date in the past and today for `GetInterpolatedAssetPropertyValues`\. | April 29, 2021 | 

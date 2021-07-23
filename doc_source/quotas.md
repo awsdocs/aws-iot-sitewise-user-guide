@@ -1,7 +1,5 @@
 # AWS IoT SiteWise quotas<a name="quotas"></a>
 
-For more information about Regions where AWS IoT SiteWise is available, see [AWS IoT SiteWise endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-sitewise.html)\.
-
 The following tables describe quotas in AWS IoT SiteWise\. For more information about quotas and how to request quota increases, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference*\.
 
 

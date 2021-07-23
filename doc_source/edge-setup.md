@@ -5,7 +5,7 @@
 | --- |
 |  Processing at the edge is in preview release for AWS IoT SiteWise and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\. While the edge processing feature is in preview, you must download the edge processing preview AWS SDK and AWS CLI to use the API operations for this feature\. These API operations aren't available in the public AWS SDK or AWS CLI\. For more information, see [Edge processing preview AWS CLI and AWS SDKs](edge-preview-sdks.md)\.  | 
 
- Before you can use edge processing with AWS IoT SiteWise, you need to verify that your AWS account and devices are configured correctly\. For more information about getting started with edge processing, see [Introducing AWS IoT SiteWise](https://aws.amazon.com/blogs/iot/introducing-aws-iot-sitewise-edge/) in the AWS official blog\.
+ Before you can use edge processing with AWS IoT SiteWise, you need to verify that your AWS account and devices are configured correctly\. For more information about getting started with edge processing, see [Introducing AWS IoT SiteWise](https://aws-blogs-prod.amazon.com/iot/introducing-aws-iot-sitewise-edge/) in the AWS official blog\.
 
 Ensure that you have met the following prerequisites: 
 + An edge device\. This device must meet the minimum configuration requirements of an x86 64 bit quad\-core processor, 16 GB of RAM, and 256 GB in disk space\. This device should be running Linux\. In addition, the device must meet the following requirements:
@@ -94,4 +94,4 @@ You need to re\-deploy your AWS IoT SiteWise connectors after updating your serv
      ```
 + A configured and deployed AWS IoT SiteWise gateway with the data processing pack enabled\. For more information about setting up your gateway, see [Configuring a gateway](configure-gateway.md)\.
 
-For more information about the prerequisites you need to use edge processing, see [Introducing AWS IoT SiteWise](https://aws.amazon.com/blogs/iot/introducing-aws-iot-sitewise-edge/) in the AWS official blog\.
+For more information about the prerequisites you need to use edge processing, see [Introducing AWS IoT SiteWise](https://aws-blogs-prod.amazon.com/iot/introducing-aws-iot-sitewise-edge/) in the AWS official blog\.

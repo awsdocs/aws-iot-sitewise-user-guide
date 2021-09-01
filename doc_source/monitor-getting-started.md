@@ -68,7 +68,7 @@ IAM users or roles must have the `iotsitewise:DescribePortal` permission to sign
 
 1. Choose **Next**
 
-1. \(Optional\) Enable alarms for your portal\. For more information, see [Enabling alarms for your SiteWise Monitor portals](monitor-additional-features.md)\.
+1. \(Optional\) Enable alarms for your portal\. For more information, see [Enabling additional features for portals](monitor-additional-features.md)\.
 
 1. Choose **Create**\. AWS IoT SiteWise will create your portal\.
 **Note**  

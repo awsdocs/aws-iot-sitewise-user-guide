@@ -1,4 +1,12 @@
-# Enabling alarms for your SiteWise Monitor portals<a name="monitor-additional-features"></a>
+# Enabling additional features for portals<a name="monitor-additional-features"></a>
+
+You can enable the following features for your portals\.
+
+**Topics**
++ [Enabling alarms for your portals](#alarms-in-portals)
++ [Enabling your portal at the edge](#portals-at-edge)
+
+## Enabling alarms for your portals<a name="alarms-in-portals"></a>
 
 You can enable the alarms feature supported by AWS IoT Events for your portals so that portal administrators can create, edit, and delete AWS IoT Events alarm models in your SiteWise Monitor portals\. Project owners can configure alarms\. Project viewers can view alarm details\. This section explains how you can use the AWS IoT SiteWise console to enable the alarms feature for your portals\.
 
@@ -10,7 +18,7 @@ The alarm notifications feature isn't available in the China \(Beijing\) Region\
 When you configure and create a portal, you can enable alarms and alarm notifications in **Step 2 Additional features**\. Based on the user authentication service, choose one of the following options:
 
 ------
-#### [ SSM ]
+#### [ AWS SSO ]
 
 ![\[Additional features page for enabling alarms for portals.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/portal-create-console-enable-alarms-sso.png)
 
@@ -43,3 +51,13 @@ You must verify the sender email address in Amazon SES\. For more information, s
 ------
 
 For more information about alarms in SiteWise Monitor, see [Monitoring with alarms](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html) in the *AWS IoT SiteWise Application Guide*\.
+
+## Enabling your portal at the edge<a name="portals-at-edge"></a>
+
+After you enable your portal at the edge, this portal is available on all AWS IoT SiteWise gateways with the data processing pack enabled in your account\.
+
+**To enable the portal at the edge**
+
+1. In the **Edge configuration** section, turn on **Enable this portal at the edge**\.
+
+1. Choose **Create**\.

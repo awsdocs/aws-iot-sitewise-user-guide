@@ -19,37 +19,64 @@ The role uses the following permissions policy to allow AWS IoT SiteWise to comp
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "greengrass:GetAssociatedRole",
-        "greengrass:GetCoreDefinition",
-        "greengrass:GetCoreDefinitionVersion",
-        "greengrass:GetGroup",
-        "greengrass:GetGroupVersion"
-      ],
-      "Resource": "*",
-      "Effect": "Allow"
-    },
-    {
-      "Action": [
-        "logs:CreateLogGroup",
-        "logs:DescribeLogGroups"
-      ],
-      "Resource": "arn:aws:logs:*:*:log-group:/aws/iotsitewise*",
-      "Effect": "Allow"
-    },
-    {
-      "Action": [
-        "logs:CreateLogStream",
-        "logs:DescribeLogStreams",
-        "logs:PutLogEvents"
-      ],
-      "Resource": "arn:aws:logs:*:*:log-group:/aws/iotsitewise*:log-stream:*",
-      "Effect": "Allow"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "greengrass:GetAssociatedRole",
+                "greengrass:GetCoreDefinition",
+                "greengrass:GetCoreDefinitionVersion",
+                "greengrass:GetGroup",
+                "greengrass:GetGroupVersion",
+                "greengrass:CreateDeployment",
+                "greengrass:ListDeployments",
+                "greengrass:ListEffectiveDeployments",
+                "greengrass:ListInstalledComponents",
+                "iot:DescribeThing",
+                "iot:CancelJob",
+                "iot:CreateJob",
+                "iot:DeleteThingShadow",
+                "iot:DescribeJob",
+                "iot:DescribeThingGroup",
+                "iot:GetThingShadow",
+                "iot:UpdateJob",
+                "iot:UpdateThingShadow"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "greengrass:GetCoreDevice"
+            ],
+            "Resource": "arn:aws:greengrass:*:*:coreDevices:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "greengrass:GetDeployment"
+            ],
+            "Resource": "arn:aws:greengrass:*:*:deployments:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/iotsitewise*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:DescribeLogStreams",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/iotsitewise*:log-stream:*"
+        }
+    ]
 }
 ```
 
@@ -64,6 +91,9 @@ If you delete this service\-linked role, and then need to create it again, you c
 You can also use the IAM console or API to create a service\-linked role for AWS IoT SiteWise\.
 + To do so in the IAM console, create a role with the **AWSServiceRoleForIoTSiteWise** policy and a trust relationship with `iotsitewise.amazonaws.com`\.
 + To do so using the AWS CLI or IAM API, create a role with the `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForIoTSiteWise` policy and a trust relationship with `iotsitewise.amazonaws.com`\.
+
+**Important**  
+The name of your service\-linked role must be **AWSServiceRoleForIoTSiteWise**\.
 
 For more information, see [Creating a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\.
 

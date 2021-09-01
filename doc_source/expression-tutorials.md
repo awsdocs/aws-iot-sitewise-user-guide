@@ -29,7 +29,7 @@ AWS IoT SiteWise provides the following formula expression features that you can
 You can use the [if function](expression-conditional-functions.md#if-definition) to filter out data points that don't meet a condition\. The `if` function evaluates a condition and returns different values for `true` and `false` results\. You can use the [none constant](expression-constants.md#none-definition) as an output for one case of an `if` function to discard the data point for that case\.
 
 **To filter out data points that match a condition**
-+ Create a transform that uses the `if` function to define a condition that checks if an condition is met, and returns `none` as either the `result_if_true` or `result_if_false` value\.
++ Create a transform that uses the `if` function to define a condition that checks if a condition is met, and returns `none` as either the `result_if_true` or `result_if_false` value\.
 
 **Example: Filter out data points where water isn't boiling**  
 Consider a scenario where you have a measurement, `temp_c`, that provides the temperature \(in Celsius\) of water in a machine\. You can define the following transform to filter out data points where the water isn't boiling:  

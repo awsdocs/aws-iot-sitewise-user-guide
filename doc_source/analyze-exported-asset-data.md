@@ -47,7 +47,7 @@ AWS Glue crawlers crawl data stores to populate tables in the AWS Glue Data Cata
 
    1. On the **Choose an IAM role** page, do the following:
 
-      1. Choose **Create an IAM role** to create a new service role that allows AWS Glue to access the S3 bucket\.
+      1. To create a new service role that allows AWS Glue to access the S3 bucket, choose **Create an IAM role**\.
 
       1. Enter a suffix for your role's name, such as **IoTSiteWiseDataCrawler**\.
 
@@ -134,7 +134,7 @@ Use a different bucket than your asset data bucket, so the crawler that you crea
 
    This query joins the asset property data and metadata tables on asset ID and property ID to create a view\. You can run this query multiple times because it replaces the existing view if the view already exists\.
 
-1. Choose the **\+** icon to add a new query\.
+1. To add a new query, choose the **\+** icon\.
 
 1. To view a sample of asset data, enter the following query, and then choose **Run query**\. Replace the timestamps with an interval for which your bucket has data\.
 

@@ -80,7 +80,7 @@ You can't disable host prefix injection in the AWS CLI or the AWS Tools for Powe
   + [AWS SDK for C\+\+](https://sdk.amazonaws.com/cpp/api/LATEST/struct_aws_1_1_client_1_1_client_configuration.html#a3579c1a2f2e1c9d54e99c59d27643499)
   + [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go/api/aws/#Config.WithDisableEndpointHostPrefix)
   + [AWS SDK for Go v2](https://docs.aws.amazon.com/sdk-for-go/v2/api/aws/#Config)
-  + [AWS SDK for Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/ClientConfiguration.html#setDisableHostPrefixInjection-boolean-)
+  + [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/latest/reference/com/amazonaws/ClientConfiguration.html#setDisableHostPrefixInjection-boolean-)
   + [AWS SDK for Java 2\.x](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/client/config/SdkAdvancedClientOption.html)
   + [AWS SDK for JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#hostPrefixEnabled-property)
   + [AWS SDK for \.NET](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/Runtime/TClientConfig.html)

@@ -11,7 +11,7 @@ In [transforms](transforms.md) and [metrics](metrics.md), you can use the date a
 | `now()` |  Returns the current date and time, in seconds, in the Unix epoch format\.  | 
 | `timestamp()` |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
 | `mktime(time_zone, year, month, day_of_month, hour, minute, second)` |  Returns the input time in seconds, in the Unix epoch format\. The following requirements apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) The following limits apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) Examples: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
-| `localtime(unix_time, time_zone)` |  Returns the year, the day of the month, the day of the week, the day of the year, the hour, the minute, or the second in the specified time zone from the unix time\. The following requirements apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) Example response: `2007-12-03T10:15:30+01:00[Europe/Paris]` `localtime(unix_time, time_zone)` isn't a standalone function\. The `year()`, `mon()`, `mday`, `wday()`, `yday()`, `hour()`, `munite()`, and `sec()` functions take `localtime(unix_time, time_zone)` as an argument\. Examples: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
+| `localtime(unix_time, time_zone)` |  Returns the year, the day of the month, the day of the week, the day of the year, the hour, the minute, or the second in the specified time zone from the Unix time\. The following requirements apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) Example response: `2007-12-03T10:15:30+01:00[Europe/Paris]` `localtime(unix_time, time_zone)` isn't a standalone function\. The `year()`, `mon()`, `mday`, `wday()`, `yday()`, `hour()`, `minute()`, and `sec()` functions take `localtime(unix_time, time_zone)` as an argument\. Examples: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
 | `year(localtime(localtime(unix_time, time_zone))` |  Returns the year from `localtime(unix_time, time_zone)`\.  | 
 | `mon(localtime(unix_time, time_zone))` |  Returns the month from `localtime(unix_time, time_zone)`\.  | 
 | `mday(localtime(unix_time, time_zone))` |  Returns the day of the month from `localtime(unix_time, time_zone)`\.  | 
@@ -25,10 +25,10 @@ In [transforms](transforms.md) and [metrics](metrics.md), you can use the date a
 
 You can specify the time zone argument in the following ways:
 + Time zone offset \- Specify `'Z'` for UTC or an offset \(`'+2'` or `'-5'`\)\.
-+ Offset IDs \- Combine a time zone abbreviation and an offset\. For example, `'GMT+2'` and `'UTC-01:00'`\. The time zone abbreviation must contain only three letters\. For a list of supported time zone abbreviations, see [Supported time zone abbreviations and region based IDs:](#spported-time-zones)\.
-+ Region based IDs \- For example, `'Etc/GMT+12'` and `'Pacific/Pago_Pago'`\. For the list of supported region based IDs, see [Supported time zone abbreviations and region based IDs:](#spported-time-zones)\.
++ Offset IDs \- Combine a time zone abbreviation and an offset\. For example, `'GMT+2'` and `'UTC-01:00'`\. The time zone abbreviation must contain only three letters\. For a list of supported time zone abbreviations, see [Supported time zone abbreviations and Region\-based IDs:](#spported-time-zones)\.
++ Region based IDs \- For example, `'Etc/GMT+12'` and `'Pacific/Pago_Pago'`\. For the list of supported Region\-based IDs, see [Supported time zone abbreviations and Region\-based IDs:](#spported-time-zones)\.
 
-### Supported time zone abbreviations and region based IDs:<a name="spported-time-zones"></a>
+### Supported time zone abbreviations and Region\-based IDs:<a name="spported-time-zones"></a>
 
 The date and time functions support the following three\-letter time zone abbreviations: 
 + EST \- \-05:00
@@ -59,7 +59,7 @@ The date and time functions support the following three\-letter time zone abbrev
 + SST \- Pacific/Guadalcanal
 + VST \- Asia/Ho\_Chi\_Minh
 
-The date and time functions support the following region based IDs: 
+The date and time functions support the following Region\-based IDs: 
 + Etc/GMT\+12 \(UTC\-12:00\)
 + Pacific/Pago\_Pago \(UTC\-11:00\)
 + Pacific/Samoa \(UTC\-11:00\)

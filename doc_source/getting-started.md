@@ -12,7 +12,7 @@ You can complete the following tutorials to explore certain features of AWS IoT 
 See the following topics to learn more about AWS IoT SiteWise:
 + [Ingesting data to AWS IoT SiteWise](industrial-data-ingestion.md)
 + [Modeling industrial assets](industrial-asset-models.md)
-+ [Process data locally with AWS IoT SiteWise](edge-processing.md)
++ [Enabling edge data processing](edge-processing.md)
 + [Monitoring data with AWS IoT SiteWise Monitor](monitor-data.md)
 + [Querying asset property values and aggregates](query-industrial-data.md)
 + [Interacting with other AWS services](interact-with-other-services.md)

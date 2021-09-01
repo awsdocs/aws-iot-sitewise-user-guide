@@ -4,7 +4,7 @@ Choose an AWS IoT SiteWise gateway platform that best suits your industrial oper
 + Supports AWS IoT Greengrass Core software v1\.10\.2 or later\. For more information, see [Supported platforms and requirements](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html#gg-platforms) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 + Has at least 1 GB of RAM\.
 **Note**  
-If you plan to process data at the edge with AWS IoT SiteWise, your device must meet more requirements\. For more information, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
+If you plan to process data at the edge with AWS IoT SiteWise, your device must meet more requirements\. For more information, see [Enabling edge data processing](edge-processing.md)\.
 + Has at least 10 GB of free disk space\.
 + Supports a Java 8 virtual machine \(JVM\)\.
 

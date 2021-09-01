@@ -19,7 +19,7 @@ The communication between the edge console application and gateways is always en
 
  In addition to TLS for secrecy and server authenticity, Sitewise Edge uses the SigV4 protocol to establish the authenticity of the edge console application\. The Sitewise Edge connector on the gateway accepts and stores a password to be able to verify incoming connections from the edge console application, SiteWise Monitor application running within browsers, and other clients based on the AWS IoT SiteWise SDK\. 
 
-For more information about generating the password and server certificate, see [Monitor data at the edge](using-opshub.md)\.
+For more information about generating the password and server certificate, see [Managing gateways](manage-gateways-ggv2.md)\.
 
 ## Data in transit between local components on gateways<a name="gateway-encryption-in-transit"></a>
 

@@ -1,10 +1,5 @@
 # Setting up edge capability<a name="using-sitewise-edge"></a>
 
-
-|  | 
-| --- |
-|  Processing at the edge is in preview release for AWS IoT SiteWise and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\. While the edge processing feature is in preview, you must download the edge processing preview AWS SDK and AWS CLI to use the API operations for this feature\. These API operations aren't available in the public AWS SDK or AWS CLI\. For more information, see [Edge processing preview AWS CLI and AWS SDKs](edge-preview-sdks.md)\.  | 
-
 To use edge processing, you must configure your AWS IoT SiteWise gateway and asset model for the edge\. Your gateway ingests data from your source server, and sends that data to the destination of your choice\. Your asset model controls specifies where your assets are stored and computed\. 
 
 **Note**  
@@ -30,4 +25,4 @@ You need v9 of the data collection pack to use the data processing pack on your 
 
    After you create your asset model, you can then configure it for the edge\. For more information about configuring your asset model for the edge, see [Creating an asset model \(console\)](create-asset-models.md#create-asset-model-console)\. 
 **Note**  
-Asset models and dashboards are automatically synced between the AWS Cloud and your AWS IoT SiteWise gateway every 10 minutes\. You can also sync manually from the [local gateway application](using-opshub.md)\.
+Asset models and dashboards are automatically synced between the AWS Cloud and your AWS IoT SiteWise gateway every 10 minutes\. You can also sync manually from the local gateway application\.

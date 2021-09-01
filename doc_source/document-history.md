@@ -2,10 +2,13 @@
 
 The following table describes the documentation for this release of AWS IoT SiteWise\.
 + **API version:** 2019\-12\-02
-+ **Latest documentation update:** December 15, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated functions](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-functions.html) | Added the following features  In metrics, you can use nested expressions in [aggregation functions](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-aggregation-functions.html) and [temporal functions](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-temporal-functions.html#temporal-functions-in-metrics)\.   In transforms, you can use the [pretrigger\(\) function](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-temporal-functions.html#temporal-functions-in-transforms) to retrieve the value of a variable prior to the property update that triggered the current transform calculation\.   | August 10, 2021 | 
+| [Custom metric time interval](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/metrics.html) | Added support for custom time intervals and offsets in metrics\. | August 3, 2021 | 
+| [Using AWS IoT SiteWise at the edge](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateways-ggv2.html) | The edge processing feature is now generally available\. | July 29, 2021 | 
+| [Exporting data to Amazon S3](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/manage-data-storage.html) | AWS IoT SiteWise now can export data to Amazon S3\. | July 27, 2021 | 
 | [VPC endpoints \(AWS PrivateLink\)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/vpc-interface-endpoints.html) | The interface VPC endpoint for the control plane API operations is now generally available\. | July 15, 2021 | 
 | [Transforms](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/transforms.html) | Transforms now can input multiple asset property variables\. | July 8, 2021 | 
 | [Updated the timestamp\(\) function](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) | In transforms, you can now provide a variable as an argument to the `timestamp()` function\. | June 16, 2021 | 

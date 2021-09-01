@@ -1,0 +1,3 @@
+# Upgrading gateways from Greengrass V1 to Greengrass V2<a name="migrate-ggv1-ggv2"></a>
+
+If you have gateways that run on AWS IoT Greengrass V1, you can upgrade your gateways to AWS IoT Greengrass V2\. For more information, see [Instructions for upgrading AWS IoT SiteWise gateways from AWS IoT Greengrass V1 to AWS IoT Greengrass V2](https://aws-iot-sitewise.s3.amazonaws.com/docs/Instructions++for+upgrading+AWS+IoT+SiteWise+Gateway+from+AWS+IoT+Greengrass+V1+to+V2_.pdf?mkt_tok=MTEyLVRaTS03NjYAAAF-kr1XBxW1ZnlIluJGdU6cRKJzMxwK6E4uBMUAeFW5WWXxItU9oDXPe9-Z_zbiQGNIgn8LRDEitzO5w_PJ6LIlo_y9Ynmyg52JKszcNjdtbvNzyFmP)\.

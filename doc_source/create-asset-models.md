@@ -48,7 +48,7 @@ You can use the AWS IoT SiteWise console to create an asset model\. The AWS IoT 
 **Note**  
 The asset model creation process can take up to a few minutes for complex models\. After the asset model status is **ACTIVE**, you can use the asset model to create assets\. For more information, see [Asset and model states](asset-and-model-states.md)\.
 
-1. \(Optional\) After you create your asset model, you can configure your asset model for the edge\. For more information about Sitewise Edge, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
+1. \(Optional\) After you create your asset model, you can configure your asset model for the edge\. For more information about Sitewise Edge, see [Enabling edge data processing](edge-processing.md)\.
 
    1. On the model page, choose **Configure for Edge**\.
 

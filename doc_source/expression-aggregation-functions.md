@@ -4,8 +4,25 @@ In [metrics](metrics.md) only, you can use the following functions that aggregat
 
 Aggregation function arguments can be [variables](expression-variables.md), [number literals](expression-literals.md#number-literal-definition), [temporal functions](expression-temporal-functions.md), or aggregation functions\. This means that you can't provide nested expressions as arguments to aggregation functions\. For example, the formula `avg(x + 1)` isn't valid\. By contrast, the formula `max(latest(x), latest(y), latest(z))` is valid and returns the largest current value of the `x`, `y`, and `z` properties\.
 
+You can use nested expressions in aggregation functions\. When you use nested expressions, the following rules apply: 
++ Each argument can have only one variable\.  
+**Example**  
+
+  For example, `avg(x*(x-1))` and `sum(x/2 )/avg(y^2 )` are supported\.
+
+  For example, `min(x/y)` isn't supported\.
++ Each argument can have multilevel nested expressions\.  
+**Example**  
+
+  For example, `sum(avg(x^2 )/2)` is supported\.
++ Different arguments can have different variables\.  
+**Example**  
+
+  For example, `sum(x/2, y*2)` is supported\.
+
 **Note**  
-AWS IoT SiteWise also automatically computes aggregates over certain time intervals for all properties\. For more information, see [Querying asset property aggregates](query-industrial-data.md#aggregates)\.
+If your expressions contain measurements, AWS IoT SiteWise uses the last values over the current time interval for the measurements to compute aggregates\.
+If your expressions contain attributes, AWS IoT SiteWise uses the latest values for the attributes to compute aggregates\.
 
 
 | Function | Description | 

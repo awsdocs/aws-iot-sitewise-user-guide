@@ -1,6 +1,6 @@
-# Exporting data to Amazon Simple Storage Service<a name="export-to-s3"></a>
+# Exporting data to Amazon S3 by using asset property notifications<a name="export-to-s3"></a>
 
-You can export incoming data from AWS IoT SiteWise to an Amazon S3 bucket in your account\. You can back up your data in a format that lets you create historical reports or analyze your data with complex methods\.
+You can export incoming data from AWS IoT SiteWise to an Amazon S3 bucket in your account\. You can back up your data in a format that you can use to create historical reports or to analyze your data with complex methods\.
 
 AWS IoT SiteWise provides this feature as an AWS CloudFormation template\. When you create a stack from the template, AWS CloudFormation creates the required AWS resources to stream incoming data from AWS IoT SiteWise to an S3 bucket\. 
 
@@ -8,7 +8,7 @@ Then, the S3 bucket receives all of your asset property data sent from AWS IoT S
 
 For more information about how to enable property value update messages for the asset properties to export to Amazon S3, see [Interacting with other AWS services](interact-with-other-services.md)\.
 
-This feature stores your asset property data and asset metadata in Amazon S3 in [Apache Parquet](https://parquet.apache.org/documentation/latest/) format\. Parquet is a columnar data format that saves space and enables faster queries compared to row\-oriented formats like JSON\.
+This feature stores your asset property data and asset metadata in the [Apache Parquet](https://parquet.apache.org/documentation/latest/) format in Amazon S3\. Parquet is a columnar data format that saves space and enables faster queries compared to row\-oriented formats like JSON\.
 
 **Note**  
 When this feature retrieves asset metadata, it supports up to approximately 1,500 assets\. This limitation applies only to asset metadata\. This limitation doesn't apply to the number of assets supported when the feature exports asset property data\.
@@ -42,13 +42,13 @@ You can create a stack in AWS CloudFormation to export your asset data to Amazon
 
 1. On the **Create stack** page, choose **Next** at the bottom of the page\.
 
-1. On the **Specify stack details** page, enter a **BucketName** for the S3 bucket that this template creates to receive asset data\. This bucket name must be globally unique\. For more information, see [Rules for bucket naming](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service Developer Guide*\.
+1. On the **Specify stack details** page, enter a **BucketName** for the S3 bucket that this template creates in order to receive asset data\. This bucket name must be globally unique\. For more information, see [Rules for bucket naming](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service Developer Guide*\.
 
 1. \(Optional\) Change any of the template's other parameters:
    + **GlobalResourcePrefix** – A prefix for names of global resources, such as IAM roles, created from this template\.
    + **LocalResourcePrefix** – A prefix for names of resources created from this template in the current Region\.
 **Note**  
-If you create this template multiple times, you might need to change the bucket name and resource prefix parameters to avoid resource name conflicts\.
+If you create this template multiple times, you should change the bucket name and resource prefix parameters in order to avoid resource name conflicts\.
 
 1. Choose **Next**\.
 
@@ -80,7 +80,7 @@ After you create the stack, you can see the new resources in your AWS account\. 
 After you create the feature, you can view your asset property data and asset metadata in Amazon S3\.
 
 **Note**  
-Asset metadata updates every 6 hours\. You might need to wait up to 6 hours to see asset metadata appear in the S3 bucket\.
+Asset metadata updates every six hours\. You might need to wait up to six hours to see asset metadata appear in the S3 bucket\.
 
 This feature stores asset property data in the following columns, where each row contains a data point:
 + **type** – The type of property notification \(`PropertyValueUpdate`\)\.
@@ -122,7 +122,7 @@ This feature stores asset metadata in the following columns, where each row cont
 
    1. For **File format**, choose **Parquet**\.
 
-   1. Choose **Show file preview** to show the contents of the file in JSON format\.
+   1. To show the contents of the file in JSON format, choose **Show file preview**\.
 
 **Note**  
 If new data doesn't appear in the bucket, check that you enabled property value update notifications for your asset properties\. For more information, see [Interacting with other AWS services](interact-with-other-services.md)\.

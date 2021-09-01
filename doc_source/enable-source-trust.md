@@ -44,46 +44,46 @@ Some OPC\-UA servers require access to the OPC\-UA client certificate file to tr
 
    ```
    {
-     "creationDate": 1588369971457,
-     "dataVersion": null,
-     "gatewayConfiguration": {
-       "schemaVersion": "DefaultSchemaVersion",
-       "sources": [
-         {
-           "endpoint": {
-             "certificateTrust": {
-               "type": "TrustAny"
+             "creationDate": 1588369971457,
+             "dataVersion": null,
+             "gatewayConfiguration": {
+               "schemaVersion": "DefaultSchemaVersion",
+               "sources": [
+                 {
+                   "endpoint": {
+                     "certificateTrust": {
+                       "type": "TrustAny"
+                     },
+                     "endpointUri": "opc.tcp://203.0.113.0:49320",
+                     "identityProvider": {
+                       "type": "Anonymous"
+                     },
+                     "messageSecurityMode": "NONE",
+                     "nodeFilterRules": [],
+                     "securityPolicy": "NONE"
+                   },
+                   "id": "a1b2c3d4-5678-90ab-cdef-1c1c1EXAMPLE",
+                   "measurementDataStreamPrefix": "",
+                   "name": "Wind Farm #1",
+                   "type": "OpcUaSource"
+                 }
+               ],
+               "syncStatus": "OUT_OF_SYNC",
+               "version": 27
              },
-             "endpointUri": "opc.tcp://203.0.113.0:49320",
-             "identityProvider": {
-               "type": "Anonymous"
+             "id": {
+               "accountId": "123456789012",
+               "value": "a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE"
              },
-             "messageSecurityMode": "NONE",
-             "nodeFilterRules": [],
-             "securityPolicy": "NONE"
-           },
-           "id": "a1b2c3d4-5678-90ab-cdef-1c1c1EXAMPLE",
-           "measurementDataStreamPrefix": "",
-           "name": "Wind Farm #1",
-           "type": "OpcUaSource"
-         }
-       ],
-       "syncStatus": "OUT_OF_SYNC",
-       "version": 27
-     },
-     "id": {
-       "accountId": "123456789012",
-       "value": "a1b2c3d4-5678-90ab-cdef-1a1a1EXAMPLE"
-     },
-     "lastUpdateDate": 1592004024251,
-     "name": "ExampleCorpGateway",
-     "platform": {
-       "groupArn": "arn:aws:greengrass:us-west-2:123456789012:/greengrass/groups/a1b2c3d4-5678-90ab-cdef-1b1b1EXAMPLE",
-       "type": "Greengrass"
-     },
-     "sink": null,
-     "state": "ACTIVE"
-   }
+             "lastUpdateDate": 1592004024251,
+             "name": "ExampleCorpGateway",
+             "platform": {
+               "groupArn": "arn:aws:greengrass:us-west-2:123456789012:/greengrass/groups/a1b2c3d4-5678-90ab-cdef-1b1b1EXAMPLE",
+               "type": "Greengrass"
+             },
+             "sink": null,
+             "state": "ACTIVE"
+           }
    ```
 
    Find the source that corresponds to the OPC\-UA server\. The ID of the source is in the `id` field\. In the above example, *a1b2c3d4\-5678\-90ab\-cdef\-1c1c1EXAMPLE* is the source ID for the OPC\-UA source named `Wind Farm #1`\.

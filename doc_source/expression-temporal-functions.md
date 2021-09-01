@@ -1,8 +1,20 @@
 # Temporal functions<a name="expression-temporal-functions"></a>
 
+You can use temporal functions to return values based on timestamps of data points\.
+
+## Using temporal functions in metrics<a name="temporal-functions-in-metrics"></a>
+
 In [metrics](metrics.md) only, you can use the following functions that return values based on timestamps of data points\.
 
 Temporal function arguments must be properties from the local asset model\. This means that you can't use properties from child asset models in temporal functions\. You also can't use expressions as arguments to temporal functions\.
+
+You can use nested expressions in temporal functions\. When you use nested expressions, the following rules apply: 
++ Each argument can have only one variable\.
+
+  For example, `latest( t*9/5 + 32 )` is supported\.
++ Arguments can't be aggregation functions\.
+
+  For example, `first( sum(x) )` isn't supported\.
 
 
 | Function | Description | 
@@ -53,3 +65,29 @@ AWS IoT SiteWise performs the following calculations for `Idle Time` at the end 
 + At 2:04 PM \(for 2:03 PM to 2:04 PM\)
   + At 2:03:00 PM, the machine is active \(per the last data point at 2:02:45 PM\)\.
   + `Idle` doesn't change again before the end of the interval at 2:04:00 PM, so `Idle Time` is 0 seconds\.
+
+## Using temporal functions in transforms<a name="temporal-functions-in-transforms"></a>
+
+In [transforms](transforms.md) only, you can use the `pretrigger()` function to retrieve the `GOOD` quality value for a variable prior to the property update that triggered the current transform calculation\.
+
+Consider an example where a manufacturer uses AWS IoT SiteWise to monitor the status of a machine\. The manufacturer uses the following measurements and transforms to represent the process:
++ A measurement, `current_state`, that can be 0 or 1\.
+  + If the machine is in the cleaning state, `current_state` equals 1\.
+  + If the machine is in the manufacturing state, `current_state` equals 0\.
++ A transform, `cleaning_state_duration`, that equals `if(pretrigger(current_state) == 1, timestamp(current_state) - timestamp(pretrigger(current_state)), none)`\. This transform returns how long the machine has been in the cleaning state in seconds, in the Unix epoch format\. For more information, see [Conditional functions](expression-conditional-functions.md) and the [timestamp\(\)](expression-date-and-time-functions.md) function\.
+
+If the machine stays in the cleaning state longer than expected, the manufacturer might investigate the machine\.
+
+You can also use the `pretrigger()` function in multivariate transforms\. For example, you have two measurements named `x` and `y`, and a transform, `z`, that equals `x + y + pretrigger(y)`\. The following table shows the values for `x`, `y`, and `z` from 9:00 AM to 9:15 AM\.
+
+**Note**  
+This example assumes that the values for the measurements arrive chronologically\. For example, the value of `x` for 09:00 AM arrives before the value of `x` for 09:05 AM\.
+If the data points for 9:05 AM arrive before the data points for 9:00 AM, `z` isn't calculated at 9:05 AM\.
+If the value of `x` for 9:05 AM arrives before the value of `x` for 09:00 AM and the values of `y` arrive chronologically, `z` equals `22 = 20 + 1 + 1` at 9:05 AM\.
+
+
+|  | 09:00 AM | 09:05 AM | 09:10 AM | 09:15 AM | 
+| --- | --- | --- | --- | --- | 
+|  `x`  |  10  |  20  |    |  30  | 
+|  `y`  |  1  |  2  |  3  |    | 
+|  `z = x + y + pretrigger(y)`  |  `y` doesn't receive any data point before 09:00 AM\. Therefore, `z` isn't calculated at 09:00 AM\.  |  23 = 20 \+ 2 \+ 1 `pretrigger(y)` equals 1\.  |  25 = 20 \+ 3 \+ 2 `x` doesn't receive a new data point\. `pretrigger(y)` equals 2\.  |  36 = 30 \+ 3 \+ 3 `y` doesn't receive a new data point\. Therefore, `pretrigger(y)` equals 3 at 09:15 AM\.  | 

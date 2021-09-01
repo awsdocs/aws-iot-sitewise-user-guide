@@ -3,6 +3,7 @@
 You can use the AWS IoT SiteWise console or a gateway capability to define and add a Modbus TCP source to your gateway\. This source represents a local Modbus TCP server\.
 
 **Note**  
+Gateways running on AWS IoT Greengrass V2 currently don't support Modbus TCP sources\.
 You must install the AWS IoT SiteWise connector to use a Modbus TCP source\.
 
 You can use the Modbus TCP source to convert the data type from your source into a different data type when it's received on your gateway\. The source data type determines the data types that you can choose for your destination data\. You can also choose to swap bytes using the Modbus TCP source\. The following table provides more information on the source data types, destination data types, and swap modes that are compatible\. 

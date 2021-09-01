@@ -103,8 +103,8 @@ The following example defines an OPC\-UA gateway capability configuration from a
 
 ```
 aws iotsitewise update-gateway-capability-configuration \
-  --capability-namespace "iotsitewise:opcuacollector:1" \
-  --capability-configuration file://opc-ua-configuration.json
+          --capability-namespace "iotsitewise:opcuacollector:1" \
+          --capability-configuration file://opc-ua-configuration.json
 ```
 
 **Example : OPC\-UA source configuration**  
@@ -112,25 +112,25 @@ The following `opc-ua-configuration.json` file defines a basic, insecure OPC\-UA
 
 ```
 {
-  "sources": [
-    {
-      "name": "Wind Farm #1",
-      "endpoint": {
-        "certificateTrust": {
-          "type": "TrustAny"
-        },
-        "endpointUri": "opc.tcp://203.0.113.0:49320",
-        "securityPolicy": "NONE",
-        "messageSecurityMode": "NONE",
-        "identityProvider": {
-          "type": "Anonymous"
-        },
-        "nodeFilterRules": []
-      },
-      "measurementDataStreamPrefix": ""
-    }
-  ]
-}
+          "sources": [
+            {
+              "name": "Wind Farm #1",
+              "endpoint": {
+                "certificateTrust": {
+                  "type": "TrustAny"
+                },
+                "endpointUri": "opc.tcp://203.0.113.0:49320",
+                "securityPolicy": "NONE",
+                "messageSecurityMode": "NONE",
+                "identityProvider": {
+                  "type": "Anonymous"
+                },
+                "nodeFilterRules": []
+              },
+              "measurementDataStreamPrefix": ""
+            }
+          ]
+        }
 ```
 
 **Example : OPC\-UA source configuration with defined property groups**  
@@ -138,83 +138,83 @@ The following `opc-ua-configuration.json` file defines a basic, insecure OPC\-UA
 
 ```
 {
-    "sources": [
-        {
-            "name": "source1",
-            "endpoint": {
-                "certificateTrust": {
-                    "type": "TrustAny"
-                },
-                "endpointUri": "opc.tcp://10.0.0.9:49320",
-                "securityPolicy": "NONE",
-                "messageSecurityMode": "NONE",
-                "identityProvider": {
-                    "type": "Anonymous"
-                },
-                "nodeFilterRules": [
-                    {
-                        "action": "INCLUDE",
-                        "definition": {
-                            "type": "OpcUaRootPath",
-                            "rootPath": "/Utilities/Tank/*"
-                        }
-                    }
-                ]
-            },
-            "measurementDataStreamPrefix": "propertyGroups",
-           "propertyGroups": [
- 
+            "sources": [
                 {
-                    "name": "Deadband_Abs_5",
-                    "nodeFilterRuleDefinitions": [
+                    "name": "source1",
+                    "endpoint": {
+                        "certificateTrust": {
+                            "type": "TrustAny"
+                        },
+                        "endpointUri": "opc.tcp://10.0.0.9:49320",
+                        "securityPolicy": "NONE",
+                        "messageSecurityMode": "NONE",
+                        "identityProvider": {
+                            "type": "Anonymous"
+                        },
+                        "nodeFilterRules": [
+                            {
+                                "action": "INCLUDE",
+                                "definition": {
+                                    "type": "OpcUaRootPath",
+                                    "rootPath": "/Utilities/Tank/*"
+                                }
+                            }
+                        ]
+                    },
+                    "measurementDataStreamPrefix": "propertyGroups",
+                   "propertyGroups": [
+         
                         {
-                            "type": "OpcUaRootPath",
-                            "rootPath": "/Utilities/Tank/Temperature/TT-001"
+                            "name": "Deadband_Abs_5",
+                            "nodeFilterRuleDefinitions": [
+                                {
+                                    "type": "OpcUaRootPath",
+                                    "rootPath": "/Utilities/Tank/Temperature/TT-001"
+                                },
+                                {
+                                    "type": "OpcUaRootPath",
+                                    "rootPath": "/Utilities/Tank/Temperature/TT-002"
+                                }
+                            ],
+                            "deadband": {
+                                "type":"ABSOLUTE",
+                                "value": 5.0,
+                                "timeoutMilliseconds": 120000
+                            }
                         },
                         {
-                            "type": "OpcUaRootPath",
-                            "rootPath": "/Utilities/Tank/Temperature/TT-002"
-                        }
-                    ],
-                    "deadband": {
-                        "type":"ABSOLUTE",
-                        "value": 5.0,
-                        "timeoutMilliseconds": 120000
-                    }
-                },
-                {
-                    "name": "Polling_10s",
-                    "nodeFilterRuleDefinitions": [
+                            "name": "Polling_10s",
+                            "nodeFilterRuleDefinitions": [
+                                {
+                                    "type": "OpcUaRootPath",
+                                    "rootPath": "/Utilities/Tank/Pressure/PT-001"
+                                }
+                            ],
+                            "scanMode": {
+                                "type": "POLL",
+                                "rate": 10000
+                            }
+                        },
                         {
-                            "type": "OpcUaRootPath",
-                            "rootPath": "/Utilities/Tank/Pressure/PT-001"
+                            "name": "Percent_Deadband_Timeout_90s",
+                            "nodeFilterRuleDefinitions": [
+                                {
+                                    "type": "OpcUaRootPath",
+                                    "rootPath": "/Utilities/Tank/Flow/FT-*"
+                                }
+                            ],
+                            "deadband": {
+                                "type":"PERCENT",
+                                "value": 5.0,
+                                "eguMin": -100,
+                                "eguMax": 100,
+                                "timeoutMilliseconds": 90000
+                            }
                         }
-                    ],
-                    "scanMode": {
-                        "type": "POLL",
-                        "rate": 10000
-                    }
-                },
-                {
-                    "name": "Percent_Deadband_Timeout_90s",
-                    "nodeFilterRuleDefinitions": [
-                        {
-                            "type": "OpcUaRootPath",
-                            "rootPath": "/Utilities/Tank/Flow/FT-*"
-                        }
-                    ],
-                    "deadband": {
-                        "type":"PERCENT",
-                        "value": 5.0,
-                        "eguMin": -100,
-                        "eguMax": 100,
-                        "timeoutMilliseconds": 90000
-                    }
+                    ]
                 }
             ]
         }
-    ]
-}
 ```
 
 **Example : OPC\-UA source configuration with properties**  
@@ -228,34 +228,34 @@ The following JSON example for `opc-ua-configuration.json` defines an OPC\-UA so
 
 ```
 {
-  "sources": [
-    {
-      "name": "Wind Farm #2",
-      "endpoint": {
-        "certificateTrust": {
-          "type": "TrustAny"
-        },
-        "endpointUri": "opc.tcp://203.0.113.1:49320",
-        "securityPolicy": "BASIC256",
-        "messageSecurityMode": "SIGN_AND_ENCRYPT",
-        "identityProvider": {
-          "type": "Username",
-          "usernameSecretArn": "arn:aws:secretsmanager:region:123456789012:secret:greengrass-windfarm2-auth-1ABCDE"
-        },
-        "nodeFilterRules": [
-          {
-            "action": "INCLUDE",
-            "definition": {
-              "type": "OpcUaRootPath",
-              "rootPath": "/WindFarm/2/WindTurbine/"
+          "sources": [
+            {
+              "name": "Wind Farm #2",
+              "endpoint": {
+                "certificateTrust": {
+                  "type": "TrustAny"
+                },
+                "endpointUri": "opc.tcp://203.0.113.1:49320",
+                "securityPolicy": "BASIC256",
+                "messageSecurityMode": "SIGN_AND_ENCRYPT",
+                "identityProvider": {
+                  "type": "Username",
+                  "usernameSecretArn": "arn:aws:secretsmanager:region:123456789012:secret:greengrass-windfarm2-auth-1ABCDE"
+                },
+                "nodeFilterRules": [
+                  {
+                    "action": "INCLUDE",
+                    "definition": {
+                      "type": "OpcUaRootPath",
+                      "rootPath": "/WindFarm/2/WindTurbine/"
+                    }
+                  }
+                ]
+              },
+              "measurementDataStreamPrefix": "/Washington"
             }
-          }
-        ]
-      },
-      "measurementDataStreamPrefix": "/Washington"
-    }
-  ]
-}
+          ]
+        }
 ```
 
 **Example**  
@@ -266,14 +266,14 @@ The following JSON example for `opc-ua-configuration.json` defines an OPC\-UA so
 
 ```
 {
-  "sources": [
-    {
-      "name": "Wind Farm #3",
-      "endpoint": {
-        "certificateTrust": {
-          "type": "X509",
-          "certificateBody": "-----BEGIN CERTIFICATE-----
-MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w
+          "sources": [
+            {
+              "name": "Wind Farm #3",
+              "endpoint": {
+                "certificateTrust": {
+                  "type": "X509",
+                  "certificateBody": "-----BEGIN CERTIFICATE-----
+        MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w
  0BAQUFADCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZ
  WF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIw
  EAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5
@@ -288,9 +288,9 @@ MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w
  KyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0FkbFFBjvSfpJIlJ00zbhNYS5f6Guo
  EDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTbNYiytVbZPQUQ5Yaxu2jXnimvw
  3rrszlaEXAMPLE=
------END CERTIFICATE-----",
-          "certificateTrust": "-----BEGIN CERTIFICATE-----
-MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w
+        -----END CERTIFICATE-----",
+                  "certificateTrust": "-----BEGIN CERTIFICATE-----
+        MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w
  0BAQUFADCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZ
  WF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb25zb2xlMRIw
  EAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5
@@ -305,18 +305,18 @@ MIICiTCCAfICCQD6m7oRw0uXOjANBgkqhkiG9w
  KyExzyLwaxlAoo7TJHidbtS4J5iNmZgXL0FkbFFBjvSfpJIlJ00zbhNYS5f6Guo
  EDmFJl0ZxBHjJnyp378OD8uTs7fLvjx79LjSTbNYiytVbZPQUQ5Yaxu2jXnimvw
  3rrszlaEXAMPLE=
------END CERTIFICATE-----"
-        },
-        "endpointUri": "opc.tcp://203.0.113.2:49320",
-        "securityPolicy": "BASIC256",
-        "messageSecurityMode": "SIGN_AND_ENCRYPT",
-        "identityProvider": {
-          "type": "Anonymous"
-        },
-        "nodeFilterRules": []
-      },
-      "measurementDataStreamPrefix": ""
-    }
-  ]
-}
+        -----END CERTIFICATE-----"
+                },
+                "endpointUri": "opc.tcp://203.0.113.2:49320",
+                "securityPolicy": "BASIC256",
+                "messageSecurityMode": "SIGN_AND_ENCRYPT",
+                "identityProvider": {
+                  "type": "Anonymous"
+                },
+                "nodeFilterRules": []
+              },
+              "measurementDataStreamPrefix": ""
+            }
+          ]
+        }
 ```

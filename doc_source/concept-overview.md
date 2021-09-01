@@ -25,7 +25,7 @@ You can use a source destination to control where to send the incoming data from
 
 **Asset property**  
 Asset properties are the structures within each asset that contain industrial data\. Each property has a data type and can have a unit\. A property can be an [attribute](#concept-attribute), a [measurement](#concept-measurement), a [transform](#concept-transform), or a [metric](#concept-metric)\. For more information, see [Defining data properties](asset-properties.md)\.  
-You can configure asset properties to compute at the edge\. For more information about processing data at the edge, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
+You can configure asset properties to compute at the edge\. For more information about processing data at the edge, see [Enabling edge data processing](edge-processing.md)\.
 
 **Attribute**  
 Attributes are asset properties that represent information that generally doesn't change, such as device manufacturer or device location\. Attributes can have default values\. Each asset that you create from an asset model contains the default values of the attributes of that model\. For more information, see [Defining static data \(attributes\)](attributes.md)\.

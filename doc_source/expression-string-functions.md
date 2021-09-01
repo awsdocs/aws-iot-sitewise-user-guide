@@ -40,4 +40,4 @@ In [transforms](transforms.md) and [metrics](metrics.md), you can use the follow
 
   1. `join('', "abc", 1+2, 'd')` returns a string, `abc3.000000d`\.
 
-  You can also write the expression in the the following way: `join('', "abc", format(1+2: "f"), 'd')`\.  | 
+  You can also write the expression in the following way: `join('', "abc", format(1+2: "f"), 'd')`\.  | 

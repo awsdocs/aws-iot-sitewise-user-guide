@@ -3,7 +3,7 @@
 After you have your asset property data in Amazon S3, you can use several AWS services to generate reports or analyze and query your data:
 + Run SQL queries on your data using [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/)\.
 + Perform big data analysis using [Amazon EMR](https://docs.aws.amazon.com/emr/latest/DeveloperGuide/)\.
-+ Search and analyze your data using [Amazon Elasticsearch Service](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/)\.
++ Search and analyze your data using [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/)\.
 
 You can find other AWS services that can interact with your data in Amazon S3 listed under **Analytics** in the [AWS Management Console](https://console.aws.amazon.com/)\.
 
@@ -47,7 +47,7 @@ AWS Glue crawlers crawl data stores to populate tables in the AWS Glue Data Cata
 
    1. On the **Choose an IAM role** page, do the following:
 
-      1. Choose **Create an IAM role** to create a new service role that allows AWS Glue to access the S3 bucket\.
+      1. To create a new service role that allows AWS Glue to access the S3 bucket, choose **Create an IAM role**\.
 
       1. Enter a suffix for your role's name, such as **IoTSiteWiseDataCrawler**\.
 
@@ -97,7 +97,7 @@ After you create a view that combines asset property data and metadata, you can 
 
 1. If you're using Athena for the first time, complete the following steps to configure an S3 bucket for query results\. Athena stores the results of your queries in this bucket\.
 **Important**  
-Use a different bucket than your asset data bucket, so the crawler that you created earlier doesn't crawl query results\. We recommend that you create a bucket to use only for Athena query results\. For more information, see [How do I create an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service Console User Guide*\.
+Use a different bucket than your asset data bucket, so the crawler that you created earlier doesn't crawl query results\. We recommend that you create a bucket to use only for Athena query results\. For more information, see [How do I create an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service User Guide*\.
 
    1. Choose **Settings**\.
 
@@ -134,7 +134,7 @@ Use a different bucket than your asset data bucket, so the crawler that you crea
 
    This query joins the asset property data and metadata tables on asset ID and property ID to create a view\. You can run this query multiple times because it replaces the existing view if the view already exists\.
 
-1. Choose the **\+** icon to add a new query\.
+1. To add a new query, choose the **\+** icon\.
 
 1. To view a sample of asset data, enter the following query, and then choose **Run query**\. Replace the timestamps with an interval for which your bucket has data\.
 

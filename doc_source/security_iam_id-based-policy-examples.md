@@ -116,7 +116,7 @@ You can use conditions in your identity\-based policy to control access to AWS I
       "Resource": "arn:aws:iotsitewise:*:*:asset/*",
       "Condition": {
         "StringEquals": {
-          "iotsitewise:ResourceTag/Owner": "${aws:username}"
+          "aws:ResourceTag/Owner": "${aws:username}"
         }
       }
     }

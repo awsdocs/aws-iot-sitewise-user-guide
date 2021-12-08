@@ -6,4 +6,4 @@ You use AWS published API calls to access AWS IoT SiteWise through the network\.
 
 Additionally, requests must be signed by using an access key ID and a secret access key that is associated with an IAM principal\. Or you can use the [AWS Security Token Service](https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) \(AWS STS\) to generate temporary security credentials to sign requests\.
 
-AWS IoT SiteWise gateways, which run on AWS IoT Greengrass, use X\.509 certificates and cryptographic keys to connect and authenticate to the AWS Cloud\. For more information, see [Device authentication and authorization for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/device-auth.html) in the *AWS IoT Greengrass Developer Guide*\.
+AWS IoT SiteWise gateways, which run on AWS IoT Greengrass, use X\.509 certificates and cryptographic keys to connect and authenticate to the AWS Cloud\. For more information, see [Device authentication and authorization for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/device-auth.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.

@@ -4,12 +4,29 @@ You can configure AWS IoT SiteWise to log information to CloudWatch Logs to moni
 
 When you use the AWS IoT SiteWise console, AWS IoT SiteWise creates a service\-linked role that allows the service to log information on your behalf\. If you don't use the AWS IoT SiteWise console, you must create a service\-linked role manually to receive logs\. For more information, see [Creating a service\-linked role for AWS IoT SiteWise](using-service-linked-roles.md#create-service-linked-role)\.
 
+You must have a resource policy that allows AWS IoT SiteWise to put log events into CloudWatch streams\. To create and update a resource policy for CloudWatch Logs, run the following command\. Replace *logging\-policy\-name* with the name of the policy to create\.
+
+```
+aws logs put-resource-policy --policy-name logging-policy-name --policy-document "{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"IoTSiteWiseToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"iotsitewise.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"*\" } ] }"
+```
+
+CloudWatch Logs also supports [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) and [aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-ke-sourceaccount) condition context keys\. These condition context keys are optional\.
+
+To create or update a resource policy that allows AWS IoT SiteWise to only put logs associated with the specified AWS IoT SiteWise resource into CloudWatch streams, run the command and do the following:
++ Replace *logging\-policy\-name* with the name of the policy to create\.
++ Replace *source\-ARN* with the ARN of your AWS IoT SiteWise resource, such as an asset model or asset\. To find the ARN for each AWS IoT SiteWise resource type, see [Resource types defined by AWS IoT SiteWise](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotsitewise.html#awsiotsitewise-resources-for-iam-policies) in the *Service Authorization Reference*\.
++ Replace *account\-ID* with the AWS account ID associated with the specified AWS IoT SiteWise resource\.
+
+```
+aws logs put-resource-policy --policy-name logging-policy-name --policy-document "{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"IoTSiteWiseToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"iotsitewise.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"*\", \"Condition\":{\"StringLike\":{\"aws:SourceArn\":[\"source-ARN\"],\"aws:SourceAccount\":[\"account-ID\"]}}}]}"
+```
+
 By default, AWS IoT SiteWise doesn't log information to CloudWatch Logs\. To enable logging, choose a logging level other than **Disabled** \(`OFF`\)\. AWS IoT SiteWise supports the following logging levels:
 + `OFF` – Logging is disabled\.
 + `ERROR` – Errors are logged\.
 + `INFO` – Errors and informational messages are logged\.
 
-You can also configure gateways to log information to CloudWatch Logs through AWS IoT Greengrass\. For more information, see [Monitoring gateway logs](monitor-gateway-logs.md)\.
+You can configure gateways to log information to CloudWatch Logs through AWS IoT Greengrass\. For more information, see [Monitoring gateway logs](monitor-gateway-logs.md)\.
 
 You can also configure AWS IoT Core to log information to CloudWatch Logs if you are troubleshooting an AWS IoT SiteWise rule action\. For more information, see [Troubleshooting an AWS IoT SiteWise rule action](troubleshoot-rule.md)\.
 

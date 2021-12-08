@@ -1,10 +1,5 @@
 # Monitoring data with alarms<a name="industrial-alarms"></a>
 
-
-|  | 
-| --- |
-|  The alarms feature is in preview release for AWS IoT SiteWise, AWS IoT Events, and SiteWise Monitor, and is subject to change\. We recommend that you use this feature only with test data, and not in production environments\. While the alarms feature is in preview, you must download the alarms preview AWS SDK and AWS Command Line Interface \(AWS CLI\) to use the API operations for this feature\. These API operations aren't available in the public AWS SDK or AWS CLI\. For more information, see [Alarms preview AWS CLI and AWS SDKs](alarms-preview-sdk.md)\.  | 
-
 You can configure alarms for your data to alert your team when equipment or processes perform sub\-optimally\. Optimal performance of a machine or process means that the values for certain metrics should be within a range of high and low limits\. When these metrics are outside their operating range, equipment operators must be notified so they can fix the issue\. Use alarms to quickly identify issues and notify operators to maximize performance of your equipment and processes\.
 
 **Topics**
@@ -15,16 +10,15 @@ You can configure alarms for your data to alert your team when equipment or proc
 + [Configuring alarms on assets](configure-alarms.md)
 + [Responding to alarms](respond-to-alarms.md)
 + [Ingesting external alarm state](ingest-external-alarm-state.md)
-+ [Alarms preview AWS CLI and AWS SDKs](alarms-preview-sdk.md)
 
 ## Alarm types<a name="alarm-types"></a>
 
 You can define alarms that detect in the AWS Cloud and alarms that you detect with external processes\. AWS IoT SiteWise supports the following types of alarms:
 + **AWS IoT Events alarms**
 
-  AWS IoT Events alarms are alarms that detect in AWS IoT Events\. AWS IoT SiteWise sends asset property values to an alarm detector in AWS IoT Events\. Then, AWS IoT Events sends the alarm state to AWS IoT SiteWise\. You can configure options such as when the alarm detects and whom to notify when the alarm state changes\. You can also define the [AWS IoT Events actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-supported-actions.html) that occur when the alarm state changes\.
+  AWS IoT Events alarms are alarms that detect in AWS IoT Events\. AWS IoT SiteWise sends asset property values to an alarm model in AWS IoT Events\. Then, AWS IoT Events sends the alarm state to AWS IoT SiteWise\. You can configure options such as when the alarm detects and whom to notify when the alarm state changes\. You can also define the [AWS IoT Events actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-supported-actions.html) that occur when the alarm state changes\.
 
-  Alarm detectors in AWS IoT Events are instances of alarm models\. The alarm model specifies the threshold and severity of the alarm, what to do when the alarm state changes, and more\. When you configure each trait of the alarm model, you specify an attribute property from the asset model that the alarm monitors\. All assets based on the asset model use the value of the attribute when AWS IoT Events evaluates that trait of the alarm\.  For more information, see [Using alarms](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-alarms.html) in the *AWS IoT Events Developer Guide*\.
+  Alarms in AWS IoT Events are instances of alarm models\. The alarm model specifies the threshold and severity of the alarm, what to do when the alarm state changes, and more\. When you configure each trait of the alarm model, you specify an attribute property from the asset model that the alarm monitors\. All assets based on the asset model use the value of the attribute when AWS IoT Events evaluates that trait of the alarm\.  For more information, see [Using alarms](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-alarms.html) in the *AWS IoT Events Developer Guide*\.
 
   You can respond to an AWS IoT Events alarm when it changes state\. For example, you can acknowledge or snooze an alarm when it becomes active\. You can also enable, disable, and reset alarms\.
 
@@ -48,16 +42,16 @@ Industrial alarms include information about the state of the equipment or proces
 When you define an AWS IoT Events alarm, you specify whether or not to enable the *acknowledge flow*\. The acknowledge flow is enabled by default\. When you enable this option, operators can acknowledge the alarm and leave a note with details about the alarm or the actions they took to address it\. If an operator doesn't acknowledge an active alarm before it becomes inactive, the alarm becomes latched\. The latched state indicates that the alarm became active and wasn't acknowledged, so an operator needs to check on the equipment or process and acknowledge the latched alarm\.
 
 Alarms have the following states:
-+ **Normal** \(`NORMAL`\) – The alarm is enabled but inactive\. The industrial process or equipment operates as expected\.
-+ **Active** \(`ACTIVE`\) – The alarm is active\. The industrial process or equipment is outside its operating range and needs attention\.
-+ **Acknowledged** \(`ACKNOWLEDGED`\) – An operator acknowledged the state of the alarm\.
++ **Normal** \(`Normal`\) – The alarm is enabled but inactive\. The industrial process or equipment operates as expected\.
++ **Active** \(`Active`\) – The alarm is active\. The industrial process or equipment is outside its operating range and needs attention\.
++ **Acknowledged** \(`Acknowledged`\) – An operator acknowledged the state of the alarm\.
 
   This state applies to only alarms where you enable the acknowledge flow\.
-+ **Latched** \(`LATCHED`\) – The alarm returned to normal but was active and no operator acknowledged it\. The industrial process or equipment requires attention from an operator to reset the alarm to normal\.
++ **Latched** \(`Latched`\) – The alarm returned to normal but was active and no operator acknowledged it\. The industrial process or equipment requires attention from an operator to reset the alarm to normal\.
 
   This state applies to only alarms where you enable the acknowledge flow\.
-+ **Snoozed** \(`SNOOZE_DISABLED`\) – The alarm is disabled because an operator snoozed the alarm\. The operator defines the duration for which the alarm snoozes\. After that duration, the alarm returns to normal state\.
-+ **Disabled** \(`DISABLED`\) – The alarm is disabled and won't detect\.
++ **Snoozed** \(`SnoozeDisabled`\) – The alarm is disabled because an operator snoozed the alarm\. The operator defines the duration for which the alarm snoozes\. After that duration, the alarm returns to normal state\.
++ **Disabled** \(`Disabled`\) – The alarm is disabled and won't detect\.
 
 ## Alarm state properties<a name="alarm-state-properties"></a>
 
@@ -82,27 +76,27 @@ The name of the action that the operator takes to respond to the alarm\. This va
 + `RESET`
 Data type: `STRING`  
 `enable`  
-\(Optional\) An object that is present in `customerAction` when the operator enables the alarm\. When an operator enables the alarm, the alarm state changes to `NORMAL`\. This object contains the following information:    
+\(Optional\) An object that is present in `customerAction` when the operator enables the alarm\. When an operator enables the alarm, the alarm state changes to `Normal`\. This object contains the following information:    
 `note`  
 \(Optional\) The note that the customer leaves when they enable the alarm\.  
 Data type: `STRING`  
 Maximum length: 128 characters  
 `disable`  
-\(Optional\) An object that is present in `customerAction` when the operator disables the alarm\. When an operator enables the alarm, the alarm state changes to `DISABLED`\. This object contains the following information:    
+\(Optional\) An object that is present in `customerAction` when the operator disables the alarm\. When an operator enables the alarm, the alarm state changes to `Disabled`\. This object contains the following information:    
 `note`  
 \(Optional\) The note that the customer leaves when they disable the alarm\.  
 Data type: `STRING`  
 Maximum length: 128 characters  
 `acknowledge`  
-\(Optional\) An object that is present in `customerAction` when the operator acknowledges the alarm\. When an operator enables the alarm, the alarm state changes to `ACKNOWLEDGED`\. This object contains the following information:    
+\(Optional\) An object that is present in `customerAction` when the operator acknowledges the alarm\. When an operator enables the alarm, the alarm state changes to `Acknowledged`\. This object contains the following information:    
 `note`  
 \(Optional\) The note that the customer leaves when they acknowledge the alarm\.  
 Data type: `STRING`  
 Maximum length: 128 characters  
 `snooze`  
-\(Optional\) An object that is present in `customerAction` when the operator snoozes the alarm\. When an operator enables the alarm, the alarm state changes to `SNOOZE_DISABLED`\. This object contains the following information:    
+\(Optional\) An object that is present in `customerAction` when the operator snoozes the alarm\. When an operator enables the alarm, the alarm state changes to `SnoozeDisabled`\. This object contains the following information:    
 `snoozeDuration`  
-The duration in seconds that the operator snoozes the alarm\. The alarm changes to `NORMAL` state after this duration\.  
+The duration in seconds that the operator snoozes the alarm\. The alarm changes to `Normal` state after this duration\.  
 Data type: `INTEGER`  
 `note`  
 \(Optional\) The note that the customer leaves when they snooze the alarm\.  

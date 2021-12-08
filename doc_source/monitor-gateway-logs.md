@@ -12,7 +12,7 @@ You can configure your gateway to send logs to CloudWatch Logs\. You might follo
 
 **To configure and access CloudWatch Logs**
 
-1. To configure CloudWatch Logs for your gateway, see [Configure logging](https://docs.aws.amazon.com/greengrass/latest/developerguide/greengrass-logs-overview.html#config-logs) in the *AWS IoT Greengrass Developer Guide*\.
+1. To configure CloudWatch Logs for your gateway, see [Configure logging](https://docs.aws.amazon.com/greengrass/latest/developerguide/greengrass-logs-overview.html#config-logs) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 1. Navigate to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/)\.
 
@@ -48,7 +48,7 @@ You can configure your gateway to store logs locally\. You might follow this pro
 
 **To configure and access local file system logs**
 
-1. To configure local file system logs on your gateway, see [Configure logging](https://docs.aws.amazon.com/greengrass/latest/developerguide/greengrass-logs-overview.html#config-logs) in the *AWS IoT Greengrass Developer Guide*\.
+1. To configure local file system logs on your gateway, see [Configure logging](https://docs.aws.amazon.com/greengrass/latest/developerguide/greengrass-logs-overview.html#config-logs) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 **Note**  
 You must have root permissions to read AWS IoT Greengrass logs on the file system\.
 

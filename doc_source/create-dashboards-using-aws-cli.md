@@ -6,13 +6,13 @@ When you define visualizations \(or widgets\) in dashboards using the AWS CLI, y
 A list of widget definition structures that each contain the following information:    
 `type`  
 The type of widget\. AWS IoT SiteWise provides the following widget types:  
-+ <a name="monitor-line-chart"></a>`monitor-line-chart` – A line chart\. For more information, see [Line charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#line-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ <a name="monitor-scatter-chart"></a>`monitor-scatter-chart` – A scatter chart\. For more information, see [Scatter charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#scatter-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ <a name="monitor-bar-chart"></a>`monitor-bar-chart` – A bar chart\. For more information, see [Bar charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#bar-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ <a name="monitor-status-grid"></a>`monitor-status-grid` – A status widget that shows the latest value of asset properties as a grid\. For more information, see [Status widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#status-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ <a name="monitor-status-timeline"></a>`monitor-status-timeline` – A status widget that shows the historical values of asset properties as a timeline\. For more information, see [Status widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#status-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ `monitor-kpi` – A key performance indicator \(KPI\) visualization\. For more information, see [KPI widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#kpi-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
-+ `monitor-table` – A table widget\. For more information, see [Table widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#table-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.  
++ <a name="monitor-line-chart"></a>`sc-line-chart` – A line chart\. For more information, see [Line charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#line-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ <a name="monitor-scatter-chart"></a>`sc-scatter-chart` – A scatter chart\. For more information, see [Scatter charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#scatter-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ <a name="monitor-bar-chart"></a>`sc-bar-chart` – A bar chart\. For more information, see [Bar charts](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#bar-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ <a name="monitor-status-grid"></a>`sc-status-grid` – A status widget that shows the latest value of asset properties as a grid\. For more information, see [Status widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#status-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ <a name="monitor-status-timeline"></a>`sc-status-timeline` – A status widget that shows the historical values of asset properties as a timeline\. For more information, see [Status widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#status-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ `sc-kpi` – A key performance indicator \(KPI\) visualization\. For more information, see [KPI widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#kpi-charts) in the *AWS IoT SiteWise Monitor Application Guide*\.
++ `sc-table` – A table widget\. For more information, see [Table widgets](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/choose-visualization-types.html#table-widgets) in the *AWS IoT SiteWise Monitor Application Guide*\.  
 `title`  
 The title of the widget\.  
 `x`  
@@ -89,7 +89,7 @@ This example represents line and bar chart visualizations on a dashboard\. This 
 {
   "widgets": [
     {
-      "type": "monitor-line-chart",
+      "type": "sc-line-chart",
       "title": "Total Average Power",
       "x": 0,
       "y": 0,
@@ -122,7 +122,7 @@ This example represents line and bar chart visualizations on a dashboard\. This 
       }
     },
     {
-      "type": "monitor-bar-chart",
+      "type": "sc-bar-chart",
       "title": "Wind Speed",
       "x": 3,
       "y": 3,

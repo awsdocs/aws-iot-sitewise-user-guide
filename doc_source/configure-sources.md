@@ -14,6 +14,9 @@ Currently, AWS IoT SiteWise supports the following data source protocols:
 + [Modbus TCP](https://en.wikipedia.org/wiki/Modbus) – A data communications protocol used to interface with programmable logic controllers \(PLCs\)\.
 + [Ethernet/IP \(EIP\)](https://en.wikipedia.org/wiki/EtherNet/IP) – An industrial network protocol that adapts the Common Industrial Protocol \(CIP\) to standard Ethernet\.
 
+**Note**  
+Gateways running on AWS IoT Greengrass V2 currently don't support Modbus TCP and Ethernet IP sources\.
+
 **Topics**
 + [Configure an OPC\-UA source](configure-opcua-source.md)
 + [Configure a Modbus TCP source](configure-modbus-source.md)

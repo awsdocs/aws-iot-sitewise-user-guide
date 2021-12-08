@@ -40,20 +40,44 @@ Consider an example where you want to define an alarm that detects when a wind t
 
    1. Enter the **Severity** of the alarm\. Use a number that your team understands to reflect the severity of this alarm\.
 
-1. \(Optional\) In the **Notification settings** pane, you configure the notification settings for the alarm\. The alarm uses an AWS Lambda function in your AWS account to send alarm notification\. For more information, see [Requirements for alarm notifications](define-iot-events-alarms.md#iot-events-alarm-notification-requirements)\.
+1. \(Optional\) In the **Notification settings** pane, you can configure the notification settings for the alarm\. The alarm uses an AWS Lambda function in your AWS account to manage alarm notifications\. For more information, see [Requirements for alarm notifications](define-iot-events-alarms.md#iot-events-alarm-notification-requirements)\.
 
-   In this pane, you configure this Lambda function, the message protocol, the message recipient, and the custom message that AWS IoT Events sends when this alarm detects\. You define the recipient and custom message in an attribute property, so you can later customize these values for each asset based on this model\. You can use an existing attribute or create an attribute for each setting\. If you create an attribute, you can define its default value for all assets based on this asset model\.
-**Important**  <a name="alarm-notifications-sso-requirement"></a>
-You can send alarm notifications to AWS Single Sign\-On users\. To use this feature, you must enable AWS SSO\. You can only enable AWS SSO in one AWS Region at a time\. This means that you can define alarm notifications only in the Region where you enable AWS SSO\. For more information, see [Getting started](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html) in the *AWS Single Sign\-On User Guide*\.
+   In this pane, you configure this Lambda function, the message protocol, the message recipient, and the custom message that AWS IoT Events sends when this alarm is invoked\. You define the recipient and custom message in an attribute property, so you can later customize these values for each asset based on this model\. You can use an existing attribute or create an attribute for each setting\. If you create an attribute, you can define its default value for all assets based on this asset model\.
 
    In the **Notification settings** pane, do the following:
 
-   1. For **Function name**, choose the Lambda function that sends alarm notifications\.
+   1. Choose **Enabled**\.
+**Note**  
+If you choose **Disabled**, you and your team won't receive any alarm notifications\.
+
+   1. For **Recipient**, choose the recipient\.
+**Important**  <a name="alarm-notifications-sso-requirement"></a>
+You can send alarm notifications to AWS Single Sign\-On users\. To use this feature, you must enable AWS SSO\. You can only enable AWS SSO in one AWS Region at a time\. This means that you can define alarm notifications only in the Region where you enable AWS SSO\. For more information, see [Getting started](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html) in the *AWS Single Sign\-On User Guide*\.
 
    1. For **Protocol**, choose from the following options:
-      + **Text and email** – The alarm notifies AWS SSO users with an SMS message and an email\.
-      + **Email** – The alarm notifies AWS SSO users with an email\.
+      + **Email & text** – The alarm notifies AWS SSO users with an SMS message and an email message\.
+      + **Email** – The alarm notifies AWS SSO users with an email message\.
       + **Text** – The alarm notifies AWS SSO users with an SMS message\.
+
+   1. For **Sender**, choose the sender\.
+**Important**  
+You must verify the sender email address in Amazon Simple Email Service \(Amazon SES\)\. For more information, see [Verifying email addresses in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html), in the *Amazon Simple Email Service Developer Guide*\.
+
+1. Specify the **Default asset state** for this alarm\. You can enable or disable this alarm for all assets that you create from this asset model in a later step\.
+
+1. In the **Advanced settings** pane, you can configure the permissions, the additional notification settings, the alarm state actions, the alarm model in SiteWise Monitor, and the acknowledge flow\.
+**Note**  
+AWS IoT Events alarms require the following service roles:  
+A role that AWS IoT Events assumes to send alarm state values to AWS IoT SiteWise\.
+A role that AWS IoT Events assumes to send data to Lambda\. You only need this role if your alarm sends notifications\.
+
+   In the **Permissions** pane, do the following:
+
+   1. For **AWS IoT Events role**, use an existing role or create a role with the required permissions\. This role requires the `iotsitewise:BatchPutAssetPropertyValue` permission and a trust relationship that allows iotevents\.amazonaws\.com to assume the role\.
+
+   1. For the **AWS IoT Events Lambda role**, use an existing role or create a role with the required permissions\. This role requires the `lambda:InvokeFunction` and `sso-directory:DescribeUser` permissions and a trust relationship that allows `iotevents.amazonaws.com` to assume the role\.
+
+1. \(Optional\) In the **Additional notification settings** pane, do the following:
 
    1. For **Recipient attribute**, you define an attribute whose value specifies the recipient of the notification\. You can choose AWS SSO users as recipients\.
 
@@ -71,22 +95,22 @@ You can send alarm notifications to AWS Single Sign\-On users\. To use this feat
 
       You can override the default value on each asset that you create from this asset model\.
 
-1. Specify the **Default asset state** for this alarm\. You can enable or disable this alarm for all assets that you create from this asset model\. You can enable or disable this alarm for all assets that you create from this asset model in a later step\.
+   1. For **Function name**, choose an existing Lambda function or create a function that manages alarm notifications\. For more information, see [Managing alarm notifications](https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html) in the *AWS IoT Events Developer Guide*\.
 
-1. AWS IoT Events alarms require two service roles:
+1. \(Optional\) In the **Set state action** pane, do the following:
 
-   1. A role that AWS IoT SiteWise assumes to send asset property values to AWS IoT Events\.
+   1. Choose **Edit action**\.
 
-   1. A role that AWS IoT Events assumes to send alarm state values to AWS IoT SiteWise\.
+   1. On the **Add alarm state actions** page, add actions\. You can add up to 10 actions\.
 
-   When you create an alarm, you can choose existing roles or create roles with the permissions that each service requires\. In the **Permissions** pane, do the following:
+   AWS IoT Events can perform actions when the alarm is active\. You can define built\-in actions to use a timer or set a variable, or send data to other AWS resources\. For more information, see [Supported actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-supported-actions.html) in the *AWS IoT Events Developer Guide*\.
 
-   1. For **AWS IoT SiteWise role**, use an existing role or create a role with the required permissions\. This role requires the `iotevents:BatchPutMessage` permission and a trust relationship that allows `iotsitewise.amazonaws.com` to assume the role\. For more information, see [Using service roles for alarms](alarm-service-role.md)\.
+1. \(Optional\) In the **Manage alarm model in SiteWise Monitor** pane, choose **Enabled** or **Disabled**\.
 
-   1. For **AWS IoT Events role**, use an existing role or create a role with the required permissions\. This role requires the `iotsitewise:BatchPutAssetPropertyValue` permission and a trust relationship that allows `iotevents.amazonaws.com` to assume the role\. To send notifications, this role also requires the `lambda:InvokeFunction` and `sso-directory:DescribeUser` permissions\. For more information, see [Alarm service roles](https://docs.aws.amazon.com/iotevents/latest/developerguide/security-iam.html) in the *AWS IoT Events Developer Guide*\.
+   Use this option so that you can update the alarm model in SiteWise Monitorss\. This option is enabled by default\.
 
-1. \(Optional\) In **Advanced configuration**, you can specify if the acknowledge flow is enabled\. For more information about the acknowledge flow, see [Alarm states](industrial-alarms.md#alarm-states)\.
+1. In **Acknowledge flow**, you can specify if the acknowledge flow is enabled\. For more information about the acknowledge flow, see [Alarm states](industrial-alarms.md#alarm-states)\.
 
 1. Choose **Add alarm**\.
-
-1. The AWS IoT SiteWise console makes multiple API requests to add the alarm to the asset model\. When you choose **Add alarm**, the console opens a dialog box that shows the progress of these API requests\. Stay on this page until each API requests succeeds or until an API request fails\. If a request fails, close the dialog box, fix the issue, and choose **Add alarm** to try again\.
+**Note**  
+The AWS IoT SiteWise console makes multiple API requests to add the alarm to the asset model\. When you choose **Add alarm**, the console opens a dialog box that shows the progress of these API requests\. Stay on this page until each API requests succeeds or until an API request fails\. If a request fails, close the dialog box, fix the issue, and choose **Add alarm** to try again\.

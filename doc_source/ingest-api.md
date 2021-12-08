@@ -5,7 +5,7 @@ You can use the AWS IoT SiteWise API to send timestamped industrial data to your
 Use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation to upload your data\. With this operation, you can upload multiple data entries at a time, so that you can collect data from several devices and send it all in a single request\.
 
 **Important**  
-The [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation is subject to quotas on the number of entries per request and the number of TQV data points per entry\. AWS IoT SiteWise also rejects any data with a timestamp dated to more than 7 days in the past or more than 5 minutes in the future\. For more information about these quotas, see [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*\.
+The [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation is subject to quotas on the number of entries per request and the number of TQV data points per entry\. AWS IoT SiteWise also rejects any data with a timestamp dated to more than 7 days in the past or more than 10 minutes in the future\. For more information about these quotas, see [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*\.
 
 To identify an asset property, you can specify one of the following:
 + The `assetId` and `propertyId` of the asset property that you are sending data to\.
@@ -63,10 +63,10 @@ Each structure in the list of `propertyValues` is a timestamp\-quality\-value \(
   + `doubleValue`
   + `integerValue`
   + `stringValue`
-+ `timestamp` – A structure that contains the current Unix epoch time in seconds, `timeInSeconds`\. You can also set the `offsetInNanos` key in the `timestamp` structure if you have temporally precise data\. AWS IoT SiteWise rejects any data points with timestamps older than 7 days in the past or newer than 5 minutes in the future\.
++ `timestamp` – A structure that contains the current Unix epoch time in seconds, `timeInSeconds`\. You can also set the `offsetInNanos` key in the `timestamp` structure if you have temporally precise data\. AWS IoT SiteWise rejects any data points with timestamps older than 7 days in the past or newer than 10 minutes in the future\.
 + `quality` – \(Optional\) One of the following quality strings:
   + `GOOD` – \(Default\) The data isn't affected by any issues\.
   + `BAD` – The data is affected by an issue such as sensor failure\.
   + `UNCERTAIN` – The data is affected by an issue such as sensor inaccuracy\.
 
-  For more information about how AWS IoT SiteWise handles data quality in computations, see [Data quality in formula expressions](formula-expressions.md#data-quality)\.
+  For more information about how AWS IoT SiteWise handles data quality in computations, see [Data quality in formula expressions](expression-tutorials.md#data-quality)\.

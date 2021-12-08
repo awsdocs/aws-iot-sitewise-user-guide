@@ -2,7 +2,7 @@
 
 A gateway serves as the intermediary between your server and AWS IoT SiteWise\. You can deploy the AWS IoT SiteWise gateway software on any platform that can run AWS IoT Greengrass\. For more information, see [Choosing a gateway platform](choose-gateway-platform.md)\.
 
-You can enable AWS IoT SiteWise to process data locally on your edge devices by using the data processing pack on your gateway\. You do this when you add your gateway to AWS IoT SiteWise\. For more information about processing data at the edge, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
+You can enable AWS IoT SiteWise to process data locally on your edge devices by using the data processing pack on your gateway\. You do this when you add your gateway to AWS IoT SiteWise\. For more information about processing data at the edge, see [Enabling edge data processing](edge-processing.md)\.
 
 To configure a gateway that runs on Amazon EC2, you can create the required dependencies from an AWS CloudFormation template\. For more information, see [Configuring gateway dependencies on Amazon Elastic Compute Cloud](configure-ec2-gateway.md)\.
 
@@ -72,7 +72,7 @@ Review the [AWS Regions](getting-started.md#requirements) where AWS IoT SiteWise
 
    ```
    sudo apt update
-   sudo apt install openjdk-8-jre
+           sudo apt install openjdk-8-jre
    ```
 
    The AWS IoT SiteWise gateway software that you install later in this guide uses a Java 8 runtime\.
@@ -93,8 +93,8 @@ Review the [AWS Regions](getting-started.md#requirements) where AWS IoT SiteWise
 
    ```
    sudo mkdir /var/sitewise 
-   sudo chown ggc_user /var/sitewise
-   sudo chmod 700 /var/sitewise
+           sudo chown ggc_user /var/sitewise
+           sudo chmod 700 /var/sitewise
    ```
 
    The `/var/sitewise` is the default directory that AWS IoT SiteWise uses\. You can customize the directory path \(for example, replace `/var/sitewise` with `/var/custom/path/`\), but doing so requires extra steps after the AWS IoT SiteWise gateway is created\. For more information, see step 6 in [Configuring the AWS IoT SiteWise connector](#setup-connector)\.
@@ -115,7 +115,7 @@ You can configure AWS IoT Greengrass Core to use only port 443 for all network c
 
    ```
    cd /greengrass-root/ggc/core
-   sudo ./greengrassd start
+           sudo ./greengrassd start
    ```
 
    You should see this message: `Greengrass successfully started with PID: some-PID-number`
@@ -137,38 +137,38 @@ You must create an AWS Identity and Access Management \(IAM\) policy and role to
 
    ```
    {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Action": "iotsitewise:BatchPutAssetPropertyValue",
-         "Resource": "*"
-       }
-     ]
-   }
+             "Version": "2012-10-17",
+             "Statement": [
+               {
+                 "Effect": "Allow",
+                 "Action": "iotsitewise:BatchPutAssetPropertyValue",
+                 "Resource": "*"
+               }
+             ]
+           }
    ```
 **Note**  
 To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in the `Condition` property\. The following example is a trust policy that specifies an asset hierarchy path\.  
 
    ```
    {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Action": "iotsitewise:BatchPutAssetPropertyValue",
-         "Resource": "*",
-         "Condition": {
-           "StringLike": {
-             "iotsitewise:assetHierarchyPath": [
-               "/root node asset ID",
-               "/root node asset ID/*"
+             "Version": "2012-10-17",
+             "Statement": [
+               {
+                 "Effect": "Allow",
+                 "Action": "iotsitewise:BatchPutAssetPropertyValue",
+                 "Resource": "*",
+                 "Condition": {
+                   "StringLike": {
+                     "iotsitewise:assetHierarchyPath": [
+                       "/root node asset ID",
+                       "/root node asset ID/*"
+                     ]
+                   }
+                 }
+               }
              ]
            }
-         }
-       }
-     ]
-   }
    ```
 
 1. Choose **Review policy**\.
@@ -181,7 +181,7 @@ To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in
 1. Under **Select type of trusted entity**, choose **AWS service**\. Under **Choose the service that will use the role**, choose **Greengrass** as the service that will use the role, and then choose **Next: Permissions**\.  
 ![\[IAM "Select type of trusted entity" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-choose-role-service-console.png)
 
-1. Search for the policy that you created \(*SiteWiseDemo*\), select the check box, and then choose **Next: Tags**\.  
+1. Search for the policy that you created, select the check box, and then choose **Next: Tags**\.  
 ![\[IAM "Attach permissions policies" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-choose-role-policy-console.png)
 
 1. \(Optional\) Add tags to your role, and then choose **Next: Review**\.
@@ -199,17 +199,17 @@ To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in
 
    ```
    {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-           "Service": "greengrass.amazonaws.com"
-         },
-         "Action": "sts:AssumeRole"
-       }
-     ]
-   }
+             "Version": "2012-10-17",
+             "Statement": [
+               {
+                 "Effect": "Allow",
+                 "Principal": {
+                   "Service": "greengrass.amazonaws.com"
+                 },
+                 "Action": "sts:AssumeRole"
+               }
+             ]
+           }
    ```
 
 ## Configuring an AWS IoT Greengrass group<a name="attach-iam-role"></a>
@@ -229,7 +229,7 @@ To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in
 
 1. On the **Settings** page, in the **Stream manager** section, choose **Edit**\.
 
-   Stream manager is a feature of AWS IoT Greengrass that enables your AWS IoT Greengrass Core to stream data to the AWS Cloud\. AWS IoT SiteWise gateways require that stream manager is enabled\. For more information, see [Manage data streams on the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-manager.html) in the *AWS IoT Greengrass Developer Guide*\.  
+   Stream manager is a feature of AWS IoT Greengrass that enables your AWS IoT Greengrass Core to stream data to the AWS Cloud\. AWS IoT SiteWise gateways require that stream manager is enabled\. For more information, see [Manage data streams on the AWS IoT Greengrass Core](https://docs.aws.amazon.com/greengrass/latest/developerguide/stream-manager.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.  
 ![\[AWS IoT Greengrass "Stream manager" section screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-edit-stream-manager-console.png)
 
 1. Choose **Enable**, and then choose **Save**\.
@@ -238,7 +238,7 @@ To improve security, you can specify an AWS IoT SiteWise asset hierarchy path in
 
 ## Configuring the AWS IoT SiteWise connector<a name="setup-connector"></a>
 
-In this procedure, you configure the AWS IoT SiteWise connector on your Greengrass group\. Connectors are prebuilt modules that accelerate the development lifecycle for common edge scenarios\. For more information, see [AWS IoT Greengrass connectors](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors.html) in the *AWS IoT Greengrass Developer Guide*\.
+In this procedure, you configure the AWS IoT SiteWise connector on your Greengrass group\. Connectors are prebuilt modules that accelerate the development lifecycle for common edge scenarios\. For more information, see [AWS IoT Greengrass connectors](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 **To configure the AWS IoT SiteWise connector**
 
@@ -286,7 +286,7 @@ In this procedure, you add your gateway's Greengrass group to AWS IoT SiteWise\.
 **Example**    
 ![\[AWS IoT SiteWise "Add gateway" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-add-gateway-console.png)
 
-   1. \(Optional\) For **Edge capabilities**, choose **Data processing pack**\. This enables communication between your gateway and any asset models and assets configured for the edge\. For more information, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
+   1. \(Optional\) For **Edge capabilities**, choose **Data processing pack**\. This enables communication between your gateway and any asset models and assets configured for the edge\. For more information, see [Enabling edge data processing](edge-processing.md)\.
 **Important**  
 If you add the data processing pack to your gateway, you must configure and deploy the Sitewise Edge connector on your AWS IoT Greengrass group\. Follow the next steps\.
 

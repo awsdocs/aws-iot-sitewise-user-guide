@@ -10,50 +10,52 @@ For information about other services that support service\-linked roles, see [AW
 
 ## Service\-linked role permissions for AWS IoT SiteWise<a name="service-linked-role-permissions"></a>
 
-AWS IoT SiteWise uses the service\-linked role named **AWSServiceRoleForIoTSiteWise** – AWS IoT SiteWise uses this service\-linked role to deploy gateways \(which run on AWS IoT Greengrass\) and perform logging\.
+AWS IoT SiteWise uses the service\-linked role named **AWSServiceRoleForIoTSiteWise**\. AWS IoT SiteWise uses this service\-linked role to deploy gateways \(which run on AWS IoT Greengrass\) and perform logging\.
 
-The AWSServiceRoleForIoTSiteWise service\-linked role trusts the following services to assume the role:
+The `AWSServiceRoleForIoTSiteWise` service\-linked role trusts the following services to assume the role:
 + `iotsitewise.amazonaws.com`
 
-The role uses the following permissions policy to allow AWS IoT SiteWise to complete actions on other services' resources in your account:
+The `AWSServiceRoleForIoTSiteWise` role uses the `AWSServiceRoleForIoTSiteWise` policy with the following permissions\. This policy allows AWS IoT Greengrass to write logs to the `iotsitewise` group in Amazon CloudWatch Logs\.
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "greengrass:GetAssociatedRole",
-        "greengrass:GetCoreDefinition",
-        "greengrass:GetCoreDefinitionVersion",
-        "greengrass:GetGroup",
-        "greengrass:GetGroupVersion"
-      ],
-      "Resource": "*",
-      "Effect": "Allow"
-    },
-    {
-      "Action": [
-        "logs:CreateLogGroup",
-        "logs:DescribeLogGroups"
-      ],
-      "Resource": "arn:aws:logs:*:*:log-group:/aws/iotsitewise*",
-      "Effect": "Allow"
-    },
-    {
-      "Action": [
-        "logs:CreateLogStream",
-        "logs:DescribeLogStreams",
-        "logs:PutLogEvents"
-      ],
-      "Resource": "arn:aws:logs:*:*:log-group:/aws/iotsitewise*:log-stream:*",
-      "Effect": "Allow"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "greengrass:GetAssociatedRole",
+                "greengrass:GetCoreDefinition",
+                "greengrass:GetCoreDefinitionVersion",
+                "greengrass:GetGroup",
+                "greengrass:GetGroupVersion"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/iotsitewise*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:DescribeLogStreams",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/iotsitewise*:log-stream:*"
+        }
+    ]
 }
 ```
 
-You must configure permissions to allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role\. For more information, see [Service\-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
+You can use the logs to monitor and troubleshoot your gateways\. For more information, see [Monitoring gateway logs](monitor-gateway-logs.md)\.
+
+To allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role, first configure permissions\. For more information, see [Service\-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 
 ## Creating a service\-linked role for AWS IoT SiteWise<a name="create-service-linked-role"></a>
 

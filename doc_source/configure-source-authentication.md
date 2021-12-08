@@ -1,6 +1,6 @@
 # Configuring source authentication<a name="configure-source-authentication"></a>
 
-If your OPC\-UA servers require authentication credentials to connect, you can define a user name and password in a secret for each source in AWS Secrets Manager\. Then, you add the secret to your Greengrass group and IoT SiteWise connector to make the secret available to your gateway\. For more information, see [Deploy secrets to the AWS IoT Greengrass core](https://docs.aws.amazon.com/greengrass/latest/developerguide/secrets.html) in the *AWS IoT Greengrass Developer Guide*\.
+If your OPC\-UA servers require authentication credentials to connect, you can define a user name and password in a secret for each source in AWS Secrets Manager\. Then, you add the secret to your Greengrass group and IoT SiteWise connector to make the secret available to your gateway\. For more information, see [Deploy secrets to the AWS IoT Greengrass core](https://docs.aws.amazon.com/greengrass/latest/developerguide/secrets.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 After a secret is available to your gateway, you can choose it when you configure a source\. Then, the gateway uses the authentication credentials from the secret when it connects to the source\. For more information, see [Configuring data sources](configure-sources.md)\.
 
@@ -26,7 +26,7 @@ In this procedure, you create an authentication secret for your source in Secret
 
 1. Enter a **Secret name** that begins with `greengrass-`, such as **greengrass\-factory1\-auth**\.
 **Important**  
-You must use the `greengrass-` prefix for the default AWS IoT Greengrass service role to access your secrets\. If you want to name your secrets without this prefix, you must grant AWS IoT Greengrass custom permissions to access your secrets\. For more information, see [Allow AWS IoT Greengrass to get secret values](https://docs.aws.amazon.com/greengrass/latest/developerguide/secrets.html#secrets-config-service-role) in the *AWS IoT Greengrass Developer Guide*\.  
+You must use the `greengrass-` prefix for the default AWS IoT Greengrass service role to access your secrets\. If you want to name your secrets without this prefix, you must grant AWS IoT Greengrass custom permissions to access your secrets\. For more information, see [Allow AWS IoT Greengrass to get secret values](https://docs.aws.amazon.com/greengrass/latest/developerguide/secrets.html#secrets-config-service-role) in the *AWS IoT Greengrass Version 1 Developer Guide*\.  
 ![\[AWS IoT Greengrass "Select secret name and description" page screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-name-secret-console.png)
 
 1. Enter a **Description** and choose **Next**\.

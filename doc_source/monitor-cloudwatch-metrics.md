@@ -15,7 +15,7 @@ AWS IoT SiteWise publishes metrics on a one minute interval\. When you view thes
 AWS IoT SiteWise publishes the following gateway metrics\. All gateway metrics are published on a one minute interval\.
 
 **Important**  
-To receive gateway metrics, you must use at least version 6 of the AWS IoT SiteWise connector on your gateway\. For more information, see [AWS IoT SiteWise connector](https://docs.aws.amazon.com/greengrass/latest/developerguide/iot-sitewise-connector.html) in the *AWS IoT Greengrass Developer Guide*\.
+To receive gateway metrics, you must use at least version 6 of the AWS IoT SiteWise connector on your gateway\. For more information, see [AWS IoT SiteWise connector](https://docs.aws.amazon.com/greengrass/latest/developerguide/iot-sitewise-connector.html) in the *AWS IoT Greengrass Version 1 Developer Guide*\.
 
 
 **Gateway metrics**  

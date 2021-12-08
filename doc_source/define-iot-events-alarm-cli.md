@@ -1,10 +1,10 @@
 # Defining an AWS IoT Events alarm \(CLI\)<a name="define-iot-events-alarm-cli"></a>
 
-You can use the AWS Command Line Interface \(AWS CLI\) to define an AWS IoT Events alarm that monitors an asset property\. You can define the alarm on a new or existing asset model\. After you define the alarm on the asset model, you create an alarm detector in AWS IoT Events and connect it to the asset model\. In this process, you do the following:
+You can use the AWS Command Line Interface \(AWS CLI\) to define an AWS IoT Events alarm that monitors an asset property\. You can define the alarm on a new or existing asset model\. After you define the alarm on the asset model, you create an alarm in AWS IoT Events and connect it to the asset model\. In this process, you do the following:
 
 **Topics**
 + [Step 1: Defining an alarm on an asset model](#define-iot-events-alarm-definition-cli)
-+ [Step 2: Defining an AWS IoT Events alarm detector model](#define-iot-events-alarm-model-cli)
++ [Step 2: Defining an AWS IoT Events alarm model](#define-iot-events-alarm-model-cli)
 + [Step 3: Enabling data flow between AWS IoT SiteWise and AWS IoT Events](#define-iot-events-alarm-data-flow-cli)
 
 ## Step 1: Defining an alarm on an asset model<a name="define-iot-events-alarm-definition-cli"></a>
@@ -19,7 +19,7 @@ Add an alarm definition and associated properties to a new or existing asset mod
 **Note**  
 Your asset model must define at least one asset property, including the asset property to monitor with the alarm\.
 
-1. Add an alarm composite model \(`assetModelCompositeModels`\) to the asset model\. An AWS IoT Events alarm composite model specifies the `IOT_EVENTS` type and specifies an alarm source property\. You add the alarm source property after you create the alarm detector model in AWS IoT Events\.
+1. Add an alarm composite model \(`assetModelCompositeModels`\) to the asset model\. An AWS IoT Events alarm composite model specifies the `IOT_EVENTS` type and specifies an alarm source property\. You add the alarm source property after you create the alarm model in AWS IoT Events\.
 **Important**  
 The alarm composite model must have the same name as the AWS IoT Events alarm model you create later\. Alarm model names can contain only alphanumeric characters\. Specify a unique, alphanumeric name so that you can use the same name for the alarm model\.
 
@@ -348,9 +348,9 @@ The following asset model represents a boiler that reports temperature data\. Th
 }
 ```
 
-## Step 2: Defining an AWS IoT Events alarm detector model<a name="define-iot-events-alarm-model-cli"></a>
+## Step 2: Defining an AWS IoT Events alarm model<a name="define-iot-events-alarm-model-cli"></a>
 
-Create the alarm detector model in AWS IoT Events\. In AWS IoT Events, you use *expressions* to specify values in alarm detector models\. You can use expressions to specify values from AWS IoT SiteWise to evaluate and use as inputs to the alarm\. When AWS IoT SiteWise sends asset property values to the alarm detector model, AWS IoT Events evaluates the expression to get the value of the property or the ID of the asset\. You can use the following expressions in the alarm detector model:
+Create the alarm model in AWS IoT Events\. In AWS IoT Events, you use *expressions* to specify values in alarm models\. You can use expressions to specify values from AWS IoT SiteWise to evaluate and use as inputs to the alarm\. When AWS IoT SiteWise sends asset property values to the alarm model, AWS IoT Events evaluates the expression to get the value of the property or the ID of the asset\. You can use the following expressions in the alarm model:
 + **Asset property values**
 
   To get the value of an asset property, use the following expression\. Replace *assetModelId* with the ID of the asset model and replace *propertyId* with the ID of the property\.
@@ -367,11 +367,11 @@ Create the alarm detector model in AWS IoT Events\. In AWS IoT Events, you use *
   ```
 
 **Note**  
-When you create the alarm detector model, you can define literals instead of expressions that evaluate to AWS IoT SiteWise values\. This can reduce the number of attributes that you define on your asset model\. However, if you define a value as a literal, you can't customize that value on assets based on the asset model\. Your AWS IoT SiteWise Monitor users also can't customize the alarm, because they can configure alarm settings on assets only\.
+When you create the alarm model, you can define literals instead of expressions that evaluate to AWS IoT SiteWise values\. This can reduce the number of attributes that you define on your asset model\. However, if you define a value as a literal, you can't customize that value on assets based on the asset model\. Your AWS IoT SiteWise Monitor users also can't customize the alarm, because they can configure alarm settings on assets only\.
 
-**To create an AWS IoT Events alarm detector model \(CLI\)**
+**To create an AWS IoT Events alarm model \(CLI\)**
 
-1. When you create the alarm detector model in AWS IoT Events, you must specify the ID of each property that the alarm uses, which includes the following:
+1. When you create the alarm model in AWS IoT Events, you must specify the ID of each property that the alarm uses, which includes the following:
    + The alarm state property in the composite asset model
    + The property that the alarm monitors
    + The threshold attribute
@@ -388,18 +388,18 @@ When you create the alarm detector model, you can define literals instead of exp
    aws iotsitewise describe-asset-model --asset-model-id asset-model-id
    ```
 
-   The operation returns a response that contains the asset model's details\. Note the ID of each property that the alarm uses\. You use these IDs when you create the AWS IoT Events alarm detector model in the next step\.
+   The operation returns a response that contains the asset model's details\. Note the ID of each property that the alarm uses\. You use these IDs when you create the AWS IoT Events alarm model in the next step\.
 
-1. Create the alarm detector model in AWS IoT Events\. Do the following:
+1. Create the alarm model in AWS IoT Events\. Do the following:
 
-   1. Create a file called `alarm-detector-model-payload.json`\.
+   1. Create a file called `alarm-model-payload.json`\.
 
    1. Copy the following JSON object into the file\.
 
    1. Enter a name \(`alarmModelName`\), description \(`alarmModelDescription`\), and severity \(`severity`\) for your alarm\. For severity, specify an integer that reflects your company's severity levels\.
 **Important**  
-The alarm detector model must have the same name as the alarm composite model that you defined on your asset model earlier\.  
-Alarm detector model names can contain only alphanumeric characters\.
+The alarm model must have the same name as the alarm composite model that you defined on your asset model earlier\.  
+Alarm model names can contain only alphanumeric characters\.
 
       ```
       {
@@ -470,7 +470,7 @@ For advanced configuration, you can define additional actions to perform when th
 
    1. \(Optional\) Configure alarm notification settings\. The alarm notification action uses a Lambda function in your account to send alarm notifications\. For more information, see [Requirements for alarm notifications](define-iot-events-alarms.md#iot-events-alarm-notification-requirements)\. In the alarm notification settings, you can configure SMS and email notifications to send to AWS SSO users\. Do the following:
 
-      1. Add the alarm notification configuration \(`alarmNotification`\) to the payload in `alarm-detector-model-payload.json`\.
+      1. Add the alarm notification configuration \(`alarmNotification`\) to the payload in `alarm-model-payload.json`\.
          + Replace *alarmNotificationFunctionArn* with the ARN of the Lambda function that handles alarm notifications\. 
 
          ```
@@ -641,7 +641,7 @@ For advanced configuration, you can define additional actions to perform when th
          }
          ```
 
-   1. \(Optional\) Add the alarm capabilities \(`alarmCapabilities`\) to the payload in `alarm-detector-model-payload.json`\. In this object, you can specify if the acknowledge flow is enabled and the default enable state for assets based on the asset model\. For more information about the acknowledge flow, see [Alarm states](industrial-alarms.md#alarm-states)\.
+   1. \(Optional\) Add the alarm capabilities \(`alarmCapabilities`\) to the payload in `alarm-model-payload.json`\. In this object, you can specify if the acknowledge flow is enabled and the default enable state for assets based on the asset model\. For more information about the acknowledge flow, see [Alarm states](industrial-alarms.md#alarm-states)\.
 
       ```
       {
@@ -801,130 +801,89 @@ For advanced configuration, you can define additional actions to perform when th
       }
       ```
 
-   1. Run the following command to create the AWS IoT Events alarm detector model from the payload in `alarm-detector-model-payload.json`\. 
+   1. Run the following command to create the AWS IoT Events alarm model from the payload in `alarm-model-payload.json`\. 
 
       ```
-      aws iotevents create-alarm-model --cli-input-json file://alarm-detector-model-payload.json
+      aws iotevents create-alarm-model --cli-input-json file://alarm-model-payload.json
       ```
 
-   1. The operation returns a response that includes the ARN of the alarm detector model, `alarmModelArn`\. Copy this ARN to set in the alarm definition on your asset model in the next step\.
+   1. The operation returns a response that includes the ARN of the alarm model, `alarmModelArn`\. Copy this ARN to set in the alarm definition on your asset model in the next step\.
 
 ## Step 3: Enabling data flow between AWS IoT SiteWise and AWS IoT Events<a name="define-iot-events-alarm-data-flow-cli"></a>
 
-After you create the required resources in AWS IoT SiteWise and AWS IoT Events, you can enable data flow between the resources to enable your alarm\. In this section, you do the following:
-+ Update the alarm definition in the asset model to use the alarm detector model that you created in the previous step\.
-+ Configure subscriptions to enable AWS IoT SiteWise to send asset property data to the alarm detector model in AWS IoT Events\.
+After you create the required resources in AWS IoT SiteWise and AWS IoT Events, you can enable data flow between the resources to enable your alarm\. In this section, you update the alarm definition in the asset model to use the alarm model that you created in the previous step\.
 
 **To enable data flow between AWS IoT SiteWise and AWS IoT Events \(CLI\)**
++ Set the alarm model as the alarm's source in the asset model\. Do the following:
 
-1. Set the alarm detector model as the alarm's source in the asset model\. Do the following:
+  1. Run the following command to retrieve the existing asset model definition\. Replace *asset\-model\-id* with the ID of the asset model\.
 
-   1. Run the following command to retrieve the existing asset model definition\. Replace *asset\-model\-id* with the ID of the asset model\.
+     ```
+     aws iotsitewise describe-asset-model --asset-model-id asset-model-id
+     ```
 
-      ```
-      aws iotsitewise describe-asset-model --asset-model-id asset-model-id
-      ```
+     The operation returns a response that contains the asset model's details\.
 
-      The operation returns a response that contains the asset model's details\.
+  1. Create a file called `update-asset-model-payload.json` and copy the previous command's response into the file\.
 
-   1. Create a file called `update-asset-model-payload.json` and copy the previous command's response into the file\.
+  1. Remove the following key\-value pairs from the `update-asset-model-payload.json` file:
+     + `assetModelId`
+     + `assetModelArn`
+     + `assetModelCreationDate`
+     + `assetModelLastUpdateDate`
+     + `assetModelStatus`
 
-   1. Remove the following key\-value pairs from the `update-asset-model-payload.json` file:
-      + `assetModelId`
-      + `assetModelArn`
-      + `assetModelCreationDate`
-      + `assetModelLastUpdateDate`
-      + `assetModelStatus`
+  1. Add the alarm source property \(`AWS/ALARM_SOURCE`\) to the alarm composite model that you defined earlier\. Replace *alarmModelArn* with the ARN of the alarm model, which sets the value of the alarm source property\.
 
-   1. Add the alarm source property \(`AWS/ALARM_SOURCE`\) to the alarm composite model that you defined earlier\. Replace *alarmModelArn* with the ARN of the alarm detector model, which sets the value of the alarm source property\.
+     ```
+     {
+       ...
+       "assetModelCompositeModels": [
+         ...
+         {
+           "name": "BoilerTemperatureHighAlarm",
+           "type": "AWS/ALARM",
+           "properties": [
+             {
+               "id": "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE",
+               "name": "AWS/ALARM_TYPE",
+               "dataType": "STRING",
+               "type": {
+                 "attribute": {
+                   "defaultValue": "IOT_EVENTS"
+                 }
+               }
+             },
+             {
+               "id": "a1b2c3d4-5678-90ab-cdef-22222EXAMPLE",
+               "name": "AWS/ALARM_STATE",
+               "dataType": "STRUCT",
+               "dataTypeSpec": "AWS/ALARM_STATE",
+               "type": {
+                 "measurement": {}
+               }
+             },
+             {
+               "name": "AWS/ALARM_SOURCE",
+               "dataType": "STRING",
+               "type": {
+                 "attribute": {
+                   "defaultValue": "alarmModelArn"
+                 }
+               }
+             }
+           ]
+         }
+       ]
+     }
+     ```
 
-      ```
-      {
-        ...
-        "assetModelCompositeModels": [
-          ...
-          {
-            "name": "BoilerTemperatureHighAlarm",
-            "type": "AWS/ALARM",
-            "properties": [
-              {
-                "id": "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE",
-                "name": "AWS/ALARM_TYPE",
-                "dataType": "STRING",
-                "type": {
-                  "attribute": {
-                    "defaultValue": "IOT_EVENTS"
-                  }
-                }
-              },
-              {
-                "id": "a1b2c3d4-5678-90ab-cdef-22222EXAMPLE",
-                "name": "AWS/ALARM_STATE",
-                "dataType": "STRUCT",
-                "dataTypeSpec": "AWS/ALARM_STATE",
-                "type": {
-                  "measurement": {}
-                }
-              },
-              {
-                "name": "AWS/ALARM_SOURCE",
-                "dataType": "STRING",
-                "type": {
-                  "attribute": {
-                    "defaultValue": "alarmModelArn"
-                  }
-                }
-              }
-            ]
-          }
-        ]
-      }
-      ```
+  1. Run the following command to update the asset model with the definition stored in the `update-asset-model-payload.json` file\. Replace *asset\-model\-id* with the ID of the asset model\.
 
-   1. Run the following command to update the asset model with the definition stored in the `update-asset-model-payload.json` file\. Replace *asset\-model\-id* with the ID of the asset model\.
-
-      ```
-      aws iotsitewise update-asset-model \
-        --asset-model-id asset-model-id \
-        --cli-input-json file://update-asset-model-payload.json
-      ```
-
-1. Configure a subscription for each asset property that the AWS IoT Events alarm model uses, which includes the following:
-   + The property that the alarm monitors
-   + The threshold attribute
-   + \(Optional\) The AWS SSO identity store ID attribute
-   + \(Optional\) The AWS SSO user ID attribute
-   + \(Optional\) The SMS sender ID attribute
-   + \(Optional\) The email *from* address attribute
-   + \(Optional\) The email subject attribute
-   + \(Optional\) The additional message attribute
-
-   Each subscription requires an IAM service role that AWS IoT SiteWise can assume to send data to AWS IoT Events\. This role requires the `iotevents:BatchPutMessage` permission and a trust relationship that allows `iotsitewise.amazonaws.com` to assume the role\. For more information, see [Using service roles for alarms](alarm-service-role.md)\.
-**Important**  
-You must use the [alarms preview AWS CLI](alarms-preview-sdk.md) to call the subscription API operations\.
-
-   Run the following command for each asset property that the AWS IoT Events alarm model uses\. This command also sends the current value of the property to set the values in the alarm model\.
-   + Replace *asset\-model\-id* with the ID of the asset model\.
-   + Replace *property\-id* with the ID of each asset property that the AWS IoT Events alarm model uses\.
-   + Replace *roleArn* with the ARN of the role that AWS IoT SiteWise can assume to send data to AWS IoT Events\.
-
-   ```
-   aws iotsitewise-alarms update-subscription \
-     --service IOT_EVENTS \
-     --asset-model-id asset-model-id \
-     --property-id property-id \
-     --send-current-value \
-     --config roleArn=roleArn
-   ```
-**Note**  
-This command enables the subscriptions for every asset based on the asset model\. You can also enable or disable subscriptions for the property on an asset\. Subscriptions on assets override subscriptions on asset models\. To do so, specify `--asset-id` instead of `--asset-model-id` in the request\.
-
-1. \(Optional\) Run the following command to verify that you enabled subscriptions for each asset property that the alarm detector model uses\. Replace *asset\-model\-id* with the ID of the asset model\.
-
-   ```
-   aws iotsitewise-alarms list-subscriptions --asset-model-id asset-model-id
-   ```
-
-   The response contains the list of all subscriptions for the asset model\. Check that there's a subscription for the property to monitor, the threshold attribute, and each notification attribute\.
+     ```
+     aws iotsitewise update-asset-model \
+       --asset-model-id asset-model-id \
+       --cli-input-json file://update-asset-model-payload.json
+     ```
 
 Your asset model now defines an alarm that detects in AWS IoT Events\. The alarm monitors the target property in all assets based on this asset model\. You can configure the alarm on each asset to customize properties such as the threshold or AWS SSO recipient for each asset\. For more information, see [Configuring alarms on assets](configure-alarms.md)\.

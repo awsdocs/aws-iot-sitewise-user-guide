@@ -33,7 +33,7 @@
 
 1. \(Optional\) For **Destination**, choose where the source data is sent\. By default, your source sends data to AWS IoT SiteWise\.You can use a AWS IoT Greengrass stream to export your data to a local destination or to the AWS Cloud instead\. 
 **Note**  
-You must choose AWS IoT SiteWise as your source destination if you want to process data from this source at the edge with AWS IoT SiteWise\. For more information about processing data at the edge, see [Process data locally with AWS IoT SiteWise](edge-processing.md)\.
+You must choose AWS IoT SiteWise as your source destination if you want to process data from this source at the edge with AWS IoT SiteWise\. For more information about processing data at the edge, see [Enabling edge data processing](edge-processing.md)\.
 
    To send your data to another destination:
 

@@ -69,7 +69,9 @@ To see a list of AWS IoT SiteWise actions, see [Actions Defined by AWS IoT SiteW
 AWS IoT SiteWise authorizes access to the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) action in an unusual way\. For most actions, when you allow or deny access to an action, that action returns an error if permissions aren't granted\. When you use `BatchPutAssetPropertyValue`, you can send multiple data entries to different assets and asset properties in a single API request, and AWS IoT SiteWise authorizes each data entry independently\. For any individual entry that fails authorization in the request, AWS IoT SiteWise includes an `AccessDeniedException` in the returned list of errors\. AWS IoT SiteWise receives the data for any entry that authorizes and succeeds, even if another entry in the same request fails\.
 
 **Important**  
-If one entry is denied permissions, all entries for the same asset are also denied\. For example, consider a scenario where you allow access to a property `Property1` for any asset using the `propertyId` condition key\. If you send a `BatchPutAssetPropertyValue` request that contains entries for `Asset1.Property1`, `Asset1.Property2`, `Asset2.Property1`, and `Asset3.Property3`, then the only entry that succeeds is `Asset2.Property1`\. If you send those entries in separate `BatchPutAssetPropertyValue` requests, then `Asset1.Property1` and `Asset2.Property1` succeed\.
+Before you ingest data to a data stream, do the following\.  
+The `timeseries` resource must be authorized if you use a property alias to identify the data stream\.
+The `asset` resource must be authorized if you use an asset ID to identify the asset that contains the associated asset property\.
 
 ### Resources<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
@@ -97,6 +99,12 @@ For example, to specify the asset with ID `a1b2c3d4-5678-90ab-cdef-22222EXAMPLE`
 
 ```
 "Resource": "arn:aws:iotsitewise:region:123456789012:asset/a1b2c3d4-5678-90ab-cdef-22222EXAMPLE"
+```
+
+To specify all data streams that belong to a specific account, use the wildcard \(\*\):
+
+```
+"Resource": "arn:aws:iotsitewise:region:123456789012:timeseries/*"
 ```
 
 To specify all assets that belong to a specific account, use the wildcard \(\*\):
@@ -144,11 +152,13 @@ AWS IoT SiteWise defines its own set of condition keys and also supports using s
 
 | Condition key | Description | Types | 
 | --- | --- | --- | 
+| iotsitewise:isAssociatedWithAssetProperty |  Whether data streams are associated with an asset property\. Use this condition key to define permissions based on the existence of an associated asset property for data streams\. Example value: `true`  | String | 
 | iotsitewise:assetHierarchyPath |  The asset's hierarchy path, which is a string of asset IDs each separated by a forward slash\. Use this condition key to define permissions based on a subset of your hierarchy of all assets in your account\. Example value: `/a1b2c3d4-5678-90ab-cdef-22222EXAMPLE/a1b2c3d4-5678-90ab-cdef-66666EXAMPLE`  | String | 
 | iotsitewise:propertyId |  The ID of an asset property\. Use this condition key to define permissions based on a specified property of an asset model\. This condition key applies to all assets of that model\. Example value: `a1b2c3d4-5678-90ab-cdef-33333EXAMPLE`  | String | 
 | iotsitewise:childAssetId |  The ID of an asset being associated as a child to another asset\. Use this condition key to define permissions based on child assets\. To define permissions based on parent assets, use the resource section of a policy statement\. Example value: `a1b2c3d4-5678-90ab-cdef-66666EXAMPLE`  | String | 
-| iotsitewise:group |  The ID of an AWS SSO group when listing access policies\. Use this condition key to define access policy permissions for an AWS SSO group\. Example value: `a1b2c3d4e5-a1b2c3d4-5678-90ab-cdef-bbbbbEXAMPLE`  | String, Null | 
+| iotsitewise:iamArn |  The ARN of an IAM identity when listing access policies\. Use this condition key to define access policy permissions for an IAM identity\. Example value: `arn:aws:iam::123456789012:user/JohnDoe`  | String, Null | 
 | iotsitewise:user |  The ID of an AWS SSO user when listing access policies\. Use this condition key to define access policy permissions for an AWS SSO user\. Example value: `a1b2c3d4e5-a1b2c3d4-5678-90ab-cdef-aaaaaEXAMPLE`  | String, Null | 
+| iotsitewise:group |  The ID of an AWS SSO group when listing access policies\. Use this condition key to define access policy permissions for an AWS SSO group\. Example value: `a1b2c3d4e5-a1b2c3d4-5678-90ab-cdef-bbbbbEXAMPLE`  | String, Null | 
 | iotsitewise:portal |  The ID of a portal in an access policy\. Use this condition key to define access policy permissions based on a portal\. Example value: `a1b2c3d4-5678-90ab-cdef-77777EXAMPLE`  | String, Null | 
 | iotsitewise:project |  The ID of a project in an access policy, or the ID of a project for a dashboard\. Use this condition key to define dashboard or access policy permissions based on a project\. Example value: `a1b2c3d4-5678-90ab-cdef-88888EXAMPLE`  | String, Null | 
 
@@ -186,11 +196,16 @@ You can use temporary credentials to sign in with federation, assume an IAM role
 
 AWS IoT SiteWise supports using temporary credentials\.
 
-SiteWise Monitor supports federated users to access portals\. When a user signs in to a portal, SiteWise Monitor generates a session policy that provides the following permissions:
+SiteWise Monitor supports federated users to access portals\. Portal users authenticate with their AWS SSO or IAM credentials\.
+
+**Important**  <a name="iam-portal-user-permissions"></a>
+IAM users or roles must have the `iotsitewise:DescribePortal` permission to sign in to the portal\.
+
+When a user signs in to a portal, SiteWise Monitor generates a session policy that provides the following permissions:
 + Read\-only access to the assets and asset data in AWS IoT SiteWise in your account to which that portal's role provides access\.
 + Access to projects in that portal to which the user has administrator \(project owner\) or read\-only \(project viewer\) access\.
 
-For more information about federated portal user permissions, see [Using service\-linked roles for AWS IoT SiteWise](using-service-linked-roles.md)\.
+For more information about federated portal user permissions, see [Using service roles for AWS IoT SiteWise Monitor](monitor-service-role.md)\.
 
 ### Service\-linked roles<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
@@ -204,7 +219,7 @@ This feature allows a service to assume a [service role](https://docs.aws.amazon
 
 AWS IoT SiteWise uses a service role to allow SiteWise Monitor portal users to access some of your AWS IoT SiteWise resources on your behalf\. For more information, see [Using service roles for AWS IoT SiteWise Monitor](monitor-service-role.md)\.
 
-AWS IoT SiteWise uses a service role to allow the service to send asset property values to AWS IoT Events on your behalf to detect alarms\. For more information, see [Using service roles for alarms](alarm-service-role.md)\.
+You must have required permissions before you can create AWS IoT Events alarm models in AWS IoT SiteWise\. For more information, see [Setting up permissions for AWS IoT Events alarms](alarms-iam-permissions.md)\.
 
 ### Choosing an IAM role in AWS IoT SiteWise<a name="security_iam_service-with-iam-roles-choose"></a>
 

@@ -2,6 +2,9 @@
 
 You can export incoming data from AWS IoT SiteWise to an Amazon S3 bucket in your account\. You can back up your data in a format that you can use to create historical reports or to analyze your data with complex methods\.
 
+**Note**  
+AWS IoT SiteWise also supports cold tier storage that let you save data in a customer\-managed Amazon S3 bucket\. For more information about supported storage tiers, see [Managing data storage](manage-data-storage.md)\.
+
 AWS IoT SiteWise provides this feature as an AWS CloudFormation template\. When you create a stack from the template, AWS CloudFormation creates the required AWS resources to stream incoming data from AWS IoT SiteWise to an S3 bucket\. 
 
 Then, the S3 bucket receives all of your asset property data sent from AWS IoT SiteWise property value update messages\. The S3 bucket also receives your asset metadata, which includes asset and property names and other information\.
@@ -42,7 +45,7 @@ You can create a stack in AWS CloudFormation to export your asset data to Amazon
 
 1. On the **Create stack** page, choose **Next** at the bottom of the page\.
 
-1. On the **Specify stack details** page, enter a **BucketName** for the S3 bucket that this template creates in order to receive asset data\. This bucket name must be globally unique\. For more information, see [Rules for bucket naming](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service Developer Guide*\.
+1. On the **Specify stack details** page, enter a **BucketName** for the S3 bucket that this template creates in order to receive asset data\. This bucket name must be globally unique\. For more information, see [Rules for bucket naming](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service User Guide*\.
 
 1. \(Optional\) Change any of the template's other parameters:
    + **GlobalResourcePrefix** – A prefix for names of global resources, such as IAM roles, created from this template\.

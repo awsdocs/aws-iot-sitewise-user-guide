@@ -251,7 +251,7 @@ In this procedure, you create an asset model in AWS IoT SiteWise to represent yo
 
    1. In **Hierarchy model**, choose your device asset model \(**SiteWise Tutorial Device Model**\)\.
 
-   A hierarchy defines a relationship between a parent \(fleet\) asset model and a child \(device\) asset model\. Parent assets can access child assets' property data\. When you create assets later, you need to associate child assets to parent assets according to a hierarchy definition in the parent asset model\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
+   A hierarchy defines a relationship between a parent \(fleet\) asset model and a child \(device\) asset model\. Parent assets can access child assets' property data\. When you create assets later, you need to associate child assets to parent assets according to a hierarchy definition in the parent asset model\. For more information, see [Defining relationships between asset models \(hierarchies\)](asset-hierarchies.md)\.
 
 1. Under **Metric definitions**, do the following:
 

@@ -175,7 +175,7 @@ In this procedure, you explore the demo assets' wind speed data in your new Dyna
 1. In a row in the table, choose the edit icon to expand the data\.  
 ![\[DynamoDB table page screenshot with the edit icon on a row highlighted.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/dynamodb-expand-table-row-console.png)
 
-1. Choose the arrow next to the **windspeed** structure to expand the list of wind speed data points\. Each list reflects a batch of wind speed data points sent to AWS IoT SiteWise by the wind farm demo\. You might want a different data format if you set up a rule action for your own use\. For more information, see [Querying asset property notification messages](interact-with-other-services.md#query-notification-messages)\.  
+1. Choose the arrow next to the **windspeed** structure to expand the list of wind speed data points\. Each list reflects a batch of wind speed data points sent to AWS IoT SiteWise by the wind farm demo\. You might want a different data format if you set up a rule action for your own use\. For more information, see [Querying asset property notification messages](property-notifications.md#query-notification-messages)\.  
 ![\[DynamoDB "Edit table row" panel screenshot.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/dynamodb-view-expanded-data-console.png)
 
 Now that you completed the tutorial, you can disable or delete the rule and delete your DynamoDB table to avoid incurring additional charges\. Follow the next procedure to clean up your resources\.

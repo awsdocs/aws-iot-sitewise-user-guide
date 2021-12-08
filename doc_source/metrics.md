@@ -2,7 +2,7 @@
 
 Metrics are mathematical expressions that use aggregation functions to process all input data points and output a single data point per specified time interval\. For example, a metric can calculate the average hourly temperature from a temperature data stream\.
 
-Metrics can input data from associated assets' metrics, so you can calculate statistics that provide insight to your operation or a subset of your operation\. For example, a metric can calculate the average hourly temperature across all wind turbines in a wind farm\. For more information about how to define associations between assets, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
+Metrics can input data from associated assets' metrics, so you can calculate statistics that provide insight to your operation or a subset of your operation\. For example, a metric can calculate the average hourly temperature across all wind turbines in a wind farm\. For more information about how to define associations between assets, see [Defining relationships between asset models \(hierarchies\)](asset-hierarchies.md)\.
 
 Metrics can also input data from other properties without aggregating data over each time interval\. If you specify an [attribute](attributes.md) in a formula, AWS IoT SiteWise uses the [latest](expression-temporal-functions.md#latest-definition) value for that attribute when it computes the formula\. If you specify a metric in a formula, AWS IoT SiteWise uses the [last](expression-temporal-functions.md#last-definition) value for the time interval over which it computes the formula\. This means you can define metrics like `OEE = Availability * Quality * Performance`, where `Availability`, `Quality`, and `Performance` are all other metrics on the same asset model\.
 
@@ -18,7 +18,7 @@ When you define a metric for an asset model in the AWS IoT SiteWise console, you
 + <a name="asset-property-name-console"></a>**Name** – The property's name\.
 + **Formula** – The metric expression\. Metric expressions can use [aggregation functions](expression-aggregation-functions.md) to input data from a property for all associated assets in a hierarchy\. Start typing or press the down arrow key to open the autocomplete feature\. For more information, see [Using formula expressions](formula-expressions.md)\.
 **Important**  <a name="metric-input-rules"></a>
-Metrics can only properties that are integer, double, Boolean, or string type\. Booleans convert to `0` \(false\) and `1` \(true\)\.  
+Metrics can only be properties that are integer, double, Boolean, or string type\. Booleans convert to `0` \(false\) and `1` \(true\)\.  
 If you define any metric input variables in a metric's expression, those inputs must have the same time interval as the output metric\.  
 <a name="formula-output-rules"></a>Formula expressions can only output double or string values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number or string\. You can use the [jp function](expression-string-functions.md#jp-definition) to convert a string to a number\. The Boolean value must be 1 \(true\) or 0 \(false\)\. For more information, see [Undefined, infinite, and overflow values](expression-tutorials.md#undefined-values)\.
 + **Data type** – The data type of the transform, which can be **Double** or **String**\.
@@ -124,7 +124,7 @@ When you define a metric for an asset model with the AWS IoT SiteWise API, you s
   + `propertyId` – The ID of the property from which to pull values\. You can use the property's name instead of its ID if the property is defined in the current model \(rather than defined in a model from a hierarchy\)\.
   + `hierarchyId` – \(Optional\) The ID of the hierarchy from which to query child assets for the property\. You can use the hierarchy definition's name instead of its ID\. If you omit this value, AWS IoT SiteWise finds the property in the current model\.
 **Important**  <a name="metric-input-rules"></a>
-Metrics can only properties that are integer, double, Boolean, or string type\. Booleans convert to `0` \(false\) and `1` \(true\)\.  
+Metrics can only be properties that are integer, double, Boolean, or string type\. Booleans convert to `0` \(false\) and `1` \(true\)\.  
 If you define any metric input variables in a metric's expression, those inputs must have the same time interval as the output metric\.  
 <a name="formula-output-rules"></a>Formula expressions can only output double or string values\. Nested expressions can output other data types, such as strings, but the formula as a whole must evaluate to a number or string\. You can use the [jp function](expression-string-functions.md#jp-definition) to convert a string to a number\. The Boolean value must be 1 \(true\) or 0 \(false\)\. For more information, see [Undefined, infinite, and overflow values](expression-tutorials.md#undefined-values)\.
 + <a name="asset-property-unit-cli"></a>`unit` – \(Optional\) The scientific unit for the property, such as mm or Celsius\.

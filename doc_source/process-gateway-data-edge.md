@@ -1,4 +1,4 @@
-# Processing data locally<a name="process-gateway-data-edge"></a>
+# Processing and consuming data locally<a name="process-gateway-data-edge"></a>
 
 You must configure your asset model for the edge before your can process your gateway data at the edge\. Your asset model edge configuration specifies where your assets properties are computed\. You can compute all properties at the edge, or you can configure your asset model properties separately\.
 

@@ -1,4 +1,4 @@
-# Setting up gateways \(Greengrass V1\)<a name="gateways-ggv1"></a>
+# Setting up SiteWise gateways \(Greengrass V1\)<a name="gateways-ggv1"></a>
 
 **Note**  
 Gateways running on AWS IoT Greengrass V1 are available only if you started using this feature before July 29, 2021\. Otherwise, you [set up gateways running on AWS IoT Greengrass V2](configure-gateway-ggv2.md)\.

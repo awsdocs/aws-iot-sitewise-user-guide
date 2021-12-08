@@ -13,6 +13,15 @@ Use the data collection pack so that your gateway can collect your industrial da
 Data processing pack  
 Use the data processing pack so that your gateway can communicate with edge\-configured asset models and assets\. Gateways with the data processing pack automatically periodically sync with all asset models in your AWS account that are configured for the edge\.
 
+**Data streams**  
+ You can ingest industrial data to AWS IoT SiteWise before you create asset models and assets\. AWS IoT SiteWise automatically creates data streams to receive streams of raw data from your equipment\.
+
+**Data stream alias**  
+Data stream aliases help you easily identify a data stream\. For example, the `server1-windfarm/3/turbine/7/temperature` data stream alias identifies temperature values coming from turbine \#7 in wind farm \#3\. `server1` is the data source name that helps identify the OPC\-UA server\. `server1-` is a prefix added to all data streams reported from this OPC\-UA server\.
+
+**Data stream association**  
+After you create asset models and assets, you can associate data streams with asset properties defined in your assets to structure your data, then AWS IoT SiteWise can use asset models and assets to process incoming data from your data streams\. You can also disassociate data streams from asset properties\. For more information, see [Managing data streams](manage-data-streams.md)\.
+
 **Asset**  
 When you ingest data into AWS IoT SiteWise from your industrial equipment, your devices, equipment, and processes are each represented as assets\. Each asset has data associated with it\. For example, a piece of equipment might have a serial number, a location, a make and model, and an install date\. It might also have time series values for availability, performance, quality, temperature, pressure, and so on\. You can organize assets into hierarchies, where assets have access to the data stored in its child assets\. For more information, see [Modeling industrial assets](industrial-asset-models.md)\.
 
@@ -43,7 +52,7 @@ Metrics are asset properties that represent aggregated time series data\. Every 
 Aggregates are basic metrics that AWS IoT SiteWise automatically computes for all time series data\. For more information, see [Querying asset property aggregates](query-industrial-data.md#aggregates)\.
 
 **Asset hierarchy**  
-You can define asset hierarchies to create logical representations of your industrial operations\. To create a hierarchy, you define a hierarchy definition in an asset model, and then you associate assets created from that model and the model specified in the hierarchy definition\. Metrics in parent assets can aggregate data from child assets' properties, so you can calculate statistics that provide insight to your operation or a subset of your operation\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
+You can define asset hierarchies to create logical representations of your industrial operations\. To create a hierarchy, you define a hierarchy definition in an asset model, and then you associate assets created from that model and the model specified in the hierarchy definition\. Metrics in parent assets can aggregate data from child assets' properties, so you can calculate statistics that provide insight to your operation or a subset of your operation\. For more information, see [Defining relationships between asset models \(hierarchies\)](asset-hierarchies.md)\.
 
 **Formula**  
 Every [transform](#concept-transform) and [metric](#concept-metric) property has a formula that defines how that property transforms or aggregates data\. Formulas consist of property inputs, operators, and functions offered by AWS IoT SiteWise\. For more information, see [Using formula expressions](formula-expressions.md)\.

@@ -1,4 +1,4 @@
-# Setting up gateways \(Greengrass V2\)<a name="configure-gateway-ggv2"></a>
+# Setting up SiteWise Edge gateways \(Greengrass V2\)<a name="configure-gateway-ggv2"></a>
 
 AWS IoT SiteWise gateways run on AWS IoT Greengrass V2 as a Greeengrass component that supports data collection and processing on premises\. To configure a gateway that runs on AWS IoT Greengrass V2, you need to create a gateway in the AWS Cloud and run the gateway software to set up your gateway device\.
 
@@ -45,7 +45,7 @@ Gateway devices must meet the followng requiments to install and run the gateway
   + The following ports are reserved for use by AWS IoT SiteWise: 80, 443, 3001, 8000, 8081, 8082, 8084, 8085, 8445, 8086, 9000, 9500, and 11080\. Using a reserved port for traffic can result in a terminated connection\.
 
 You must have the following permissions to use AWS IoT SiteWise gateways
-+ Uses the `AWSServiceRoleForIoTSiteWise` role that allows AWS IoT SiteWise to complete required actions on AWS IoT Greengrass's and AWS IoT Core's resources in your account\. For more information, see [Service\-linked role permissions for AWS IoT SiteWise](using-service-linked-roles.md#service-linked-role-permissions)\.
++ Uses the `AWSServiceRoleForIoTSiteWise` role that allows AWS IoT SiteWise to complete required actions on AWS IoT Greengrass's and AWS IoT Core's resources in your account\. For more information, see [Service\-linked role permissions for AWS IoT SiteWise ](using-service-linked-roles.md#service-linked-role-permissions)\.
 + The IAM role for your gateway must allow you to use an AWS IoT SiteWise gateway on an AWS IoT Greengrass V2 device to process asset model data and asset data\.
 
   The role allows the following service to assume the role: `credentials.iot.amazonaws.com`\.

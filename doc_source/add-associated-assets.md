@@ -1,6 +1,6 @@
 # Associating and disassociating assets<a name="add-associated-assets"></a>
 
-If your asset's model defines any child asset model hierarchies, you can associate child assets to your asset\. Parent assets can access and aggregate data from associated assets\. For more information about hierarchical asset models, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
+If your asset's model defines any child asset model hierarchies, you can associate child assets to your asset\. Parent assets can access and aggregate data from associated assets\. For more information about hierarchical asset models, see [Defining relationships between asset models \(hierarchies\)](asset-hierarchies.md)\.
 
 **Topics**
 + [Associating and disassociating assets \(console\)](#associate-asset-console)

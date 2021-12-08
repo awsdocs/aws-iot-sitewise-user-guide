@@ -12,7 +12,7 @@ The following sections describe how to use the AWS IoT SiteWise console or API t
 + [Creating an asset model \(CLI\)](#create-asset-model-cli)
 + [Example asset models](#asset-model-examples)
 + [Defining data properties](asset-properties.md)
-+ [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)
++ [Defining relationships between asset models \(hierarchies\)](asset-hierarchies.md)
 
 ## Creating an asset model \(console\)<a name="create-asset-model-console"></a>
 
@@ -38,7 +38,7 @@ You can use the AWS IoT SiteWise console to create an asset model\. The AWS IoT 
 
    1. \(Optional\) Add **Metric definitions** for the model\. Metrics are formulas that aggregate data over time intervals\. Metrics can input data from associated assets, so that you can calculate values that represent your operation or a subset of your operation\. For more information, see [Aggregating data from properties and other assets \(metrics\)](metrics.md)\.
 
-   1. \(Optional\) Add **Hierarchy definitions** for the model\. Hierarchies are relationships between assets\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
+   1. \(Optional\) Add **Hierarchy definitions** for the model\. Hierarchies are relationships between assets\. For more information, see [Defining relationships between asset models \(hierarchies\)](asset-hierarchies.md)\.
 
    1. \(Optional\) Add tags for the asset model\. For more information, see [Tagging your AWS IoT SiteWise resources](tag-resources.md)\.
 
@@ -103,7 +103,7 @@ Use the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIRe
 
    1. \(Optional\) Define asset properties \(`assetModelProperties`\) for the model\. For more information, see [Defining data properties](asset-properties.md)\.
 
-   1. \(Optional\) Define asset hierarchies \(`assetModelHierarchies`\) for the model\. For more information, see [Defining relationships between assets \(hierarchies\)](asset-hierarchies.md)\.
+   1. \(Optional\) Define asset hierarchies \(`assetModelHierarchies`\) for the model\. For more information, see [Defining relationships between asset models \(hierarchies\)](asset-hierarchies.md)\.
 
    1. \(Optional\) Define alarms for the model\. Alarms monitor other properties so that you can identify when equipment or processes require attention\. Each alarm definition is a composite model \(`assetModelCompositeModels`\) that standardizes the set of properties that the alarm uses\. For more information, see [Monitoring data with alarms](industrial-alarms.md) and [Defining alarms on asset models](define-alarms.md)\.
 

@@ -78,7 +78,7 @@ If you use a registered domain, in step 3, you must follow the first option\.
 
 1. Do one of the following:
 
-   1. Add a DNS entry A record that resolves the IPv4 address for the hostname created in step 1\. For more info about A record, see [A record type](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html#AFormat) in the *Amazon Route 53 Developer Guide*\.
+   1. Add a DNS entry A record that resolves the IPv4 address for the hostname created in step 1\. For more info about A record, see [A record type](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html#AFormat) in the *Amazon Route 53 Developer Guide*\.
 
    1. Set the `/etc/hosts` file on the gateway device and all user managed client machines\.
 

@@ -5,12 +5,12 @@ You can use the following common operators in formula expressions\.
 
 | Operator | Description | 
 | --- | --- | 
-| `+` |  If both operands are numbers, this operator adds the left and right operands\. If either operand is a string, this operator concatenates the left and right operands as strings\. For example, the expression `1 + 2 + " is three"` evaluates to `"3 is three"`\. The concatenated string can have up to 1024 characters\. If the string exceeds 1024 characters, then AWS IoT SiteWise doesn't output a data point for that computation\.  | 
-| `-` |  Subtracts the right operand from the left operand\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
-| `/` |  Divides the left operand by the right operand\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
-| `*` |  Multiplies the left and right operands\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
-| `^` |  Raises the left operand to the power of the right operand \(exponentiation\)\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
-| `%` |  Returns the remainder from dividing the left operand by the right operand\. The result has the same sign as the left operand\. This behavior differs from the modulo operation\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
+|  `+`  |  If both operands are numbers, this operator adds the left and right operands\. If either operand is a string, this operator concatenates the left and right operands as strings\. For example, the expression `1 + 2 + " is three"` evaluates to `"3 is three"`\. The concatenated string can have up to 1024 characters\. If the string exceeds 1024 characters, then AWS IoT SiteWise doesn't output a data point for that computation\.  | 
+|  `-`  |  Subtracts the right operand from the left operand\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
+|  `/`  |  Divides the left operand by the right operand\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
+|  `*`  |  Multiplies the left and right operands\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
+|  `^`  |  Raises the left operand to the power of the right operand \(exponentiation\)\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
+|  `%`  |  Returns the remainder from dividing the left operand by the right operand\. The result has the same sign as the left operand\. This behavior differs from the modulo operation\. <a name="operator-numbers-only"></a>You can only use this operator with numeric operands\.  | 
 |   `x < y`  |  Returns `1` if `x` is less than `y`, otherwise `0`\.  | 
 |   `x > y`  |  Returns `1` if `x` is greater than `y`, otherwise `0`\.  | 
 |   `x <= y`  |  Returns `1` if `x` is less than or equal to `y`, otherwise `0`\.  | 

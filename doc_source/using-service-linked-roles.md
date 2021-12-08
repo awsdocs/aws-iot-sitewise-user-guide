@@ -10,12 +10,12 @@ For information about other services that support service\-linked roles, see [AW
 
 ## Service\-linked role permissions for AWS IoT SiteWise<a name="service-linked-role-permissions"></a>
 
-AWS IoT SiteWise uses the service\-linked role named **AWSServiceRoleForIoTSiteWise** – AWS IoT SiteWise uses this service\-linked role to deploy gateways \(which run on AWS IoT Greengrass\) and perform logging\.
+AWS IoT SiteWise uses the service\-linked role named **AWSServiceRoleForIoTSiteWise**\. AWS IoT SiteWise uses this service\-linked role to deploy gateways \(which run on AWS IoT Greengrass\) and perform logging\.
 
-The AWSServiceRoleForIoTSiteWise service\-linked role trusts the following services to assume the role:
+The `AWSServiceRoleForIoTSiteWise` service\-linked role trusts the following services to assume the role:
 + `iotsitewise.amazonaws.com`
 
-The role uses the following permissions policy to allow AWS IoT SiteWise to complete actions on other services' resources in your account:
+The `AWSServiceRoleForIoTSiteWise` role uses the `AWSServiceRoleForIoTSiteWise` policy with the following permissions\. This policy allows AWS IoT Greengrass to write logs to the `iotsitewise` group in Amazon CloudWatch Logs\.
 
 ```
 {
@@ -28,36 +28,9 @@ The role uses the following permissions policy to allow AWS IoT SiteWise to comp
                 "greengrass:GetCoreDefinition",
                 "greengrass:GetCoreDefinitionVersion",
                 "greengrass:GetGroup",
-                "greengrass:GetGroupVersion",
-                "greengrass:CreateDeployment",
-                "greengrass:ListDeployments",
-                "greengrass:ListEffectiveDeployments",
-                "greengrass:ListInstalledComponents",
-                "iot:DescribeThing",
-                "iot:CancelJob",
-                "iot:CreateJob",
-                "iot:DeleteThingShadow",
-                "iot:DescribeJob",
-                "iot:DescribeThingGroup",
-                "iot:GetThingShadow",
-                "iot:UpdateJob",
-                "iot:UpdateThingShadow"
+                "greengrass:GetGroupVersion"
             ],
             "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "greengrass:GetCoreDevice"
-            ],
-            "Resource": "arn:aws:greengrass:*:*:coreDevices:*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "greengrass:GetDeployment"
-            ],
-            "Resource": "arn:aws:greengrass:*:*:deployments:*"
         },
         {
             "Effect": "Allow",
@@ -80,7 +53,9 @@ The role uses the following permissions policy to allow AWS IoT SiteWise to comp
 }
 ```
 
-You must configure permissions to allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role\. For more information, see [Service\-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
+You can use the logs to monitor and troubleshoot your gateways\. For more information, see [Monitoring gateway logs](monitor-gateway-logs.md)\.
+
+To allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role, first configure permissions\. For more information, see [Service\-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 
 ## Creating a service\-linked role for AWS IoT SiteWise<a name="create-service-linked-role"></a>
 
@@ -91,9 +66,6 @@ If you delete this service\-linked role, and then need to create it again, you c
 You can also use the IAM console or API to create a service\-linked role for AWS IoT SiteWise\.
 + To do so in the IAM console, create a role with the **AWSServiceRoleForIoTSiteWise** policy and a trust relationship with `iotsitewise.amazonaws.com`\.
 + To do so using the AWS CLI or IAM API, create a role with the `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForIoTSiteWise` policy and a trust relationship with `iotsitewise.amazonaws.com`\.
-
-**Important**  
-The name of your service\-linked role must be **AWSServiceRoleForIoTSiteWise**\.
 
 For more information, see [Creating a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\.
 

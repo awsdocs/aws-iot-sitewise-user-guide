@@ -8,18 +8,18 @@ In [transforms](transforms.md) and [metrics](metrics.md), you can use the date a
 
 | Function | Description | 
 | --- | --- | 
-| `now()` |  Returns the current date and time, in seconds, in the Unix epoch format\.  | 
-| `timestamp()` |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
-| `mktime(time_zone, year, month, day_of_month, hour, minute, second)` |  Returns the input time in seconds, in the Unix epoch format\. The following requirements apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) The following limits apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) Examples: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
-| `localtime(unix_time, time_zone)` |  Returns the year, the day of the month, the day of the week, the day of the year, the hour, the minute, or the second in the specified time zone from the Unix time\. The following requirements apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) Example response: `2007-12-03T10:15:30+01:00[Europe/Paris]` `localtime(unix_time, time_zone)` isn't a standalone function\. The `year()`, `mon()`, `mday`, `wday()`, `yday()`, `hour()`, `minute()`, and `sec()` functions take `localtime(unix_time, time_zone)` as an argument\. Examples: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
-| `year(localtime(localtime(unix_time, time_zone))` |  Returns the year from `localtime(unix_time, time_zone)`\.  | 
-| `mon(localtime(unix_time, time_zone))` |  Returns the month from `localtime(unix_time, time_zone)`\.  | 
-| `mday(localtime(unix_time, time_zone))` |  Returns the day of the month from `localtime(unix_time, time_zone)`\.  | 
-| `wday(localtime(unix_time, time_zone))` |  Returns the day of the week from `localtime(unix_time, time_zone)`\.  | 
-| `yday(localtime(unix_time, time_zone))` |  Returns the day of the year from `localtime(unix_time, time_zone)`\.  | 
-| `hour(localtime(unix_time, time_zone))` |  Returns the hour from `localtime(unix_time, time_zone)`\.  | 
-| `minute(localtime(unix_time, time_zone))` |  Returns the minute from `localtime(unix_time, time_zone)`\.  | 
-| `sec(localtime(unix_time, time_zone))` |  Returns the second from `localtime(unix_time, time_zone)`\.  | 
+|  `now()`  |  Returns the current date and time, in seconds, in the Unix epoch format\.  | 
+|  `timestamp()`  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
+|  `mktime(time_zone, year, month, day_of_month, hour, minute, second)`  |  Returns the input time in seconds, in the Unix epoch format\. The following requirements apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) The following limits apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) Examples: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
+|  `localtime(unix_time, time_zone)`  |  Returns the year, the day of the month, the day of the week, the day of the year, the hour, the minute, or the second in the specified time zone from the Unix time\. The following requirements apply for using this function: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html) Example response: `2007-12-03T10:15:30+01:00[Europe/Paris]` `localtime(unix_time, time_zone)` isn't a standalone function\. The `year()`, `mon()`, `mday`, `wday()`, `yday()`, `hour()`, `minute()`, and `sec()` functions take `localtime(unix_time, time_zone)` as an argument\. Examples: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/expression-date-and-time-functions.html)  | 
+|  `year(localtime(localtime(unix_time, time_zone))`  |  Returns the year from `localtime(unix_time, time_zone)`\.  | 
+|  `mon(localtime(unix_time, time_zone))`  |  Returns the month from `localtime(unix_time, time_zone)`\.  | 
+|  `mday(localtime(unix_time, time_zone))`  |  Returns the day of the month from `localtime(unix_time, time_zone)`\.  | 
+|  `wday(localtime(unix_time, time_zone))`  |  Returns the day of the week from `localtime(unix_time, time_zone)`\.  | 
+|  `yday(localtime(unix_time, time_zone))`  |  Returns the day of the year from `localtime(unix_time, time_zone)`\.  | 
+|  `hour(localtime(unix_time, time_zone))`  |  Returns the hour from `localtime(unix_time, time_zone)`\.  | 
+|  `minute(localtime(unix_time, time_zone))`  |  Returns the minute from `localtime(unix_time, time_zone)`\.  | 
+|  `sec(localtime(unix_time, time_zone))`  |  Returns the second from `localtime(unix_time, time_zone)`\.  | 
 
 ## Supported time zone formats<a name="time-zone-expressions"></a>
 

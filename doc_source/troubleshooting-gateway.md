@@ -22,6 +22,7 @@ Use the following information to troubleshoot gateway issues\.
 **Topics**
 + [Modbus TCP sources are out of sync](#gateway-issue-source)
 + [Unable to connect to stream manager](#gateway-issue-stream-manager)
++ [Unable to connect to an OPC\-UA source](#gateway-issue-opc-ua-connection)
 + [AWS IoT SiteWise doesn't receive data from OPC\-UA servers](#gateway-issue-data-streams)
 
 ### Modbus TCP sources are out of sync<a name="gateway-issue-source"></a>
@@ -51,6 +52,45 @@ com.amazonaws.greengrass.streammanager.client.StreamManagerClientImpl: Connect f
 ```
 
 As of version 6, the AWS IoT SiteWise connector requires stream manager\. For more information about how to enable stream manager, see step 5 of [Configuring an AWS IoT Greengrass group](configure-gateway.md#attach-iam-role)\.
+
+### Unable to connect to an OPC\-UA source<a name="gateway-issue-opc-ua-connection"></a>
+
+You might see the following `OPCUACollector` error log message if the version of the installed OpenJDK isn't supported\.
+
+```
+java.security.KeyStoreException: Key protection  algorithm not found: java.security.UnrecoverableKeyException: Encrypt Private Key failed: unrecognized algorithm name: PBEWithSHA1AndDESede
+          Failed to start OPC-UA Connection for Source 'Server 1': Failed to add key to store
+```
+
+To downgrade to the supported OpenJDK version, follow the steps in this section\. These steps assume that you use a device with Ubuntu\. If you use a different Linux distribution, consult the relevant documentation for your device\.
+
+**To downgrade to the support Amazon Corretto 8**
+
+1. To uninstall the current OpenJDK, run one of the following commands\.
+   + 
+
+     ```
+     sudo apt purge -y openjdk-8-jre-headless
+     ```
+   + 
+
+     ```
+     sudo apt-get purge -y java-1.8.0-amazon-corretto-jdk
+     ```
+
+1. To download and install the supported [Amazon Corretto 8](https://github.com/corretto/corretto-8/releases/tag/8.282.08.1), run the following command\.
+
+   ```
+   curl -s https://corretto.aws/downloads/resources/8.282.08.1/java-1.8.0-amazon-corretto-jdk_8.282.08-1_amd64.deb --output /tmp/java-1.8.0-amazon-corretto-jdk_8.282.08-1_amd64.deb
+   sudo apt-get update && sudo apt-get install java-common
+   sudo dpkg --install /tmp/java-1.8.0-amazon-corretto-jdk_8.282.08-1_amd64.deb
+   ```
+
+1. To restart the AWS IoT Greengrass V1 Core software, run the following command\.
+
+   ```
+   sudo /greengrass/ggc/core/greengrassd restart
+   ```
 
 ### AWS IoT SiteWise doesn't receive data from OPC\-UA servers<a name="gateway-issue-data-streams"></a>
 

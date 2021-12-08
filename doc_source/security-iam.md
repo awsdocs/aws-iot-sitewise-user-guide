@@ -8,6 +8,7 @@ AWS Identity and Access Management \(IAM\) is an AWS service that helps an admin
 + [Managing access using policies](#security_iam_access-manage)
 + [How AWS IoT SiteWise works with IAM](security_iam_service-with-iam.md)
 + [AWS IoT SiteWise identity\-based policy examples](security_iam_id-based-policy-examples.md)
++ [AWS managed policies for AWS IoT SiteWise](security-iam-awsmanpol.md)
 + [Using service\-linked roles for AWS IoT SiteWise](using-service-linked-roles.md)
 + [Using service roles for AWS IoT SiteWise Monitor](monitor-service-role.md)
 + [Setting up permissions for AWS IoT Events alarms](alarms-iam-permissions.md)

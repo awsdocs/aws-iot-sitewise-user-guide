@@ -2,19 +2,19 @@
 
 Transforms are mathematical expressions that map asset properties' data points from one form to another\. A transform expression consists of asset property variables, literals, operators, and functions\. The transformed data points hold a one\-to\-one relationship with the input data points\. AWS IoT SiteWise calculates a new transformed data point each time any of the input properties receives a new data point\.
 
-For example, if your asset has a temperature measurement stream named `Temperature_C` with units in Celsius, you can convert each data point to Fahrenheit with the formula `Temperature_F = 9/5 * Temperature_C + 32`\. Each time AWS IoT SiteWise receives a data point in the `Temperature_C` measurement stream, the corresponding `Temperature_F` value is calculated and available as the `Temperature_F` property within a few seconds\.
+For example, if your asset has a temperature measurement stream named `Temperature_C` with units in Celsius, you can convert each data point to Fahrenheit with the formula `Temperature_F = 9/5 * Temperature_C + 32`\. Each time AWS IoT SiteWise receives a data point in the `Temperature_C` measurement stream, the corresponding `Temperature_F` value is calculated within a few seconds and available as the `Temperature_F` property\.
 
-If your transform contains more than one variable, the data point that arrives earlier triggers the computation immediately\. Consider an example where a parts manufacturer uses a transform to monitor product quality\. The manufacturer uses a different standard based on the part type\. The manufacturer uses the following measurements to represent the process:
+If your transform contains more than one variable, the data point that arrives earlier initiates the computation immediately\. Consider an example where a parts manufacturer uses a transform to monitor product quality\. Using a different standard based on the part type, the manufacturer uses the following measurements to represent the process:
 + `Part_Number` ‐ A string that identifies the part type\.
 + `Good_Count` ‐ An integer that increases by one if the part meets the standard\.
 + `Bad_Count` ‐ An integer that increases by one if the part doesn't meet the standard\.
 
-The manufacturer also creates a transform, `Quality_Monitor`, that equals `if(eq(Part_Number, "BLT123") and (Bad_Count / (Good_Count + Bad_Count) > 0.1), "Caution", "Normal")`\.
+The manufacturer also creates a transform, `Quality_Monitor`, that equals ` if(eq(Part_Number, "BLT123") and (Bad_Count / (Good_Count + Bad_Count) > 0.1), "Caution", "Normal")`\.
 
 This transform monitors the percentage of bad parts produced for a specific part type\. If the part number is BLT123 and the percentage of bad parts exceeds 10 percent \(0\.1\), the transform returns `"Caution"`\. Otherwise, the transform returns `"Normal"`\.
 
 **Note**  
-If `Part_Number` receives a new data point before other measurements, the `Quality_Monitor` transform uses the new `Part_Number` value and the latest `Good_Count` and `Bad_Count` values\. To avoid errors, you must reset `Good_Count` and `Bad_Count` before the next manufacturing run\.
+If `Part_Number` receives a new data point before other measurements, the `Quality_Monitor` transform uses the new `Part_Number` value and the latest `Good_Count` and `Bad_Count` values\. To avoid errors, reset `Good_Count` and `Bad_Count` before the next manufacturing run\.
 Use [metrics](metrics.md) if you want to evaluate expressions only after all variables receive new data points\.
 
 **Topics**

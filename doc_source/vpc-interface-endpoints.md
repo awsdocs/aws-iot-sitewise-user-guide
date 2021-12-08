@@ -122,6 +122,3 @@ The following is an example of an endpoint policy for AWS IoT SiteWise\. When at
     ]
 }
 ```
-
-**Note**  
-The interface VPC endpoint for the data plane API operations currently doesn't support VPC endpoint policies\.

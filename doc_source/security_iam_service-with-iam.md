@@ -69,7 +69,9 @@ To see a list of AWS IoT SiteWise actions, see [Actions Defined by AWS IoT SiteW
 AWS IoT SiteWise authorizes access to the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) action in an unusual way\. For most actions, when you allow or deny access to an action, that action returns an error if permissions aren't granted\. When you use `BatchPutAssetPropertyValue`, you can send multiple data entries to different assets and asset properties in a single API request, and AWS IoT SiteWise authorizes each data entry independently\. For any individual entry that fails authorization in the request, AWS IoT SiteWise includes an `AccessDeniedException` in the returned list of errors\. AWS IoT SiteWise receives the data for any entry that authorizes and succeeds, even if another entry in the same request fails\.
 
 **Important**  
-If one entry is denied permissions, all entries for the same asset are also denied\. For example, consider a scenario where you allow access to a property `Property1` for any asset using the `propertyId` condition key\. If you send a `BatchPutAssetPropertyValue` request that contains entries for `Asset1.Property1`, `Asset1.Property2`, `Asset2.Property1`, and `Asset3.Property3`, then the only entry that succeeds is `Asset2.Property1`\. If you send those entries in separate `BatchPutAssetPropertyValue` requests, then `Asset1.Property1` and `Asset2.Property1` succeed\.
+Before you ingest data to a data stream, do the following\.  
+The `timeseries` resource must be authorized if you use a property alias to identify the data stream\.
+The `asset` resource must be authorized if you use an asset ID to identify the asset that contains the associated asset property\.
 
 ### Resources<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
@@ -97,6 +99,12 @@ For example, to specify the asset with ID `a1b2c3d4-5678-90ab-cdef-22222EXAMPLE`
 
 ```
 "Resource": "arn:aws:iotsitewise:region:123456789012:asset/a1b2c3d4-5678-90ab-cdef-22222EXAMPLE"
+```
+
+To specify all data streams that belong to a specific account, use the wildcard \(\*\):
+
+```
+"Resource": "arn:aws:iotsitewise:region:123456789012:timeseries/*"
 ```
 
 To specify all assets that belong to a specific account, use the wildcard \(\*\):
@@ -144,6 +152,7 @@ AWS IoT SiteWise defines its own set of condition keys and also supports using s
 
 | Condition key | Description | Types | 
 | --- | --- | --- | 
+| iotsitewise:isAssociatedWithAssetProperty |  Whether data streams are associated with an asset property\. Use this condition key to define permissions based on the existence of an associated asset property for data streams\. Example value: `true`  | String | 
 | iotsitewise:assetHierarchyPath |  The asset's hierarchy path, which is a string of asset IDs each separated by a forward slash\. Use this condition key to define permissions based on a subset of your hierarchy of all assets in your account\. Example value: `/a1b2c3d4-5678-90ab-cdef-22222EXAMPLE/a1b2c3d4-5678-90ab-cdef-66666EXAMPLE`  | String | 
 | iotsitewise:propertyId |  The ID of an asset property\. Use this condition key to define permissions based on a specified property of an asset model\. This condition key applies to all assets of that model\. Example value: `a1b2c3d4-5678-90ab-cdef-33333EXAMPLE`  | String | 
 | iotsitewise:childAssetId |  The ID of an asset being associated as a child to another asset\. Use this condition key to define permissions based on child assets\. To define permissions based on parent assets, use the resource section of a policy statement\. Example value: `a1b2c3d4-5678-90ab-cdef-66666EXAMPLE`  | String | 

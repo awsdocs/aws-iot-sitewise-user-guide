@@ -74,6 +74,14 @@ IAM users or roles must have the `iotsitewise:DescribePortal` permission to sign
 **Note**  
  If you close the console, you can finish the setup process by adding administrators and users\. For more information, see [Adding or removing portal administrators](administer-portals.md#portal-change-admins)\. If you don't want to keep this portal, delete it so it doesn't use resources\. For more information, see [Deleting a portal](administer-portals.md#portal-delete-portal)\.
 
+The **Status** column can be one of the following values\.
++ **CREATING** ‐ AWS IoT SiteWise is processing your request to create the portal\. This process can take several minutes to complete\.
++ **UPDATING** ‐ AWS IoT SiteWise is processing your request to update the portal\. This process can take several minutes to complete\.
++ **PENDING** ‐ AWS IoT SiteWise is waiting for the DNS record propagation to finish\. This process can take several minutes to complete\. You can delete the portal while the status is **PENDING**\.
++ **DELETING** ‐ AWS IoT SiteWise is processing your request to delete the portal\. This process can take several minutes to complete\. 
++ **ACTIVE** ‐ When the portal becomes active, your portal users can access it\.
++ **FAILED** ‐ AWS IoT SiteWise couldn't process your request to create, update, or delete the portal\. If you enabled AWS IoT SiteWise to send logs to CloudWatch Logs, you can use these logs to troubleshoot issues\. For more information, see [ Monitoring AWS IoT SiteWise with CloudWatch Logs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-cloudwatch-logs.html)\. 
+
 A message appears when your portal is created\.
 
 ![\[An example successful portal creation message.\]](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-create-portal-success-console.png)

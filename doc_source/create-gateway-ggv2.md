@@ -1,12 +1,13 @@
-# Create a gateway<a name="create-gateway-ggv2"></a>
+# Creating a gateway<a name="create-gateway-ggv2"></a>
 
 You can use the AWS IoT SiteWise console to create a gateway\. This topic contains the following steps:
 
 **Topics**
 + [Step 1: Configure a gateway](#configure-gateway-console)
 + [Step 2: Configure edge capabilities](#configure-edge-capabilities-console)
-+ [Step 3: Add data sources](#add-data-sources-console)
-+ [Step 4: Review and generate an installer](#generate-installer-console)
++ [Step 3: Configure publisher \- optional](#configure-publisher)
++ [Step 4: Add data sources \- optional](#add-data-sources-console)
++ [Step 5: Review and generate an installer](#generate-installer-console)
 
 ## Step 1: Configure a gateway<a name="configure-gateway-console"></a>
 
@@ -61,7 +62,31 @@ You can also use the Linux credentials to access the gateway\. For more informat
 
 1. Choose **Next**\.
 
-## Step 3: Add data sources<a name="add-data-sources-console"></a>
+## Step 3: Configure publisher \- optional<a name="configure-publisher"></a>
+
+You can configure the publisher to control what data is sent to the cloud and the order that it's sent to the cloud\. The AWS IoT SiteWise publisher is an AWS IoT Greengrass component that runs on your gateway device\. For more information, see [IoT SiteWise Publisher](https://docs.aws.amazon.com/greengrass/v2/developerguide/iotsitewise-publisher-component.html) in the *AWS IoT Greengrass Version 2 Developer Guide*\.
+
+**To configure the publisher**
+
+1. For **Publishing order**, choose one of the following\.
+   + **Publish oldest data first** – The gateway publishes the oldest data to the cloud first by default\.
+   + **Publish newest data first** – The gateway publishes the newest data to the cloud first\.
+
+1. \(Optional\) Choose **Exclude expired data**\.
+
+1. For **Cutoff period**, enter a number and choose a unit\. The cutoff period must be between five minutes and seven days\. For example, if the cutoff period is three days, data that's older than three days isn't published to the cloud\.
+
+1. \(Optional\) Choose **Local storage settings**\.
+
+1. For **Retention period**, enter a number and choose a unit\. The retention period must be between one minute and 30 days, and greater than or equal to the rotation period\. For example, if the retention period is 14 days, the gateway deletes any data at the edge that's older than the specified cutoff period after it's stored for 14 days\.
+
+1. For **Rotation period**, enter a number and choose a unit\. The rotation period must be greater than one minute, and equal to or less than the retention period\. For example, if the rotation period is two days, the gateway batches up and saves data that is older than the cutoff period to a single file\. The gateway also transfers a batch of data to the following local directory once every two days: `/greengrass/v2/work/aws.iot.SiteWiseEdgePublisher/exports`\.
+
+1. For **Storage capacity**, enter a number that is greater than or equal to 1\. If the storage capacity is 2 GB, the gateway starts deleting data when more than 2 GB of data is stored locally\. 
+
+1. Choose **Next**\.
+
+## Step 4: Add data sources \- optional<a name="add-data-sources-console"></a>
 
 Data sources are local servers or industrial equipment that are connected to gateways\. You can add data sources so that your gateway can ingest data from the OPC\-UA servers to AWS IoT SiteWise\.
 
@@ -114,7 +139,7 @@ Your data server might have an option named **Allow anonymous login**\. If this 
 
 1. Choose **Next**\.
 
-## Step 4: Review and generate an installer<a name="generate-installer-console"></a>
+## Step 5: Review and generate an installer<a name="generate-installer-console"></a>
 
 In this step, you review the configuration of your gateway, and then do the following:
 

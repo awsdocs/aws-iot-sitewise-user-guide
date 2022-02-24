@@ -2,7 +2,7 @@
 
 In [metrics](metrics.md) only, you can use the following functions that aggregate input values over each time interval and calculate a single output value\. Aggregation functions can aggregate data from associated assets\.
 
-Aggregation function arguments can be [variables](expression-variables.md), [number literals](expression-literals.md#number-literal-definition), [temporal functions](expression-temporal-functions.md), or aggregation functions\. This means that you can't provide nested expressions as arguments to aggregation functions\. For example, the formula `avg(x + 1)` isn't valid\. By contrast, the formula `max(latest(x), latest(y), latest(z))` is valid and returns the largest current value of the `x`, `y`, and `z` properties\.
+Aggregation function arguments can be [variables](expression-variables.md), [number literals](expression-literals.md#number-literal-definition), [temporal functions](expression-temporal-functions.md), nested expressions, or aggregation functions\. The formula `max(latest(x), latest(y), latest(z))` uses an aggregation function as an argument and returns the largest current value of the `x`, `y`, and `z` properties\.
 
 You can use nested expressions in aggregation functions\. When you use nested expressions, the following rules apply: 
 + Each argument can have only one variable\.  

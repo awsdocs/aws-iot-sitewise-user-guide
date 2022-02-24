@@ -53,7 +53,7 @@ If you use tags to allow or deny users' access to resources, you should deny use
 
 You can use the following condition context keys and values in the `Condition` element \(also called the `Condition` block\) of a policy statement\.
 
-`iotsitewise:ResourceTag/tag-key: tag-value`  
+`aws:ResourceTag/tag-key: tag-value`  
 Allow or deny actions on resources with specific tags\.
 
 `aws:RequestTag/tag-key: tag-value`  

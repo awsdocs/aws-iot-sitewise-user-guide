@@ -20,10 +20,37 @@ Before you can view gateway logs, you must configure your gateway to send logs t
 Use the following information to troubleshoot gateway issues\.
 
 **Topics**
++ [Unable to deploy packs to AWS IoT SiteWise Edge gateways](#gateway-issue-ggv2-packs)
 + [Modbus TCP sources are out of sync](#gateway-issue-source)
 + [Unable to connect to stream manager](#gateway-issue-stream-manager)
 + [Unable to connect to an OPC\-UA source](#gateway-issue-opc-ua-connection)
 + [AWS IoT SiteWise doesn't receive data from OPC\-UA servers](#gateway-issue-data-streams)
+
+### Unable to deploy packs to AWS IoT SiteWise Edge gateways<a name="gateway-issue-ggv2-packs"></a>
+
+If the Greengrass nucleus component \(`aws.greengrass.Nucleus`\) is out of date, you might not be able to deploy packs to your AWS IoT SiteWise Edge gateway\. You can use the AWS IoT Greengrass V2 console to upgrade the Greengrass nucleus component\.
+
+**Upgrade the Greengrass nucleus component \(console\)**
+
+1. Navigate to the [AWS IoT Greengrass console](https://console.aws.amazon.com/greengrassIntro)\.
+
+1. In the navigation pane, under **Greengrass**, choose **Deployments**\.
+
+1. In the **Deployments** list, select the deployment that you want to revise\.
+
+1. Choose **Revise**\.
+
+1. On the **Specify target** page, choose **Next**\.
+
+1. On the **Select components** page, under **Public components**, in the search box, enter **aws\.greengrass\.Nucleus**, and then select **aws\.greengrass\.Nucleus**\.
+
+1. Choose **Next**\.
+
+1. On the **Configure components** page, choose **Next**\.
+
+1. On the **Configure advanced settings** page, choose **Next**\.
+
+1. On the **Review** page, choose **Deploy**\.
 
 ### Modbus TCP sources are out of sync<a name="gateway-issue-source"></a>
 

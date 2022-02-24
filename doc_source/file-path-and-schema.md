@@ -1,10 +1,10 @@
 # File paths and schemas of data saved in the cold tier<a name="file-path-and-schema"></a>
 
-AWS IoT SiteWise can send equipment data \(measurements\), metrics, asset metadata, and asset hierarchy metadata to the cold tier\. The following describes the file paths and schemas of data that is sent to the cold tier\.
+AWS IoT SiteWise stores your data in the cold tier by replicating time series, including measurements, metrics, transforms and aggregates, and also asset and asset model definitions\. The following describes the file paths and schemas of data that is sent to the cold tier\.
 
 **Topics**
 + [Equipment data \(measurements\)](#measurements-file-path-and-schema)
-+ [Metrics](#metrics-file-path-and-schema)
++ [Metrics, transforms, and aggregates](#metrics-file-path-and-schema)
 + [Asset metadata](#asset-metadata)
 + [Asset hierarchy metadata](#asset-hierarchy-metadata)
 
@@ -22,7 +22,7 @@ To generate file paths of raw data in the cold tier, AWS IoT SiteWise uses the f
 
 Every file path to raw data in Amazon S3 contains the following components\.
 
-#### <a name="w490aac33c13b7b5b9b1b1"></a>
+#### <a name="w492aac33c15b7b5b9b1b1"></a>
 
 
 | Path component | Description | 
@@ -42,7 +42,7 @@ Every file path to raw data in Amazon S3 contains the following components\.
 
 The schema of raw data that is exported to the cold tier contains the following fields\.
 
-#### <a name="w490aac33c13b7b7b5b1"></a>
+#### <a name="w492aac33c15b7b7b5b1"></a>
 
 
 | Field name | Supported types | Default type | Description | 
@@ -68,21 +68,21 @@ The schema of raw data that is exported to the cold tier contains the following 
 {"seriesId":"e9687d2a-0dbe-4f65-9ed6-6f443cba41f7_95e63da7-d34e-43e1-bc6f-1b490154b07a","timeInSeconds":1625675892,"offsetInNanos":0,"quality":"GOOD","doubleValue":{"double":0.73},"stringValue":null,"integerValue":null,"booleanValue":null,"jsonValue":null,"recordVersion":null}
 ```
 
-## Metrics<a name="metrics-file-path-and-schema"></a>
+## Metrics, transforms, and aggregates<a name="metrics-file-path-and-schema"></a>
 
-AWS IoT SiteWise exports metrics to the cold tier once every six hours\. Metrics are saved in the cold tier in the [Apache AVRO](https://avro.apache.org) \(`.avro`\) format\.
+AWS IoT SiteWise exports metrics, transforms, and aggregates to the cold tier once every six hours\. Metrics, transforms, and aggregates are saved in the cold tier in the [Apache AVRO](https://avro.apache.org) \(`.avro`\) format\.
 
 ### File path<a name="metrics-file-path"></a>
 
-To generate file paths of metrics in the cold tier, AWS IoT SiteWise uses the following template\.
+To generate file paths of metrics, transforms, and aggregates in the cold tier, AWS IoT SiteWise uses the following template\.
 
 ```
 {keyPrefix}/agg/startYear={startYear}/startMonth={startMonth}/startDay={startDay}/seriesBucket={seriesBucket}/agg_{timeseriesId}_{startTimestamp}_{quality}.avro
 ```
 
-Every file path to metrics in Amazon S3 contains the following components\.
+Every file path to metrics, transforms, and aggregates in Amazon S3 contains the following components\.
 
-#### <a name="w490aac33c13b9b5b9b1b1"></a>
+#### <a name="w492aac33c15b9b5b9b1b1"></a>
 
 
 | Path component | Description | 
@@ -100,9 +100,9 @@ Every file path to metrics in Amazon S3 contains the following components\.
 
 ### Fields<a name="metrics-fields"></a>
 
-The schema of metrics that is exported to the cold tier contains the following fields\.
+The schema of metrics, transforms, and aggregates that are exported to the cold tier contains the following fields\.
 
-#### <a name="w490aac33c13b9b7b5b1"></a>
+#### <a name="w492aac33c15b9b7b5b1"></a>
 
 
 | Field name | Supported types | Default type | Description | 
@@ -143,7 +143,7 @@ To generate file paths of asset metadata in the cold tier, AWS IoT SiteWise uses
 
 Every file path to asset metadata in the cold tier contains the following components\.
 
-#### <a name="w490aac33c13c11b5b9b1"></a>
+#### <a name="w492aac33c15c11b5b9b1"></a>
 
 
 | Path component | Description | 
@@ -159,7 +159,7 @@ Every file path to asset metadata in the cold tier contains the following compon
 
 The schema of asset metadata that is exported to the cold tier contains the following fields\.
 
-#### <a name="w490aac33c13c11b7b5b1b1"></a>
+#### <a name="w492aac33c15c11b7b5b1b1"></a>
 
 
 | Field name | Description | 
@@ -206,7 +206,7 @@ To generate file paths of asset hierarchy metadata in the cold tier, AWS IoT Sit
 
 Every file path to asset hierarchy metadata in the cold tier contains the following components\.
 
-#### <a name="w490aac33c13c13b5b9b1b1"></a>
+#### <a name="w492aac33c15c13b5b9b1b1"></a>
 
 
 | Path component | Description | 
@@ -222,7 +222,7 @@ Every file path to asset hierarchy metadata in the cold tier contains the follow
 
 The schema of asset hierarchy metadata that is exported to the cold tier contains the following fields\.
 
-#### <a name="w490aac33c13c13b7b5b1b1"></a>
+#### <a name="w492aac33c15c13b7b5b1b1"></a>
 
 
 | Field name | Description | 

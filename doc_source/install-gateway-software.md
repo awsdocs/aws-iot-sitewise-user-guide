@@ -12,7 +12,7 @@ Make sure that your gateway device connects to the Internet\.
 
 ## Step 1: Copy the installer to your gateway device<a name="connect-gateway-device-ssh"></a>
 
-The following uses SSH to connect to your getway device\. You can use a USB flash drive or other tools to transfer the installer file to your gateway device\.
+The following uses SSH to connect to your gateway device\. You can use a USB flash drive or other tools to transfer the installer file to your gateway device\.
 
 ### Connect to your gateway device using SSH<a name="connect-gateway-device"></a>
 

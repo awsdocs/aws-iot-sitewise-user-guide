@@ -5,7 +5,9 @@ The following table describes the documentation for this release of AWS IoT Site
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Updated storage management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-hot-tier-retention.html) | You can define a retention period to control how long your data is kept in the hot tier\. | November 29, 2021 | 
+| [Updated AWS IoT SiteWise Edge gateways](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-gateway-ggv2.html#configure-publisher) | You can now configure the publisher to control what data is sent from the edge to the cloud and the order that it's sent to the cloud\. | January 12, 2022 | 
+| [Updated the AWS IoT SiteWise demo](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/getting-started-demo.html#create-getting-started-demo) | You can now use the demo to create a SiteWise Monitor portal\. | January 10, 2022 | 
+| [Updated storage management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-hot-tier-retention.html) | You can now define a retention period to control how long your data is kept in the hot tier\. | November 29, 2021 | 
 | [Added support for data stream management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html) | You can now ingest data to AWS IoT SiteWise before you create asset models and assets\. | November 24, 2021 | 
 | [Updated asset model hierarchies](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) | A child asset model now can be associated with multiple parent asset models\. | October 28, 2021 | 
 | [Region launch](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-iotsitewise.html) | Launched AWS IoT SiteWise in AWS GovCloud \(US\-West\)\. | September 29, 2021 | 

@@ -18,7 +18,7 @@ The specified asset property must not be currently associated with any data stre
 + Replace *property\-ID* with the ID of the asset property\.
 
 ```
-aws iot-sitewise associate-time-series-to-asset-propert \ 
+aws iotsitewise associate-time-series-to-asset-propert \ 
                  --alias data-stream-alias \
                  --assetId asset-ID \
                  --propertyId property-ID
@@ -32,7 +32,7 @@ To disassociate a data stream from an asset property, run the following command\
 + Replace *property\-ID* with the ID of the asset property\.
 
 ```
-aws iot-sitewise disassociate-time-series-from-asset-property \ 
+aws iotsitewise disassociate-time-series-from-asset-property \ 
                  --alias data-stream-alias \
                  --assetId asset-ID \
                  --propertyId property-ID
@@ -45,7 +45,7 @@ To delete a data stream, run the following command\.
 Replace *data\-stream\-alias* with the alias of the data stream that you're deleting\.
 
 ```
-aws iot-sitewise delete-time-series --alias data-stream-alias
+aws iotsitewise delete-time-series --alias data-stream-alias
 ```
 
 To identify a data stream, do one of the following:
@@ -61,7 +61,7 @@ You can use the `DescribeTimeSeries` API operation to verify if you successfully
 To retrieve information about a data stream, run the following command\.
 
 ```
-aws iot-sitewise describe-time-series --alias data-stream-alias
+aws iotsitewise describe-time-series --alias data-stream-alias
 ```
 
 To identify a data stream, do one of the following:
@@ -77,5 +77,5 @@ You can use the `ListTimeSeries` API operation to verify if you successfully del
 To retrieve a paginated list of data streams, run the following command\.
 
 ```
-aws iot-sitewise list-time-series
+aws iotsitewise list-time-series
 ```

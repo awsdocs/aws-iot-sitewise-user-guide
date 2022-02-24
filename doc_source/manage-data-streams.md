@@ -81,7 +81,7 @@ You can enable AWS IoT SiteWise to accept data streams not associated with asset
 After you enable AWS IoT SiteWise to accept data streams not associated with asset properties, you can't disable this setting\.
 
    ```
-   aws iot-sitewise put-storage-configuration \
+   aws iotsitewise put-storage-configuration \
                             --storage-type SITEWISE_DEFAULT_STORAGE \
                             --disassociated-data-storage ENABLED
    ```
@@ -104,7 +104,7 @@ After you enable AWS IoT SiteWise to accept data streams not associated with ass
 1. To retrieve the storage configuration information, run the following command\.
 
    ```
-   aws iot-sitewise --describe-storage-configuration
+   aws iotsitewise --describe-storage-configuration
    ```  
 **Example response**  
 

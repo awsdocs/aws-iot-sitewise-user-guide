@@ -6,7 +6,7 @@ You can use temporal functions to return values based on timestamps of data poin
 
 In [metrics](metrics.md) only, you can use the following functions that return values based on timestamps of data points\.
 
-Temporal function arguments must be properties from the local asset model\. This means that you can't use properties from child asset models in temporal functions\. You also can't use expressions as arguments to temporal functions\.
+Temporal function arguments must be properties from the local asset model or nested expressions\. This means that you can't use properties from child asset models in temporal functions\.
 
 You can use nested expressions in temporal functions\. When you use nested expressions, the following rules apply: 
 + Each argument can have only one variable\.

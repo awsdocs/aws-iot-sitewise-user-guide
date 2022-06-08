@@ -11,6 +11,9 @@ This capability has the following versions\.
 | --- | --- | 
 | 1 | iotsitewise:opcuacollector:1 | 
 
+**Important**
+This method only works for SiteWise Gateways created for Greengrass V1.  If this capability namespace is used on a Gateway associated with a Greengrass V2 device you'll see an error similar to the following: `An error occurred (InvalidRequestException) when calling the UpdateGatewayCapabilityConfiguration operation: The capability iotsitewise:opcuacollector:1 is not supported by this gateway`.
+
 ## OPC\-UA capability configuration parameters<a name="opc-ua-source-parameters-cli"></a>
 
 When you define OPC\-UA sources in a capability configuration, you must specify the following information in the `capabilityConfiguration` JSON document:

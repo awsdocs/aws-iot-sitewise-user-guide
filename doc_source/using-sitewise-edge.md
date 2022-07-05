@@ -5,7 +5,7 @@ To use edge processing, you must configure your AWS IoT SiteWise gateway and ass
 **Note**  
 Before you begin, make sure that you meet the [Edge processing prerequisites](edge-setup.md)\.
 
-You must complete the following steps to use edge processing\. You don't need to complete these steps in order, because AWS IoT SiteWise automatically syncs your the AWS Cloud with your gateway for you every 10 minutes\.
+You must complete the following steps to use edge processing\. You don't need to complete these steps in order, because AWS IoT SiteWise automatically syncs your gateway with the AWS cloud every 10 minutes\.
 
 For more information about getting started with edge processing, see [Introducing AWS IoT SiteWise](https://aws-blogs-prod.amazon.com/iot/introducing-aws-iot-sitewise-edge/) in the AWS official blog\.
 +  **Add the data processing pack to your gateway** – Add the data processing pack so that your gateway can communicate with all asset models that you configured for the edge\. You add this pack when you add your gateway to AWS IoT SiteWise, or when you edit an existing gateway\. For more information about your AWS IoT SiteWise gateway, see [Ingesting data using a gateway](gateways.md)\. 

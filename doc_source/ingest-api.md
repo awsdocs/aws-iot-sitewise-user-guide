@@ -5,7 +5,12 @@ You can use the AWS IoT SiteWise API to send timestamped industrial data to your
 Use the [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation to upload your data\. With this operation, you can upload multiple data entries at a time, so that you can collect data from several devices and send it all in a single request\.
 
 **Important**  
-The [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation is subject to quotas on the number of entries per request and the number of TQV data points per entry\. AWS IoT SiteWise also rejects any data with a timestamp dated to more than 7 days in the past or more than 10 minutes in the future\. For more information about these quotas, see [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*\.
+The [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) operation is subject to the following quotas:
+- Up to 10 [entries](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html#API_BatchPutAssetPropertyValue_RequestSyntax) per request\.
+- Up to 10 [propertyValues](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutAssetPropertyValueEntry.html#iotsitewise-Type-PutAssetPropertyValueEntry-propertyValues) (TQV data points) per entry\.
+-  AWS IoT SiteWise rejects any data with a timestamp dated to more than 7 days in the past or more than 10 minutes in the future\. 
+
+For more information about these quotas, see [BatchPutAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*\.
 
 To identify an asset property, you can specify one of the following:
 + The `assetId` and `propertyId` of the asset property that you are sending data to\.
